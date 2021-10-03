@@ -2400,7 +2400,7 @@ TimerNumberAnimation_Skip2_:
             FormResult.windowanimationtargetleft = (Screen.Width / 2) - (18690 / 2)
             FormResult.windowanimationtargettop = (Screen.Height / 2) - (12435 / 2)
             FormResult.windowanimationtargetwidth = 18690
-            FormResult.windowanimationtargetheight = 12345
+            FormResult.windowanimationtargetheight = 12435
 
             FormResult.CmdRetry.Enabled = True: FormResult.CmdBackToHome.Enabled = True
         End If
