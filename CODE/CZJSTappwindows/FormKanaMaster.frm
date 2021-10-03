@@ -73,7 +73,7 @@ Begin VB.Form FormKanaMaster
       Top             =   210
       Width           =   1065
    End
-   Begin VB.Timer TimerSpinningSakuraAnimation 
+   Begin VB.Timer TimerSakuraAnimation 
       Interval        =   1
       Left            =   630
       Top             =   1785
@@ -587,8 +587,8 @@ Begin VB.Form FormKanaMaster
    Begin VB.Label LabelPopup1 
       Alignment       =   2  'Center
       Appearance      =   0  'Flat
-      BackColor       =   &H00FFF0C0&
-      Caption         =   "Perfect"
+      BackColor       =   &H00F0F0F0&
+      Caption         =   "-------"
       BeginProperty Font 
          Name            =   "MS PGothic"
          Size            =   48
@@ -598,7 +598,7 @@ Begin VB.Form FormKanaMaster
          Italic          =   0   'False
          Strikethrough   =   0   'False
       EndProperty
-      ForeColor       =   &H00FF9000&
+      ForeColor       =   &H00000000&
       Height          =   960
       Left            =   840
       TabIndex        =   41
@@ -610,7 +610,7 @@ Begin VB.Form FormKanaMaster
       Appearance      =   0  'Flat
       BackColor       =   &H00F0F0F0&
       BorderStyle     =   1  'Fixed Single
-      Caption         =   "提示信息"
+      Caption         =   "Toast提示信息"
       BeginProperty Font 
          Name            =   "Microsoft YaHei UI"
          Size            =   32.25
@@ -654,8 +654,8 @@ Begin VB.Form FormKanaMaster
    Begin VB.Label LabelPopup2 
       Alignment       =   2  'Center
       Appearance      =   0  'Flat
-      BackColor       =   &H00FFF0C0&
-      Caption         =   "+300"
+      BackColor       =   &H00F0F0F0&
+      Caption         =   "+---"
       BeginProperty Font 
          Name            =   "MS PGothic"
          Size            =   36
@@ -665,7 +665,7 @@ Begin VB.Form FormKanaMaster
          Italic          =   0   'False
          Strikethrough   =   0   'False
       EndProperty
-      ForeColor       =   &H00FF9000&
+      ForeColor       =   &H00000000&
       Height          =   750
       Left            =   16695
       TabIndex        =   14
@@ -769,7 +769,7 @@ Begin VB.Form FormKanaMaster
       Top             =   210
       Width           =   1590
    End
-   Begin VB.Line LineSpinningSakura5 
+   Begin VB.Line LineSakura5 
       BorderColor     =   &H00FF90FF&
       BorderWidth     =   5
       X1              =   735
@@ -777,7 +777,7 @@ Begin VB.Form FormKanaMaster
       Y1              =   1575
       Y2              =   1890
    End
-   Begin VB.Line LineSpinningSakura4 
+   Begin VB.Line LineSakura4 
       BorderColor     =   &H00FF90FF&
       BorderWidth     =   5
       X1              =   630
@@ -785,7 +785,7 @@ Begin VB.Form FormKanaMaster
       Y1              =   1575
       Y2              =   1890
    End
-   Begin VB.Line LineSpinningSakura3 
+   Begin VB.Line LineSakura3 
       BorderColor     =   &H00FF90FF&
       BorderWidth     =   5
       X1              =   525
@@ -793,7 +793,7 @@ Begin VB.Form FormKanaMaster
       Y1              =   1575
       Y2              =   1890
    End
-   Begin VB.Line LineSpinningSakura2 
+   Begin VB.Line LineSakura2 
       BorderColor     =   &H00FF90FF&
       BorderWidth     =   5
       X1              =   420
@@ -801,7 +801,7 @@ Begin VB.Form FormKanaMaster
       Y1              =   1575
       Y2              =   1890
    End
-   Begin VB.Line LineSpinningSakura1 
+   Begin VB.Line LineSakura1 
       BorderColor     =   &H00FF90FF&
       BorderWidth     =   5
       X1              =   315
@@ -1271,13 +1271,13 @@ Public popupanimationtarget2 As Long  'Range: 0 or 750.
 Public gameprogressanimationtarget As Long  'Range: 0~13,350.
 Public gamehpanimationtarget As Long  'Range: 0~6,210.
 Public gametimeleftprogressbaranimationtarget As Long  'Range: 0~6,210.
-Public spinningsakuracurrentangle As Single  'Range: -180.000~180.000. Note: 90.000 means straight up.
-Public spinningsakuracurrentangle2 As Single
-Public spinningsakuracurrentangle3 As Single
-Public spinningsakuracurrentangle4 As Single
-Public spinningsakuracurrentangle5 As Single
-Public spinningsakuracurrentspeed As Single  'Range: 0.00~10.00
-Public spinningsakuratargetspeed As Single  'Range: 0.00~10.00. Note: The maximum spinning speed is based on the current difficulty.
+Public sakuracurrentangle As Single  'Range: -180.000~180.000. Note: 90.000 means straight up.
+Public sakuracurrentangle2 As Single
+Public sakuracurrentangle3 As Single
+Public sakuracurrentangle4 As Single
+Public sakuracurrentangle5 As Single
+Public sakuracurrentspeed As Single  'Range: 0.00~10.00
+Public sakuratargetspeed As Single  'Range: 0.00~10.00. Note: The maximum speed is based on the current difficulty.
 Public gamescorenumberanimationcurrent As Long  'Range: 0~99,999,999.
 Public arrowanimationtime As Single  'Range: 0~6.28
 Public resultanimationtime As Integer  'Range: 0~200.
@@ -1379,9 +1379,9 @@ Public resultanimationtime As Integer  'Range: 0~200.
         gameprogressanimationtarget = 0
         gamehpanimationtarget = 0
         gametimeleftprogressbaranimationtarget = 0
-        spinningsakuracurrentangle = 90
-        spinningsakuracurrentspeed = 0
-        spinningsakuratargetspeed = 0
+        sakuracurrentangle = 90
+        sakuracurrentspeed = 0
+        sakuratargetspeed = 0
         gamescorenumberanimationcurrent = 0
         arrowanimationtime = 0
         resultanimationtime = 0
@@ -2215,58 +2215,58 @@ TimerProgressbarAnimation_Skip6_:
         End Select
     End Sub
 
-    Public Sub TimerSpinningSakuraAnimation_Timer()
+    Public Sub TimerSakuraAnimation_Timer()
         If (gamestatus = 1 Or gamestatus = 2 Or gamestatus = 3) Then
-            spinningsakuratargetspeed = 6 - gamecurrentdifficulty
+            sakuratargetspeed = 6 - gamecurrentdifficulty
         Else
-            spinningsakuratargetspeed = 0
+            sakuratargetspeed = 0
         End If
 
         'Locate (630+ShapeProgressProgressbar.Width, 1110) ...
-        LineSpinningSakura1.X1 = 630 + ShapeProgressProgressbar.Width: LineSpinningSakura1.Y1 = 1110
-        LineSpinningSakura2.X1 = 630 + ShapeProgressProgressbar.Width: LineSpinningSakura2.Y1 = 1110
-        LineSpinningSakura3.X1 = 630 + ShapeProgressProgressbar.Width: LineSpinningSakura3.Y1 = 1110
-        LineSpinningSakura4.X1 = 630 + ShapeProgressProgressbar.Width: LineSpinningSakura4.Y1 = 1110
-        LineSpinningSakura5.X1 = 630 + ShapeProgressProgressbar.Width: LineSpinningSakura5.Y1 = 1110
+        LineSakura1.X1 = 630 + ShapeProgressProgressbar.Width: LineSakura1.Y1 = 1110
+        LineSakura2.X1 = 630 + ShapeProgressProgressbar.Width: LineSakura2.Y1 = 1110
+        LineSakura3.X1 = 630 + ShapeProgressProgressbar.Width: LineSakura3.Y1 = 1110
+        LineSakura4.X1 = 630 + ShapeProgressProgressbar.Width: LineSakura4.Y1 = 1110
+        LineSakura5.X1 = 630 + ShapeProgressProgressbar.Width: LineSakura5.Y1 = 1110
 
         'Make flower (Length set to 250) ...
-        spinningsakuracurrentangle2 = spinningsakuracurrentangle - 360 / 5 * 1
-        spinningsakuracurrentangle3 = spinningsakuracurrentangle - 360 / 5 * 2
-        spinningsakuracurrentangle4 = spinningsakuracurrentangle - 360 / 5 * 3
-        spinningsakuracurrentangle5 = spinningsakuracurrentangle - 360 / 5 * 4
-        While spinningsakuracurrentangle2 < -180: spinningsakuracurrentangle2 = spinningsakuracurrentangle2 + 360: Wend
-        While spinningsakuracurrentangle3 < -180: spinningsakuracurrentangle3 = spinningsakuracurrentangle3 + 360: Wend
-        While spinningsakuracurrentangle4 < -180: spinningsakuracurrentangle4 = spinningsakuracurrentangle4 + 360: Wend
-        While spinningsakuracurrentangle5 < -180: spinningsakuracurrentangle5 = spinningsakuracurrentangle5 + 360: Wend
+        sakuracurrentangle2 = sakuracurrentangle - 360 / 5 * 1
+        sakuracurrentangle3 = sakuracurrentangle - 360 / 5 * 2
+        sakuracurrentangle4 = sakuracurrentangle - 360 / 5 * 3
+        sakuracurrentangle5 = sakuracurrentangle - 360 / 5 * 4
+        While sakuracurrentangle2 < -180: sakuracurrentangle2 = sakuracurrentangle2 + 360: Wend
+        While sakuracurrentangle3 < -180: sakuracurrentangle3 = sakuracurrentangle3 + 360: Wend
+        While sakuracurrentangle4 < -180: sakuracurrentangle4 = sakuracurrentangle4 + 360: Wend
+        While sakuracurrentangle5 < -180: sakuracurrentangle5 = sakuracurrentangle5 + 360: Wend
 
-        LineSpinningSakura1.X2 = LineSpinningSakura1.X1 + 250 * Cos(3.14 / 180 * spinningsakuracurrentangle)
-        LineSpinningSakura1.Y2 = LineSpinningSakura1.Y1 - 250 * Sin(3.14 / 180 * spinningsakuracurrentangle)
-        LineSpinningSakura2.X2 = LineSpinningSakura2.X1 + 250 * Cos(3.14 / 180 * spinningsakuracurrentangle2)
-        LineSpinningSakura2.Y2 = LineSpinningSakura2.Y1 - 250 * Sin(3.14 / 180 * spinningsakuracurrentangle2)
-        LineSpinningSakura3.X2 = LineSpinningSakura3.X1 + 250 * Cos(3.14 / 180 * spinningsakuracurrentangle3)
-        LineSpinningSakura3.Y2 = LineSpinningSakura3.Y1 - 250 * Sin(3.14 / 180 * spinningsakuracurrentangle3)
-        LineSpinningSakura4.X2 = LineSpinningSakura4.X1 + 250 * Cos(3.14 / 180 * spinningsakuracurrentangle4)
-        LineSpinningSakura4.Y2 = LineSpinningSakura4.Y1 - 250 * Sin(3.14 / 180 * spinningsakuracurrentangle4)
-        LineSpinningSakura5.X2 = LineSpinningSakura5.X1 + 250 * Cos(3.14 / 180 * spinningsakuracurrentangle5)
-        LineSpinningSakura5.Y2 = LineSpinningSakura5.Y1 - 250 * Sin(3.14 / 180 * spinningsakuracurrentangle5)
+        LineSakura1.X2 = LineSakura1.X1 + 250 * Cos(3.14 / 180 * sakuracurrentangle)
+        LineSakura1.Y2 = LineSakura1.Y1 - 250 * Sin(3.14 / 180 * sakuracurrentangle)
+        LineSakura2.X2 = LineSakura2.X1 + 250 * Cos(3.14 / 180 * sakuracurrentangle2)
+        LineSakura2.Y2 = LineSakura2.Y1 - 250 * Sin(3.14 / 180 * sakuracurrentangle2)
+        LineSakura3.X2 = LineSakura3.X1 + 250 * Cos(3.14 / 180 * sakuracurrentangle3)
+        LineSakura3.Y2 = LineSakura3.Y1 - 250 * Sin(3.14 / 180 * sakuracurrentangle3)
+        LineSakura4.X2 = LineSakura4.X1 + 250 * Cos(3.14 / 180 * sakuracurrentangle4)
+        LineSakura4.Y2 = LineSakura4.Y1 - 250 * Sin(3.14 / 180 * sakuracurrentangle4)
+        LineSakura5.X2 = LineSakura5.X1 + 250 * Cos(3.14 / 180 * sakuracurrentangle5)
+        LineSakura5.Y2 = LineSakura5.Y1 - 250 * Sin(3.14 / 180 * sakuracurrentangle5)
 
         'Prevent constant blinking...
-        If (spinningsakuratargetspeed = 0 And spinningsakuracurrentspeed = 0) Then Exit Sub
+        If (sakuratargetspeed = 0 And sakuracurrentspeed = 0) Then Exit Sub
 
         'Spin...
         Select Case FormMainWindow.setanimationswitch
             Case True
-                spinningsakuracurrentangle = spinningsakuracurrentangle - spinningsakuracurrentspeed
-                If spinningsakuracurrentangle <= -180 Then spinningsakuracurrentangle = spinningsakuracurrentangle + 360
+                sakuracurrentangle = sakuracurrentangle - sakuracurrentspeed
+                If sakuracurrentangle <= -180 Then sakuracurrentangle = sakuracurrentangle + 360
             Case False
-                spinningsakuracurrentangle = 90
+                sakuracurrentangle = 90
         End Select
 
         'Adjust spinning speed...
-        If spinningsakuracurrentspeed < spinningsakuratargetspeed Then spinningsakuracurrentspeed = spinningsakuracurrentspeed + 0.1
-        If spinningsakuracurrentspeed > spinningsakuratargetspeed Then spinningsakuracurrentspeed = spinningsakuracurrentspeed - 0.05
-        If spinningsakuracurrentspeed < 0 Then spinningsakuracurrentspeed = 0
-        If spinningsakuracurrentspeed > 6 Then spinningsakuracurrentspeed = 6
+        If sakuracurrentspeed < sakuratargetspeed Then sakuracurrentspeed = sakuracurrentspeed + 0.1
+        If sakuracurrentspeed > sakuratargetspeed Then sakuracurrentspeed = sakuracurrentspeed - 0.05
+        If sakuracurrentspeed < 0 Then sakuracurrentspeed = 0
+        If sakuracurrentspeed > 6 Then sakuracurrentspeed = 6
     End Sub
 
     Public Sub TimerNumberAnimation_Timer()

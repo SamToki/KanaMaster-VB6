@@ -302,7 +302,7 @@ Begin VB.Form FormMainWindow
       EndProperty
       ForeColor       =   &H00000000&
       Height          =   1800
-      Left            =   7560
+      Left            =   7455
       TabIndex        =   73
       Top             =   8505
       Width           =   4005
@@ -1053,11 +1053,11 @@ Begin VB.Form FormMainWindow
       Left            =   4410
       TabIndex        =   68
       Top             =   8505
-      Width           =   2955
-      Begin VB.CheckBox CheckboxDisplaySpinningSakura 
+      Width           =   2850
+      Begin VB.CheckBox CheckboxDisplaySakura 
          Appearance      =   0  'Flat
          BackColor       =   &H00D0D0D0&
-         Caption         =   "旋转樱花"
+         Caption         =   "进度条樱花"
          BeginProperty Font 
             Name            =   "Microsoft YaHei UI"
             Size            =   9.75
@@ -1069,18 +1069,18 @@ Begin VB.Form FormMainWindow
          EndProperty
          ForeColor       =   &H00000000&
          Height          =   435
-         Left            =   1575
+         Left            =   1260
          MouseIcon       =   "FormMainWindow.frx":4F64
          MousePointer    =   99  'Custom
          TabIndex        =   72
          Top             =   1155
          Value           =   1  'Checked
-         Width           =   1170
+         Width           =   1380
       End
-      Begin VB.CheckBox CheckboxDisplaySmoothAnimations 
+      Begin VB.CheckBox CheckboxDisplayAnimations 
          Appearance      =   0  'Flat
          BackColor       =   &H00D0D0D0&
-         Caption         =   "平滑动画"
+         Caption         =   "动画"
          BeginProperty Font 
             Name            =   "Microsoft YaHei UI"
             Size            =   9.75
@@ -1096,10 +1096,10 @@ Begin VB.Form FormMainWindow
          MouseIcon       =   "FormMainWindow.frx":50B6
          MousePointer    =   99  'Custom
          TabIndex        =   71
-         ToolTipText     =   "不勾选此选项将会关闭窗口缩放动画、提示信息缩放动画、进度条平滑动画、数字跳动效果。"
+         ToolTipText     =   "不勾选此选项将会关闭窗口缩放动画、提示信息缩放动画、进度条平滑动画、樱花旋转动画、数字跳动效果。箭头动画与通关动画不受影响。"
          Top             =   1155
          Value           =   1  'Checked
-         Width           =   1170
+         Width           =   855
       End
       Begin VB.CheckBox CheckboxDisplayHideUnnecessaryInformation 
          Appearance      =   0  'Flat
@@ -1981,7 +1981,7 @@ Public setkeyboardoption As Variant  '(1 to 3)
 Public setreducecontrast As Boolean
 Public sethideunnecessaryinfo As Boolean
 Public setanimationswitch As Boolean
-Public setspinningsakuraswitch As Boolean
+Public setsakuraswitch As Boolean
 
 Public setfontswitch As Boolean
 
@@ -2028,7 +2028,7 @@ Public answer
         setreducecontrast = False
         sethideunnecessaryinfo = False
         setanimationswitch = True
-        setspinningsakuraswitch = True
+        setsakuraswitch = True
 
         setfontswitch = False
     End Sub
@@ -2389,20 +2389,20 @@ Public answer
             '?????
         End If
 
-        If CheckboxDisplaySmoothAnimations.Value = 1 Then setanimationswitch = True Else setanimationswitch = False
+        If CheckboxDisplayAnimations.Value = 1 Then setanimationswitch = True Else setanimationswitch = False
 
-        If CheckboxDisplaySpinningSakura.Value = 1 Then
-            setspinningsakuraswitch = True
-            FormKanaMaster.LineSpinningSakura1.Visible = True: FormKanaMaster.LineSpinningSakura2.Visible = True: FormKanaMaster.LineSpinningSakura3.Visible = True: FormKanaMaster.LineSpinningSakura4.Visible = True: FormKanaMaster.LineSpinningSakura5.Visible = True
-            'FormRomajiMaster.LineSpinningSakura1.Visible = True: FormRomajiMaster.LineSpinningSakura2.Visible = True: FormRomajiMaster.LineSpinningSakura3.Visible = True: FormRomajiMaster.LineSpinningSakura4.Visible = True: FormRomajiMaster.LineSpinningSakura5.Visible = True
-            'FormKanasu.LineSpinningSakura1.Visible = True: FormKanasu.LineSpinningSakura2.Visible = True: FormKanasu.LineSpinningSakura3.Visible = True: FormKanasu.LineSpinningSakura4.Visible = True: FormKanasu.LineSpinningSakura5.Visible = True
-            'FormRomajisu.LineSpinningSakura1.Visible = True: FormRomajisu.LineSpinningSakura2.Visible = True: FormRomajisu.LineSpinningSakura3.Visible = True: FormRomajisu.LineSpinningSakura4.Visible = True: FormRomajisu.LineSpinningSakura5.Visible = True
+        If CheckboxDisplaySakura.Value = 1 Then
+            setsakuraswitch = True
+            FormKanaMaster.LineSakura1.Visible = True: FormKanaMaster.LineSakura2.Visible = True: FormKanaMaster.LineSakura3.Visible = True: FormKanaMaster.LineSakura4.Visible = True: FormKanaMaster.LineSakura5.Visible = True
+            'FormRomajiMaster.LineSakura1.Visible = True: FormRomajiMaster.LineSakura2.Visible = True: FormRomajiMaster.LineSakura3.Visible = True: FormRomajiMaster.LineSakura4.Visible = True: FormRomajiMaster.LineSakura5.Visible = True
+            'FormKanasu.LineSakura1.Visible = True: FormKanasu.LineSakura2.Visible = True: FormKanasu.LineSakura3.Visible = True: FormKanasu.LineSakura4.Visible = True: FormKanasu.LineSakura5.Visible = True
+            'FormRomajisu.LineSakura1.Visible = True: FormRomajisu.LineSakura2.Visible = True: FormRomajisu.LineSakura3.Visible = True: FormRomajisu.LineSakura4.Visible = True: FormRomajisu.LineSakura5.Visible = True
         Else
-            setspinningsakuraswitch = False
-            FormKanaMaster.LineSpinningSakura1.Visible = False: FormKanaMaster.LineSpinningSakura2.Visible = False: FormKanaMaster.LineSpinningSakura3.Visible = False: FormKanaMaster.LineSpinningSakura4.Visible = False: FormKanaMaster.LineSpinningSakura5.Visible = False
-            'FormRomajiMaster.LineSpinningSakura1.Visible = False: FormRomajiMaster.LineSpinningSakura2.Visible = False: FormRomajiMaster.LineSpinningSakura3.Visible = False: FormRomajiMaster.LineSpinningSakura4.Visible = False: FormRomajiMaster.LineSpinningSakura5.Visible = False
-            'FormKanasu.LineSpinningSakura1.Visible = False: FormKanasu.LineSpinningSakura2.Visible = False: FormKanasu.LineSpinningSakura3.Visible = False: FormKanasu.LineSpinningSakura4.Visible = False: FormKanasu.LineSpinningSakura5.Visible = False
-            'FormRomajisu.LineSpinningSakura1.Visible = False: FormRomajisu.LineSpinningSakura2.Visible = False: FormRomajisu.LineSpinningSakura3.Visible = False: FormRomajisu.LineSpinningSakura4.Visible = False: FormRomajisu.LineSpinningSakura5.Visible = False
+            setsakuraswitch = False
+            FormKanaMaster.LineSakura1.Visible = False: FormKanaMaster.LineSakura2.Visible = False: FormKanaMaster.LineSakura3.Visible = False: FormKanaMaster.LineSakura4.Visible = False: FormKanaMaster.LineSakura5.Visible = False
+            'FormRomajiMaster.LineSakura1.Visible = False: FormRomajiMaster.LineSakura2.Visible = False: FormRomajiMaster.LineSakura3.Visible = False: FormRomajiMaster.LineSakura4.Visible = False: FormRomajiMaster.LineSakura5.Visible = False
+            'FormKanasu.LineSakura1.Visible = False: FormKanasu.LineSakura2.Visible = False: FormKanasu.LineSakura3.Visible = False: FormKanasu.LineSakura4.Visible = False: FormKanasu.LineSakura5.Visible = False
+            'FormRomajisu.LineSakura1.Visible = False: FormRomajisu.LineSakura2.Visible = False: FormRomajisu.LineSakura3.Visible = False: FormRomajisu.LineSakura4.Visible = False: FormRomajisu.LineSakura5.Visible = False
         End If
 
         'Fonts...
