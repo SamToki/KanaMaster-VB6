@@ -1009,7 +1009,7 @@ Begin VB.Form FormKanaMaster
       Appearance      =   0  'Flat
       BackColor       =   &H000000FF&
       BackStyle       =   0  'Transparent
-      Caption         =   "-"
+      Caption         =   "3"
       BeginProperty Font 
          Name            =   "Microsoft YaHei UI"
          Size            =   24
@@ -1034,7 +1034,7 @@ Begin VB.Form FormKanaMaster
       Appearance      =   0  'Flat
       BackColor       =   &H000000FF&
       BackStyle       =   0  'Transparent
-      Caption         =   "-"
+      Caption         =   "2"
       BeginProperty Font 
          Name            =   "Microsoft YaHei UI"
          Size            =   24
@@ -1081,7 +1081,7 @@ Begin VB.Form FormKanaMaster
       Appearance      =   0  'Flat
       BackColor       =   &H000000FF&
       BackStyle       =   0  'Transparent
-      Caption         =   "-"
+      Caption         =   "1"
       BeginProperty Font 
          Name            =   "Microsoft YaHei UI"
          Size            =   24
@@ -1396,6 +1396,7 @@ Public resultanimationtime As Integer  'Range: 0~200.
         If FormMainWindow.soundswitch = True Then FormMainWindow.WindowsMediaPlayer1.URL = App.Path & "\CZJSTappdata\CZJSTaudio\CZJSTaudio_Back.wav"
         gamestatus = 0: Call GameStatusRefresher
         Me.Hide: FormMainWindow.Show
+        FormMainWindow.WindowState = 0
 
         'Hide Result window...
         FormResult.windowanimationtargetleft = (Screen.Width / 2)
@@ -1428,7 +1429,9 @@ Public resultanimationtime As Integer  'Range: 0~200.
             Case Else
                 MsgBox "错误：Variable gamestatus is out of range." & vbCrLf & "您可以通过 GitHub @SamToki 提供反馈以帮助解决问题。", vbCritical + vbOKOnly + vbDefaultButton1, "假名征服者(KanaMaster)"
         End Select
-        TextboxInput.SetFocus: Call GameStatusRefresher
+        Call GameStatusRefresher: TextboxInput.SetFocus
+
+        Me.WindowState = 0
 
         'Hide Result window...
         FormResult.windowanimationtargetleft = (Screen.Width / 2)
