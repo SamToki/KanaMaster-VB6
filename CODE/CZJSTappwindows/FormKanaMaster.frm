@@ -1592,7 +1592,7 @@ Public resultanimationtime As Integer  'Range: 0~200.
                 gamehp = gamehp + 0.1
                 gametimeleft = gametimeleft + 0.1
                 LabelDashboard.Caption = Format(Int(4 - gametimeleft), "0")
-                LabelHP.Caption = Format(gamehp * 50 / 3, "0.0")
+                LabelHP.Caption = Format(gamehp / 3 * 50, "0.0")
                 LabelTimeLeft.Caption = Format(gametimeleft / 3 * gamecurrentdifficulty, "0.0")
 
                 gamehpanimationtarget = gamehp / 3 * 6210
@@ -1801,7 +1801,7 @@ TimerTimer_SkipGameClearJudgement_:
         LabelTotalCount.Caption = gametotalcount & "x"
         LabelProgress.Caption = Format(gameprogress, "0.00") & "%"
         'DISABLED LINE: LabelScore.Caption = Format(gamescorenumberanimationcurrent, "00000000")
-        LabelHP.Caption = Format(gamehp, "0.0")
+        'DISABLED LINE: LabelHP.Caption = Format(gamehp, "0.0")
         LabelMissCount.Caption = gamemisscount & "x"
         LabelComboCount.Caption = gamecombocount & "x"
         LabelBestComboCount.Caption = gamebestcombocount & "x"
