@@ -75,6 +75,31 @@ Begin VB.Form FormResult
       Left            =   18375
       Top             =   12075
    End
+   Begin VB.Label LabelRanking 
+      Alignment       =   1  'Right Justify
+      Appearance      =   0  'Flat
+      BackColor       =   &H000000FF&
+      BackStyle       =   0  'Transparent
+      Caption         =   "--"
+      BeginProperty Font 
+         Name            =   "MS PGothic"
+         Size            =   255.75
+         Charset         =   0
+         Weight          =   700
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      ForeColor       =   &H00000000&
+      Height          =   4635
+      Left            =   12180
+      MouseIcon       =   "FormResult.frx":27C8
+      MousePointer    =   99  'Custom
+      TabIndex        =   12
+      ToolTipText     =   "评级标准详见 主页→帮助。"
+      Top             =   945
+      Width           =   6105
+   End
    Begin VB.Label LabelLightIndicatorModAU 
       Alignment       =   2  'Center
       Appearance      =   0  'Flat
@@ -92,7 +117,7 @@ Begin VB.Form FormResult
       ForeColor       =   &H00B0B0B0&
       Height          =   495
       Left            =   17430
-      MouseIcon       =   "FormResult.frx":27C8
+      MouseIcon       =   "FormResult.frx":291A
       MousePointer    =   99  'Custom
       TabIndex        =   35
       ToolTipText     =   "(Auto)"
@@ -116,7 +141,7 @@ Begin VB.Form FormResult
       ForeColor       =   &H00B0B0B0&
       Height          =   495
       Left            =   15225
-      MouseIcon       =   "FormResult.frx":291A
+      MouseIcon       =   "FormResult.frx":2A6C
       MousePointer    =   99  'Custom
       TabIndex        =   32
       ToolTipText     =   "(Perfect)"
@@ -140,7 +165,7 @@ Begin VB.Form FormResult
       ForeColor       =   &H00B0B0B0&
       Height          =   495
       Left            =   15960
-      MouseIcon       =   "FormResult.frx":2A6C
+      MouseIcon       =   "FormResult.frx":2BBE
       MousePointer    =   99  'Custom
       TabIndex        =   33
       ToolTipText     =   "(No-Fail)"
@@ -164,7 +189,7 @@ Begin VB.Form FormResult
       ForeColor       =   &H00B0B0B0&
       Height          =   495
       Left            =   16695
-      MouseIcon       =   "FormResult.frx":2BBE
+      MouseIcon       =   "FormResult.frx":2D10
       MousePointer    =   99  'Custom
       TabIndex        =   34
       ToolTipText     =   "(Autopilot)"
@@ -188,7 +213,7 @@ Begin VB.Form FormResult
       ForeColor       =   &H00B0B0B0&
       Height          =   495
       Left            =   14490
-      MouseIcon       =   "FormResult.frx":2D10
+      MouseIcon       =   "FormResult.frx":2E62
       MousePointer    =   99  'Custom
       TabIndex        =   31
       ToolTipText     =   "(Sudden Death)"
@@ -275,7 +300,7 @@ Begin VB.Form FormResult
       ForeColor       =   &H00000000&
       Height          =   960
       Left            =   5460
-      MouseIcon       =   "FormResult.frx":2E62
+      MouseIcon       =   "FormResult.frx":2FB4
       MousePointer    =   99  'Custom
       TabIndex        =   26
       ToolTipText     =   "「均速」指平均反应用时。"
@@ -362,7 +387,7 @@ Begin VB.Form FormResult
       ForeColor       =   &H00F0F0F0&
       Height          =   540
       Left            =   4830
-      MouseIcon       =   "FormResult.frx":2FB4
+      MouseIcon       =   "FormResult.frx":3106
       MousePointer    =   99  'Custom
       TabIndex        =   25
       ToolTipText     =   "(Average Reaction Time)"
@@ -386,7 +411,7 @@ Begin VB.Form FormResult
       ForeColor       =   &H00F0F0F0&
       Height          =   540
       Left            =   4830
-      MouseIcon       =   "FormResult.frx":3106
+      MouseIcon       =   "FormResult.frx":3258
       MousePointer    =   99  'Custom
       TabIndex        =   23
       ToolTipText     =   "(Best Combo)"
@@ -600,7 +625,7 @@ Begin VB.Form FormResult
       ForeColor       =   &H00F0F0F0&
       Height          =   540
       Left            =   17115
-      MouseIcon       =   "FormResult.frx":3258
+      MouseIcon       =   "FormResult.frx":33AA
       MousePointer    =   99  'Custom
       TabIndex        =   11
       ToolTipText     =   "(Ranking)"
@@ -627,31 +652,6 @@ Begin VB.Form FormResult
       TabIndex        =   10
       Top             =   3780
       Width           =   4110
-   End
-   Begin VB.Label LabelRanking 
-      Alignment       =   1  'Right Justify
-      Appearance      =   0  'Flat
-      BackColor       =   &H000000FF&
-      BackStyle       =   0  'Transparent
-      Caption         =   "---"
-      BeginProperty Font 
-         Name            =   "MS Gothic"
-         Size            =   192
-         Charset         =   0
-         Weight          =   700
-         Underline       =   0   'False
-         Italic          =   0   'False
-         Strikethrough   =   0   'False
-      EndProperty
-      ForeColor       =   &H00000000&
-      Height          =   3690
-      Left            =   12180
-      MouseIcon       =   "FormResult.frx":33AA
-      MousePointer    =   99  'Custom
-      TabIndex        =   12
-      ToolTipText     =   "评级标准详见 主页→帮助。"
-      Top             =   1995
-      Width           =   6000
    End
    Begin VB.Label LabelAccuracy 
       Appearance      =   0  'Flat

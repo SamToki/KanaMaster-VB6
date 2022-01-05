@@ -1706,24 +1706,28 @@ TimerTimer_SkipSelectCaseGameStatus_:
             FormResult.LabelAccuracy.Caption = Format(gameaccuracy, "0.00") & "%"
             'Ranking...
             If gameaccuracy = 100 Then
-                FormResult.LabelRanking.Caption = "SSS": FormResult.LabelRanking.ForeColor = &HFFFF&
+                FormResult.LabelRanking.Caption = "SS": FormResult.LabelRanking.ForeColor = &HFFFF&
             Else
-                If gameaccuracy >= 98 And gamemisscount = 0 Then
-                    FormResult.LabelRanking.Caption = "SS": FormResult.LabelRanking.ForeColor = &HFFD000
+                If gameaccuracy >= 95 And gamemisscount = 0 Then
+                    FormResult.LabelRanking.Caption = "S+": FormResult.LabelRanking.ForeColor = &HFF9000
                 Else
-                    If gameaccuracy >= 95 And gamemisscount = 0 Then
-                        FormResult.LabelRanking.Caption = "S": FormResult.LabelRanking.ForeColor = &HFF9000
+                    If gameaccuracy >= 90 And gamemisscount = 0 Then
+                        FormResult.LabelRanking.Caption = "S": FormResult.LabelRanking.ForeColor = &HFF5000
                     Else
-                        If gameaccuracy >= 90 Then
-                            FormResult.LabelRanking.Caption = "A": FormResult.LabelRanking.ForeColor = &HD000&
+                        If gameaccuracy >= 95 Then
+                            FormResult.LabelRanking.Caption = "A+": FormResult.LabelRanking.ForeColor = &HD000&
                         Else
-                            If gameaccuracy >= 85 Then
-                                FormResult.LabelRanking.Caption = "B": FormResult.LabelRanking.ForeColor = &H50FF&
+                            If gameaccuracy >= 90 Then
+                                FormResult.LabelRanking.Caption = "A": FormResult.LabelRanking.ForeColor = &H9000&
                             Else
                                 If gameaccuracy >= 80 Then
-                                    FormResult.LabelRanking.Caption = "C": FormResult.LabelRanking.ForeColor = &HD0&
+                                    FormResult.LabelRanking.Caption = "B": FormResult.LabelRanking.ForeColor = &H90FF&
                                 Else
-                                    FormResult.LabelRanking.Caption = "D": FormResult.LabelRanking.ForeColor = &H90&
+                                    If gameaccuracy >= 60 Then
+                                        FormResult.LabelRanking.Caption = "C": FormResult.LabelRanking.ForeColor = &HFF&
+                                    Else
+                                        FormResult.LabelRanking.Caption = "D": FormResult.LabelRanking.ForeColor = &H90&
+                                    End If
                                 End If
                             End If
                         End If

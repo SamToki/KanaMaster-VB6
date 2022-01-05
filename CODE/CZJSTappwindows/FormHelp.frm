@@ -69,7 +69,7 @@ Begin VB.Form FormHelp
       EndProperty
       Height          =   435
       Left            =   10395
-      MouseIcon       =   "FormHelp.frx":2BE3
+      MouseIcon       =   "FormHelp.frx":2C01
       MousePointer    =   99  'Custom
       TabIndex        =   1
       Top             =   210
