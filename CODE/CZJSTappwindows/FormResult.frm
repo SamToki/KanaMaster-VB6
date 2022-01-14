@@ -31,7 +31,6 @@ Begin VB.Form FormResult
    ShowInTaskbar   =   0   'False
    StartUpPosition =   2  '屏幕中心
    Begin VB.CommandButton CmdRetry 
-      Cancel          =   -1  'True
       Caption         =   "再玩一次!"
       Default         =   -1  'True
       BeginProperty Font 
@@ -52,6 +51,7 @@ Begin VB.Form FormResult
       Width           =   3690
    End
    Begin VB.CommandButton CmdBackToHome 
+      Cancel          =   -1  'True
       Caption         =   "返回主页"
       BeginProperty Font 
          Name            =   "Microsoft YaHei UI"

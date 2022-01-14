@@ -5,7 +5,7 @@ Begin VB.Form FormMainWindow
    AutoRedraw      =   -1  'True
    BackColor       =   &H00D0D0D0&
    BorderStyle     =   1  'Fixed Single
-   Caption         =   "假名征服者(KanaMaster) v0.54chs"
+   Caption         =   "假名征服者(KanaMaster) v0.56chs"
    ClientHeight    =   10515
    ClientLeft      =   45
    ClientTop       =   720
@@ -1907,10 +1907,10 @@ Begin VB.Form FormMainWindow
             Caption         =   "Released under license GNU GPL v3"
          End
          Begin VB.Menu MenuAboutCopyright 
-            Caption         =   "TM && (C) 2015-2021 SAM TOKI STUDIO"
+            Caption         =   "TM && (C) 2015-2022 SAM TOKI STUDIO"
          End
          Begin VB.Menu MenuAboutDate 
-            Caption         =   "2022/01/05"
+            Caption         =   "2022/01/14"
          End
       End
    End
