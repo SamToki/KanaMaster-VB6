@@ -31,7 +31,7 @@ Begin VB.Form FormResult
    ShowInTaskbar   =   0   'False
    StartUpPosition =   2  '屏幕中心
    Begin VB.CommandButton CmdRetry 
-      Caption         =   "再玩一次!"
+      Caption         =   "再玩一次!(&R)"
       Default         =   -1  'True
       BeginProperty Font 
          Name            =   "Microsoft YaHei UI"
@@ -43,16 +43,16 @@ Begin VB.Form FormResult
          Strikethrough   =   0   'False
       EndProperty
       Height          =   1380
-      Left            =   14385
+      Left            =   12495
       MouseIcon       =   "FormResult.frx":2524
       MousePointer    =   99  'Custom
       TabIndex        =   36
       Top             =   8820
-      Width           =   3690
+      Width           =   5580
    End
    Begin VB.CommandButton CmdBackToHome 
       Cancel          =   -1  'True
-      Caption         =   "返回主页"
+      Caption         =   "返回主页(&B)"
       BeginProperty Font 
          Name            =   "Microsoft YaHei UI"
          Size            =   36
@@ -63,12 +63,12 @@ Begin VB.Form FormResult
          Strikethrough   =   0   'False
       EndProperty
       Height          =   1380
-      Left            =   14385
+      Left            =   12495
       MouseIcon       =   "FormResult.frx":2676
       MousePointer    =   99  'Custom
       TabIndex        =   37
       Top             =   10395
-      Width           =   3690
+      Width           =   5580
    End
    Begin VB.Timer TimerWindowAnimation 
       Interval        =   1

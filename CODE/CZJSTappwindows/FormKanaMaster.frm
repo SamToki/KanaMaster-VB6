@@ -28,6 +28,26 @@ Begin VB.Form FormKanaMaster
    ScaleHeight     =   11670
    ScaleWidth      =   18600
    StartUpPosition =   2  '屏幕中心
+   Begin VB.CommandButton CmdStop 
+      Caption         =   "停止(&O)"
+      Enabled         =   0   'False
+      BeginProperty Font 
+         Name            =   "Microsoft YaHei UI"
+         Size            =   9.75
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   435
+      Left            =   4200
+      MouseIcon       =   "FormKanaMaster.frx":2524
+      MousePointer    =   99  'Custom
+      TabIndex        =   3
+      Top             =   210
+      Width           =   1380
+   End
    Begin VB.Timer TimerResultAnimation 
       Interval        =   1
       Left            =   13545
@@ -45,33 +65,13 @@ Begin VB.Form FormKanaMaster
    End
    Begin VB.Timer TimerArrowAnimation 
       Interval        =   1
-      Left            =   3045
+      Left            =   3570
       Top             =   1470
    End
    Begin VB.Timer TimerToastAnimation 
       Interval        =   1
       Left            =   13860
       Top             =   5145
-   End
-   Begin VB.CommandButton CmdStop 
-      Caption         =   "停止"
-      Enabled         =   0   'False
-      BeginProperty Font 
-         Name            =   "Microsoft YaHei UI"
-         Size            =   9.75
-         Charset         =   0
-         Weight          =   400
-         Underline       =   0   'False
-         Italic          =   0   'False
-         Strikethrough   =   0   'False
-      EndProperty
-      Height          =   435
-      Left            =   3570
-      MouseIcon       =   "FormKanaMaster.frx":2524
-      MousePointer    =   99  'Custom
-      TabIndex        =   3
-      Top             =   210
-      Width           =   1065
    End
    Begin VB.Timer TimerSakuraAnimation 
       Interval        =   1
@@ -103,7 +103,7 @@ Begin VB.Form FormKanaMaster
       EndProperty
       ForeColor       =   &H00FFFFFF&
       Height          =   435
-      Left            =   4830
+      Left            =   5775
       MaxLength       =   1
       MouseIcon       =   "FormKanaMaster.frx":2676
       MousePointer    =   99  'Custom
@@ -168,7 +168,7 @@ Begin VB.Form FormKanaMaster
    End
    Begin VB.CommandButton CmdBackToHome 
       Cancel          =   -1  'True
-      Caption         =   "返回主页"
+      Caption         =   "返回主页(&B)"
       BeginProperty Font 
          Name            =   "Microsoft YaHei UI"
          Size            =   9.75
@@ -184,10 +184,10 @@ Begin VB.Form FormKanaMaster
       MousePointer    =   99  'Custom
       TabIndex        =   0
       Top             =   210
-      Width           =   1065
+      Width           =   1380
    End
    Begin VB.CommandButton CmdStartPauseResume 
-      Caption         =   "开始"
+      Caption         =   "开始(&S)"
       Default         =   -1  'True
       BeginProperty Font 
          Name            =   "Microsoft YaHei UI"
@@ -199,16 +199,16 @@ Begin VB.Form FormKanaMaster
          Strikethrough   =   0   'False
       EndProperty
       Height          =   435
-      Left            =   2520
+      Left            =   2835
       MouseIcon       =   "FormKanaMaster.frx":2D10
       MousePointer    =   99  'Custom
       TabIndex        =   2
       Top             =   210
-      Width           =   1065
+      Width           =   1380
    End
    Begin VB.Timer TimerClock 
       Interval        =   500
-      Left            =   1995
+      Left            =   2415
       Top             =   420
    End
    Begin VB.Label LabelAccuracy 
@@ -414,7 +414,7 @@ Begin VB.Form FormKanaMaster
       EndProperty
       ForeColor       =   &H00B0B0B0&
       Height          =   330
-      Left            =   7560
+      Left            =   8505
       MouseIcon       =   "FormKanaMaster.frx":34FC
       MousePointer    =   99  'Custom
       TabIndex        =   9
@@ -438,7 +438,7 @@ Begin VB.Form FormKanaMaster
       EndProperty
       ForeColor       =   &H00B0B0B0&
       Height          =   330
-      Left            =   7035
+      Left            =   7980
       MouseIcon       =   "FormKanaMaster.frx":364E
       MousePointer    =   99  'Custom
       TabIndex        =   8
@@ -462,7 +462,7 @@ Begin VB.Form FormKanaMaster
       EndProperty
       ForeColor       =   &H00B0B0B0&
       Height          =   330
-      Left            =   6510
+      Left            =   7455
       MouseIcon       =   "FormKanaMaster.frx":37A0
       MousePointer    =   99  'Custom
       TabIndex        =   7
@@ -486,7 +486,7 @@ Begin VB.Form FormKanaMaster
       EndProperty
       ForeColor       =   &H00B0B0B0&
       Height          =   330
-      Left            =   5985
+      Left            =   6930
       MouseIcon       =   "FormKanaMaster.frx":38F2
       MousePointer    =   99  'Custom
       TabIndex        =   6
@@ -510,7 +510,7 @@ Begin VB.Form FormKanaMaster
       EndProperty
       ForeColor       =   &H00B0B0B0&
       Height          =   330
-      Left            =   5460
+      Left            =   6405
       MouseIcon       =   "FormKanaMaster.frx":3A44
       MousePointer    =   99  'Custom
       TabIndex        =   5
@@ -689,7 +689,7 @@ Begin VB.Form FormKanaMaster
       EndProperty
       ForeColor       =   &H0000FFFF&
       Height          =   1485
-      Left            =   2520
+      Left            =   2950
       TabIndex        =   36
       Top             =   525
       Width           =   1065
@@ -826,12 +826,12 @@ Begin VB.Form FormKanaMaster
       EndProperty
       ForeColor       =   &H00000000&
       Height          =   330
-      Left            =   1365
+      Left            =   1680
       MouseIcon       =   "FormKanaMaster.frx":40DE
       MousePointer    =   99  'Custom
       TabIndex        =   1
       ToolTipText     =   "时钟"
-      Top             =   260
+      Top             =   270
       Width           =   1065
    End
    Begin VB.Label LabelScore 
@@ -1177,13 +1177,13 @@ Begin VB.Form FormKanaMaster
       Width           =   13350
    End
    Begin VB.Menu Menu 
-      Caption         =   "菜单"
+      Caption         =   "菜单(&M)"
       Begin VB.Menu MenuStartPauseResume 
-         Caption         =   "开始"
+         Caption         =   "开始(&S)"
          Shortcut        =   {F5}
       End
       Begin VB.Menu MenuStop 
-         Caption         =   "停止"
+         Caption         =   "停止(&O)"
          Enabled         =   0   'False
          Shortcut        =   {F9}
       End
@@ -1191,22 +1191,22 @@ Begin VB.Form FormKanaMaster
          Caption         =   "-"
       End
       Begin VB.Menu MenuChooseOption1 
-         Caption         =   "选择左边选项"
+         Caption         =   "选择左边选项(&1)"
          Shortcut        =   {F6}
       End
       Begin VB.Menu MenuChooseOption2 
-         Caption         =   "选择中间选项"
+         Caption         =   "选择中间选项(&2)"
          Shortcut        =   {F7}
       End
       Begin VB.Menu MenuChooseOption3 
-         Caption         =   "选择右边选项"
+         Caption         =   "选择右边选项(&3)"
          Shortcut        =   {F8}
       End
       Begin VB.Menu Menu2_ 
          Caption         =   "-"
       End
       Begin VB.Menu MenuBackToHome 
-         Caption         =   "返回主页"
+         Caption         =   "返回主页(&B)"
          Shortcut        =   {F4}
       End
    End
@@ -1834,8 +1834,8 @@ TimerTimer_SkipGameClearJudgement_:
             Case 0
                 'Reset something...
                 gamehp = 0: gameminimumhp = 50: gametimeleft = 0
-                MenuStartPauseResume.Caption = "开始": MenuStartPauseResume.Enabled = True: MenuStop.Enabled = False
-                CmdStartPauseResume.Enabled = True: CmdStartPauseResume.Caption = "开始": CmdStop.Enabled = False
+                MenuStartPauseResume.Caption = "开始(&S)": MenuStartPauseResume.Enabled = True: MenuStop.Enabled = False
+                CmdStartPauseResume.Enabled = True: CmdStartPauseResume.Caption = "开始(&S)": CmdStop.Enabled = False
                 CmdOption1.Caption = "": CmdOption2.Caption = "": CmdOption3.Caption = "": LabelDashboard.Caption = ""
             Case 3
                 'Variables like gameprogress will be reset in TimerTimer_Timer...
@@ -1843,15 +1843,15 @@ TimerTimer_SkipGameClearJudgement_:
                 CmdStartPauseResume.Enabled = False: CmdStartPauseResume.Caption = "准备中": CmdStop.Enabled = True
                 CmdOption1.Caption = "": CmdOption2.Caption = "": CmdOption3.Caption = ""
             Case 1
-                MenuStartPauseResume.Caption = "暂停": MenuStartPauseResume.Enabled = True: MenuStop.Enabled = True
-                CmdStartPauseResume.Enabled = True: CmdStartPauseResume.Caption = "暂停": CmdStop.Enabled = True
+                MenuStartPauseResume.Caption = "暂停(&P)": MenuStartPauseResume.Enabled = True: MenuStop.Enabled = True
+                CmdStartPauseResume.Enabled = True: CmdStartPauseResume.Caption = "暂停(&P)": CmdStop.Enabled = True
             Case 2
-                MenuStartPauseResume.Caption = "暂停": MenuStartPauseResume.Enabled = True: MenuStop.Enabled = True
-                CmdStartPauseResume.Enabled = True: CmdStartPauseResume.Caption = "暂停": CmdStop.Enabled = True
+                MenuStartPauseResume.Caption = "暂停(&P)": MenuStartPauseResume.Enabled = True: MenuStop.Enabled = True
+                CmdStartPauseResume.Enabled = True: CmdStartPauseResume.Caption = "暂停(&P)": CmdStop.Enabled = True
             Case 4
                 gametimeleft = 0
-                MenuStartPauseResume.Caption = "继续": MenuStartPauseResume.Enabled = True: MenuStop.Enabled = True
-                CmdStartPauseResume.Enabled = True: CmdStartPauseResume.Caption = "继续": CmdStop.Enabled = True
+                MenuStartPauseResume.Caption = "继续(&U)": MenuStartPauseResume.Enabled = True: MenuStop.Enabled = True
+                CmdStartPauseResume.Enabled = True: CmdStartPauseResume.Caption = "继续(&U)": CmdStop.Enabled = True
                 CmdOption1.Caption = "": CmdOption2.Caption = "": CmdOption3.Caption = "": LabelDashboard.Caption = "?"
             Case Else
                 MsgBox "错误：Variable gamestatus is out of range." & vbCrLf & "您可以通过 GitHub @SamToki 提供反馈以帮助解决问题。", vbCritical + vbOKOnly + vbDefaultButton1, "假名征服者(KanaMaster)"

@@ -5,11 +5,11 @@ Begin VB.Form FormMainWindow
    AutoRedraw      =   -1  'True
    BackColor       =   &H00D0D0D0&
    BorderStyle     =   1  'Fixed Single
-   Caption         =   "假名征服者(KanaMaster) v0.56chs"
-   ClientHeight    =   10515
+   Caption         =   "假名征服者(KanaMaster) v0.57chs"
+   ClientHeight    =   11670
    ClientLeft      =   45
    ClientTop       =   720
-   ClientWidth     =   15345
+   ClientWidth     =   18600
    FillColor       =   &H000000FF&
    BeginProperty Font 
       Name            =   "MS Sans Serif"
@@ -26,8 +26,8 @@ Begin VB.Form FormMainWindow
    MaxButton       =   0   'False
    MouseIcon       =   "FormMainWindow.frx":23D2
    MousePointer    =   99  'Custom
-   ScaleHeight     =   10515
-   ScaleWidth      =   15345
+   ScaleHeight     =   11670
+   ScaleWidth      =   18600
    StartUpPosition =   2  '屏幕中心
    Begin VB.Frame FramePresets 
       Appearance      =   0  'Flat
@@ -47,9 +47,9 @@ Begin VB.Form FormMainWindow
       Left            =   210
       TabIndex        =   7
       Top             =   2940
-      Width           =   9045
+      Width           =   15030
       Begin VB.CommandButton CmdPresetAllKana 
-         Caption         =   "全部假名"
+         Caption         =   "全部假名(&\)"
          BeginProperty Font 
             Name            =   "Microsoft YaHei UI"
             Size            =   9.75
@@ -60,15 +60,15 @@ Begin VB.Form FormMainWindow
             Strikethrough   =   0   'False
          EndProperty
          Height          =   435
-         Left            =   7770
+         Left            =   12915
          MouseIcon       =   "FormMainWindow.frx":2524
          MousePointer    =   99  'Custom
          TabIndex        =   15
          Top             =   420
-         Width           =   1065
+         Width           =   1800
       End
       Begin VB.CommandButton CmdPresetOnlyKatakana 
-         Caption         =   "仅片假名"
+         Caption         =   "仅片假名(&')"
          BeginProperty Font 
             Name            =   "Microsoft YaHei UI"
             Size            =   9.75
@@ -79,15 +79,15 @@ Begin VB.Form FormMainWindow
             Strikethrough   =   0   'False
          EndProperty
          Height          =   435
-         Left            =   6720
+         Left            =   11130
          MouseIcon       =   "FormMainWindow.frx":2676
          MousePointer    =   99  'Custom
          TabIndex        =   14
          Top             =   420
-         Width           =   1065
+         Width           =   1800
       End
       Begin VB.CommandButton CmdPresetOnlyHiragana 
-         Caption         =   "仅平假名"
+         Caption         =   "仅平假名(&;)"
          BeginProperty Font 
             Name            =   "Microsoft YaHei UI"
             Size            =   9.75
@@ -98,15 +98,15 @@ Begin VB.Form FormMainWindow
             Strikethrough   =   0   'False
          EndProperty
          Height          =   435
-         Left            =   5670
+         Left            =   9345
          MouseIcon       =   "FormMainWindow.frx":27C8
          MousePointer    =   99  'Custom
          TabIndex        =   13
          Top             =   420
-         Width           =   1065
+         Width           =   1800
       End
       Begin VB.CommandButton CmdPresetDefaultKanaRange 
-         Caption         =   "默认范围"
+         Caption         =   "默认范围(&L)"
          BeginProperty Font 
             Name            =   "Microsoft YaHei UI"
             Size            =   9.75
@@ -117,15 +117,15 @@ Begin VB.Form FormMainWindow
             Strikethrough   =   0   'False
          EndProperty
          Height          =   435
-         Left            =   4620
+         Left            =   7560
          MouseIcon       =   "FormMainWindow.frx":291A
          MousePointer    =   99  'Custom
          TabIndex        =   12
          Top             =   420
-         Width           =   1065
+         Width           =   1800
       End
       Begin VB.CommandButton CmdPresetMaster 
-         Caption         =   "マスター"
+         Caption         =   "マスター (&I)"
          BeginProperty Font 
             Name            =   "MS PGothic"
             Size            =   9.75
@@ -136,16 +136,16 @@ Begin VB.Form FormMainWindow
             Strikethrough   =   0   'False
          EndProperty
          Height          =   435
-         Left            =   3360
+         Left            =   5565
          MouseIcon       =   "FormMainWindow.frx":2A6C
          MousePointer    =   99  'Custom
          TabIndex        =   11
          ToolTipText     =   "Dungeon Master?"
          Top             =   420
-         Width           =   1065
+         Width           =   1800
       End
       Begin VB.CommandButton CmdPresetHard 
-         Caption         =   "困难"
+         Caption         =   "困难(&A)"
          BeginProperty Font 
             Name            =   "Microsoft YaHei UI"
             Size            =   9.75
@@ -156,15 +156,15 @@ Begin VB.Form FormMainWindow
             Strikethrough   =   0   'False
          EndProperty
          Height          =   435
-         Left            =   2310
+         Left            =   3780
          MouseIcon       =   "FormMainWindow.frx":2BBE
          MousePointer    =   99  'Custom
          TabIndex        =   10
          Top             =   420
-         Width           =   1065
+         Width           =   1800
       End
       Begin VB.CommandButton CmdPresetNormal 
-         Caption         =   "普通"
+         Caption         =   "普通(&N)"
          BeginProperty Font 
             Name            =   "Microsoft YaHei UI"
             Size            =   9.75
@@ -175,15 +175,15 @@ Begin VB.Form FormMainWindow
             Strikethrough   =   0   'False
          EndProperty
          Height          =   435
-         Left            =   1260
+         Left            =   1995
          MouseIcon       =   "FormMainWindow.frx":2D10
          MousePointer    =   99  'Custom
          TabIndex        =   9
          Top             =   420
-         Width           =   1065
+         Width           =   1800
       End
       Begin VB.CommandButton CmdPresetEasy 
-         Caption         =   "简单"
+         Caption         =   "简单(&E)"
          BeginProperty Font 
             Name            =   "Microsoft YaHei UI"
             Size            =   9.75
@@ -199,19 +199,20 @@ Begin VB.Form FormMainWindow
          MousePointer    =   99  'Custom
          TabIndex        =   8
          Top             =   420
-         Width           =   1065
+         Width           =   1800
       End
    End
    Begin VB.Timer TimerSettingsRefresher 
       Interval        =   100
-      Left            =   14700
+      Left            =   17955
       Top             =   840
    End
    Begin VB.CommandButton CmdStart 
-      Caption         =   "开始!"
+      Caption         =   "开始!(&S)"
+      Default         =   -1  'True
       BeginProperty Font 
          Name            =   "Microsoft YaHei UI"
-         Size            =   36
+         Size            =   32.25
          Charset         =   0
          Weight          =   400
          Underline       =   0   'False
@@ -219,15 +220,15 @@ Begin VB.Form FormMainWindow
          Strikethrough   =   0   'False
       EndProperty
       Height          =   1380
-      Left            =   12600
+      Left            =   15435
       MouseIcon       =   "FormMainWindow.frx":2FB4
       MousePointer    =   99  'Custom
       TabIndex        =   80
-      Top             =   8925
-      Width           =   2535
+      Top             =   10080
+      Width           =   2955
    End
    Begin VB.CommandButton CmdSoundSwitch 
-      Caption         =   "音效: 关"
+      Caption         =   "音效(&O): 关"
       BeginProperty Font 
          Name            =   "Microsoft YaHei UI"
          Size            =   9.75
@@ -238,17 +239,17 @@ Begin VB.Form FormMainWindow
          Strikethrough   =   0   'False
       EndProperty
       Height          =   435
-      Left            =   12810
+      Left            =   15435
       MouseIcon       =   "FormMainWindow.frx":3106
       MousePointer    =   99  'Custom
       TabIndex        =   82
       ToolTipText     =   "注意：开启音效可能会影响流畅度。"
       Top             =   210
-      Width           =   1065
+      Width           =   1380
    End
    Begin VB.CommandButton CmdEXIT 
       Cancel          =   -1  'True
-      Caption         =   "退出"
+      Caption         =   "退出(&X)"
       BeginProperty Font 
          Name            =   "Microsoft YaHei UI"
          Size            =   9.75
@@ -259,19 +260,19 @@ Begin VB.Form FormMainWindow
          Strikethrough   =   0   'False
       EndProperty
       Height          =   435
-      Left            =   14070
+      Left            =   17010
       MouseIcon       =   "FormMainWindow.frx":3258
       MousePointer    =   99  'Custom
       TabIndex        =   83
       ToolTipText     =   "See you next time~"
       Top             =   210
-      Width           =   1065
+      Width           =   1380
    End
    Begin VB.CommandButton CmdHelp 
-      Caption         =   "?"
+      Caption         =   "帮助(&H)"
       BeginProperty Font 
          Name            =   "Microsoft YaHei UI"
-         Size            =   14.25
+         Size            =   9.75
          Charset         =   0
          Weight          =   400
          Underline       =   0   'False
@@ -279,18 +280,18 @@ Begin VB.Form FormMainWindow
          Strikethrough   =   0   'False
       EndProperty
       Height          =   435
-      Left            =   12180
+      Left            =   13860
       MouseIcon       =   "FormMainWindow.frx":33AA
       MousePointer    =   99  'Custom
       TabIndex        =   81
       ToolTipText     =   "帮助"
       Top             =   210
-      Width           =   435
+      Width           =   1380
    End
    Begin VB.Frame FrameFonts 
       Appearance      =   0  'Flat
       BackColor       =   &H00D0D0D0&
-      Caption         =   "字体"
+      Caption         =   "字体(&F)"
       BeginProperty Font 
          Name            =   "Microsoft YaHei UI"
          Size            =   12
@@ -301,11 +302,11 @@ Begin VB.Form FormMainWindow
          Strikethrough   =   0   'False
       EndProperty
       ForeColor       =   &H00000000&
-      Height          =   1800
-      Left            =   7455
+      Height          =   2850
+      Left            =   7770
       TabIndex        =   73
-      Top             =   8505
-      Width           =   4005
+      Top             =   8610
+      Width           =   5160
       Begin VB.CommandButton CmdFontsApply 
          Caption         =   "应用"
          Enabled         =   0   'False
@@ -319,12 +320,12 @@ Begin VB.Form FormMainWindow
             Strikethrough   =   0   'False
          EndProperty
          Height          =   435
-         Left            =   2835
+         Left            =   3150
          MouseIcon       =   "FormMainWindow.frx":34FC
          MousePointer    =   99  'Custom
          TabIndex        =   79
-         Top             =   315
-         Width           =   960
+         Top             =   1890
+         Width           =   1800
       End
       Begin VB.TextBox TextboxFontsRomajiFont 
          Appearance      =   0  'Flat
@@ -347,7 +348,7 @@ Begin VB.Form FormMainWindow
          Text            =   "Microsoft Sans Serif"
          ToolTipText     =   "推荐：Microsoft Sans Serif，筑紫，思源。"
          Top             =   1260
-         Width           =   2220
+         Width           =   3375
       End
       Begin VB.TextBox TextboxFontsKanaFont 
          Appearance      =   0  'Flat
@@ -370,7 +371,7 @@ Begin VB.Form FormMainWindow
          Text            =   "MS PGothic"
          ToolTipText     =   "推荐：MS PGothic，MS PMincho，筑紫，思源，冬青，Shin-Go，教科书体。"
          Top             =   840
-         Width           =   2220
+         Width           =   3375
       End
       Begin VB.CheckBox CheckboxFontsSwitch 
          Appearance      =   0  'Flat
@@ -456,11 +457,11 @@ Begin VB.Form FormMainWindow
       Left            =   210
       TabIndex        =   16
       Top             =   4095
-      Width           =   5895
+      Width           =   7365
       Begin VB.CheckBox CheckboxKanaRange11 
          Appearance      =   0  'Flat
          BackColor       =   &H00D0D0D0&
-         Caption         =   "生僻字: ゐゑヰヱ"
+         Caption         =   "生僻字: ゐゑヰヱ (&-)"
          BeginProperty Font 
             Name            =   "MS PGothic"
             Size            =   9.75
@@ -472,17 +473,17 @@ Begin VB.Form FormMainWindow
          EndProperty
          ForeColor       =   &H00000000&
          Height          =   435
-         Left            =   3885
+         Left            =   4935
          MouseIcon       =   "FormMainWindow.frx":37A0
          MousePointer    =   99  'Custom
          TabIndex        =   27
          Top             =   735
-         Width           =   1800
+         Width           =   2220
       End
       Begin VB.CheckBox CheckboxKanaRange10 
          Appearance      =   0  'Flat
          BackColor       =   &H00D0D0D0&
-         Caption         =   "オ"
+         Caption         =   "オ (&0)"
          BeginProperty Font 
             Name            =   "MS PGothic"
             Size            =   9.75
@@ -494,18 +495,18 @@ Begin VB.Form FormMainWindow
          EndProperty
          ForeColor       =   &H00000000&
          Height          =   435
-         Left            =   3150
+         Left            =   3990
          MouseIcon       =   "FormMainWindow.frx":38F2
          MousePointer    =   99  'Custom
          TabIndex        =   26
          Top             =   735
          Value           =   1  'Checked
-         Width           =   645
+         Width           =   855
       End
       Begin VB.CheckBox CheckboxKanaRange09 
          Appearance      =   0  'Flat
          BackColor       =   &H00D0D0D0&
-         Caption         =   "エ"
+         Caption         =   "エ (&9)"
          BeginProperty Font 
             Name            =   "MS PGothic"
             Size            =   9.75
@@ -517,18 +518,18 @@ Begin VB.Form FormMainWindow
          EndProperty
          ForeColor       =   &H00000000&
          Height          =   435
-         Left            =   2415
+         Left            =   3045
          MouseIcon       =   "FormMainWindow.frx":3A44
          MousePointer    =   99  'Custom
          TabIndex        =   25
          Top             =   735
          Value           =   1  'Checked
-         Width           =   645
+         Width           =   855
       End
       Begin VB.CheckBox CheckboxKanaRange08 
          Appearance      =   0  'Flat
          BackColor       =   &H00D0D0D0&
-         Caption         =   "ウ"
+         Caption         =   "ウ (&8)"
          BeginProperty Font 
             Name            =   "MS PGothic"
             Size            =   9.75
@@ -540,18 +541,18 @@ Begin VB.Form FormMainWindow
          EndProperty
          ForeColor       =   &H00000000&
          Height          =   435
-         Left            =   1680
+         Left            =   2100
          MouseIcon       =   "FormMainWindow.frx":3B96
          MousePointer    =   99  'Custom
          TabIndex        =   24
          Top             =   735
          Value           =   1  'Checked
-         Width           =   645
+         Width           =   855
       End
       Begin VB.CheckBox CheckboxKanaRange07 
          Appearance      =   0  'Flat
          BackColor       =   &H00D0D0D0&
-         Caption         =   "イ"
+         Caption         =   "イ (&7)"
          BeginProperty Font 
             Name            =   "MS PGothic"
             Size            =   9.75
@@ -563,18 +564,18 @@ Begin VB.Form FormMainWindow
          EndProperty
          ForeColor       =   &H00000000&
          Height          =   435
-         Left            =   945
+         Left            =   1155
          MouseIcon       =   "FormMainWindow.frx":3CE8
          MousePointer    =   99  'Custom
          TabIndex        =   23
          Top             =   735
          Value           =   1  'Checked
-         Width           =   645
+         Width           =   855
       End
       Begin VB.CheckBox CheckboxKanaRange06 
          Appearance      =   0  'Flat
          BackColor       =   &H00D0D0D0&
-         Caption         =   "ア"
+         Caption         =   "ア (&6)"
          BeginProperty Font 
             Name            =   "MS PGothic"
             Size            =   9.75
@@ -592,12 +593,12 @@ Begin VB.Form FormMainWindow
          TabIndex        =   22
          Top             =   735
          Value           =   1  'Checked
-         Width           =   645
+         Width           =   855
       End
       Begin VB.CheckBox CheckboxKanaRange05 
          Appearance      =   0  'Flat
          BackColor       =   &H00D0D0D0&
-         Caption         =   "お"
+         Caption         =   "お (&5)"
          BeginProperty Font 
             Name            =   "MS PGothic"
             Size            =   9.75
@@ -609,18 +610,18 @@ Begin VB.Form FormMainWindow
          EndProperty
          ForeColor       =   &H00000000&
          Height          =   435
-         Left            =   3150
+         Left            =   3990
          MouseIcon       =   "FormMainWindow.frx":3F8C
          MousePointer    =   99  'Custom
          TabIndex        =   21
          Top             =   315
          Value           =   1  'Checked
-         Width           =   645
+         Width           =   855
       End
       Begin VB.CheckBox CheckboxKanaRange04 
          Appearance      =   0  'Flat
          BackColor       =   &H00D0D0D0&
-         Caption         =   "え"
+         Caption         =   "え (&4)"
          BeginProperty Font 
             Name            =   "MS PGothic"
             Size            =   9.75
@@ -632,18 +633,18 @@ Begin VB.Form FormMainWindow
          EndProperty
          ForeColor       =   &H00000000&
          Height          =   435
-         Left            =   2415
+         Left            =   3045
          MouseIcon       =   "FormMainWindow.frx":40DE
          MousePointer    =   99  'Custom
          TabIndex        =   20
          Top             =   315
          Value           =   1  'Checked
-         Width           =   645
+         Width           =   855
       End
       Begin VB.CheckBox CheckboxKanaRange03 
          Appearance      =   0  'Flat
          BackColor       =   &H00D0D0D0&
-         Caption         =   "う"
+         Caption         =   "う (&3)"
          BeginProperty Font 
             Name            =   "MS PGothic"
             Size            =   9.75
@@ -655,18 +656,18 @@ Begin VB.Form FormMainWindow
          EndProperty
          ForeColor       =   &H00000000&
          Height          =   435
-         Left            =   1680
+         Left            =   2100
          MouseIcon       =   "FormMainWindow.frx":4230
          MousePointer    =   99  'Custom
          TabIndex        =   19
          Top             =   315
          Value           =   1  'Checked
-         Width           =   645
+         Width           =   855
       End
       Begin VB.CheckBox CheckboxKanaRange02 
          Appearance      =   0  'Flat
          BackColor       =   &H00D0D0D0&
-         Caption         =   "い"
+         Caption         =   "い (&2)"
          BeginProperty Font 
             Name            =   "MS PGothic"
             Size            =   9.75
@@ -678,18 +679,18 @@ Begin VB.Form FormMainWindow
          EndProperty
          ForeColor       =   &H00000000&
          Height          =   435
-         Left            =   945
+         Left            =   1155
          MouseIcon       =   "FormMainWindow.frx":4382
          MousePointer    =   99  'Custom
          TabIndex        =   18
          Top             =   315
          Value           =   1  'Checked
-         Width           =   645
+         Width           =   855
       End
       Begin VB.CheckBox CheckboxKanaRange01 
          Appearance      =   0  'Flat
          BackColor       =   &H00D0D0D0&
-         Caption         =   "あ"
+         Caption         =   "あ (&1)"
          BeginProperty Font 
             Name            =   "MS PGothic"
             Size            =   9.75
@@ -707,7 +708,7 @@ Begin VB.Form FormMainWindow
          TabIndex        =   17
          Top             =   315
          Value           =   1  'Checked
-         Width           =   645
+         Width           =   855
       End
    End
    Begin VB.Frame FrameGameMode 
@@ -859,7 +860,7 @@ Begin VB.Form FormMainWindow
    Begin VB.Frame FrameKeyboard 
       Appearance      =   0  'Flat
       BackColor       =   &H00D0D0D0&
-      Caption         =   "键位"
+      Caption         =   "键位(&Y)"
       BeginProperty Font 
          Name            =   "Microsoft YaHei UI"
          Size            =   12
@@ -870,11 +871,11 @@ Begin VB.Form FormMainWindow
          Strikethrough   =   0   'False
       EndProperty
       ForeColor       =   &H00000000&
-      Height          =   1800
+      Height          =   2850
       Left            =   210
       TabIndex        =   60
-      Top             =   8505
-      Width           =   4005
+      Top             =   8610
+      Width           =   3900
       Begin VB.TextBox TextboxKeyboardOption3 
          Alignment       =   2  'Center
          Appearance      =   0  'Flat
@@ -889,15 +890,15 @@ Begin VB.Form FormMainWindow
             Strikethrough   =   0   'False
          EndProperty
          ForeColor       =   &H00FFFFFF&
-         Height          =   435
-         Left            =   3255
+         Height          =   495
+         Left            =   2835
          MaxLength       =   1
          MouseIcon       =   "FormMainWindow.frx":4B6E
          MousePointer    =   99  'Custom
          TabIndex        =   66
          ToolTipText     =   "指定右边选项的键位。"
-         Top             =   420
-         Width           =   435
+         Top             =   1050
+         Width           =   500
       End
       Begin VB.TextBox TextboxKeyboardOption2 
          Alignment       =   2  'Center
@@ -913,15 +914,15 @@ Begin VB.Form FormMainWindow
             Strikethrough   =   0   'False
          EndProperty
          ForeColor       =   &H00FFFFFF&
-         Height          =   435
-         Left            =   1995
+         Height          =   495
+         Left            =   1680
          MaxLength       =   1
          MouseIcon       =   "FormMainWindow.frx":4CC0
          MousePointer    =   99  'Custom
          TabIndex        =   64
          ToolTipText     =   "指定中间选项的键位。"
-         Top             =   420
-         Width           =   435
+         Top             =   1050
+         Width           =   500
       End
       Begin VB.TextBox TextboxKeyboardOption1 
          Alignment       =   2  'Center
@@ -937,15 +938,15 @@ Begin VB.Form FormMainWindow
             Strikethrough   =   0   'False
          EndProperty
          ForeColor       =   &H00FFFFFF&
-         Height          =   435
-         Left            =   735
+         Height          =   495
+         Left            =   525
          MaxLength       =   1
          MouseIcon       =   "FormMainWindow.frx":4E12
          MousePointer    =   99  'Custom
          TabIndex        =   62
          ToolTipText     =   "指定左边选项的键位。"
-         Top             =   420
-         Width           =   435
+         Top             =   1050
+         Width           =   500
       End
       Begin VB.Label LabelKeyboardOption3 
          Alignment       =   2  'Center
@@ -963,11 +964,11 @@ Begin VB.Form FormMainWindow
             Strikethrough   =   0   'False
          EndProperty
          ForeColor       =   &H00000000&
-         Height          =   420
-         Left            =   2730
+         Height          =   525
+         Left            =   2835
          TabIndex        =   65
          Top             =   420
-         Width           =   495
+         Width           =   500
       End
       Begin VB.Label LabelKeyboardOption2 
          Alignment       =   2  'Center
@@ -985,11 +986,11 @@ Begin VB.Form FormMainWindow
             Strikethrough   =   0   'False
          EndProperty
          ForeColor       =   &H00000000&
-         Height          =   420
-         Left            =   1470
+         Height          =   525
+         Left            =   1680
          TabIndex        =   63
          Top             =   420
-         Width           =   495
+         Width           =   500
       End
       Begin VB.Label LabelKeyboardOption1 
          Alignment       =   2  'Center
@@ -1007,11 +1008,11 @@ Begin VB.Form FormMainWindow
             Strikethrough   =   0   'False
          EndProperty
          ForeColor       =   &H00000000&
-         Height          =   420
-         Left            =   210
+         Height          =   525
+         Left            =   525
          TabIndex        =   61
          Top             =   420
-         Width           =   495
+         Width           =   500
       End
       Begin VB.Label LabelKeyboardNote 
          Appearance      =   0  'Flat
@@ -1028,17 +1029,17 @@ Begin VB.Form FormMainWindow
             Strikethrough   =   0   'False
          EndProperty
          ForeColor       =   &H00000000&
-         Height          =   630
+         Height          =   840
          Left            =   210
          TabIndex        =   67
-         Top             =   945
+         Top             =   1785
          Width           =   3600
       End
    End
    Begin VB.Frame FrameDisplay 
       Appearance      =   0  'Flat
       BackColor       =   &H00D0D0D0&
-      Caption         =   "显示"
+      Caption         =   "显示(&P)"
       BeginProperty Font 
          Name            =   "Microsoft YaHei UI"
          Size            =   12
@@ -1049,11 +1050,11 @@ Begin VB.Form FormMainWindow
          Strikethrough   =   0   'False
       EndProperty
       ForeColor       =   &H00000000&
-      Height          =   1800
-      Left            =   4410
+      Height          =   2850
+      Left            =   4305
       TabIndex        =   68
-      Top             =   8505
-      Width           =   2850
+      Top             =   8610
+      Width           =   3270
       Begin VB.CheckBox CheckboxDisplaySakura 
          Appearance      =   0  'Flat
          BackColor       =   &H00D0D0D0&
@@ -1069,11 +1070,11 @@ Begin VB.Form FormMainWindow
          EndProperty
          ForeColor       =   &H00000000&
          Height          =   435
-         Left            =   1260
+         Left            =   210
          MouseIcon       =   "FormMainWindow.frx":4F64
          MousePointer    =   99  'Custom
          TabIndex        =   72
-         Top             =   1155
+         Top             =   1575
          Value           =   1  'Checked
          Width           =   1380
       End
@@ -1150,7 +1151,7 @@ Begin VB.Form FormMainWindow
    Begin VB.Frame FrameDifficulty 
       Appearance      =   0  'Flat
       BackColor       =   &H00D0D0D0&
-      Caption         =   "时限"
+      Caption         =   "难度(&C)"
       BeginProperty Font 
          Name            =   "Microsoft YaHei UI"
          Size            =   12
@@ -1161,11 +1162,11 @@ Begin VB.Form FormMainWindow
          Strikethrough   =   0   'False
       EndProperty
       ForeColor       =   &H00000000&
-      Height          =   3480
-      Left            =   6300
+      Height          =   3585
+      Left            =   7770
       TabIndex        =   37
       Top             =   4095
-      Width           =   6105
+      Width           =   7470
       Begin VB.CheckBox CheckboxDifficultyIncreaseDifficultyGradually 
          Appearance      =   0  'Flat
          BackColor       =   &H00D0D0D0&
@@ -1198,9 +1199,9 @@ Begin VB.Form FormMainWindow
          MouseIcon       =   "FormMainWindow.frx":55FE
          MousePointer    =   99  'Custom
          TabIndex        =   52
-         Top             =   2730
+         Top             =   2940
          Value           =   10
-         Width           =   3585
+         Width           =   4950
       End
       Begin VB.HScrollBar HScrollDifficultyCooldown 
          Height          =   330
@@ -1213,7 +1214,7 @@ Begin VB.Form FormMainWindow
          TabIndex        =   49
          Top             =   2100
          Value           =   10
-         Width           =   3585
+         Width           =   4950
       End
       Begin VB.HScrollBar HScrollDifficultyReachNormalDifficultyAt 
          Height          =   330
@@ -1226,7 +1227,7 @@ Begin VB.Form FormMainWindow
          TabIndex        =   46
          Top             =   1470
          Value           =   50
-         Width           =   1905
+         Width           =   3270
       End
       Begin VB.HScrollBar HScrollDifficultyInitialDifficulty 
          Height          =   330
@@ -1239,7 +1240,7 @@ Begin VB.Form FormMainWindow
          TabIndex        =   43
          Top             =   1050
          Value           =   30
-         Width           =   1905
+         Width           =   3270
       End
       Begin VB.HScrollBar HScrollDifficultyNormalDifficulty 
          Height          =   330
@@ -1252,7 +1253,7 @@ Begin VB.Form FormMainWindow
          TabIndex        =   39
          Top             =   420
          Value           =   20
-         Width           =   4635
+         Width           =   6000
       End
       Begin VB.Label LabelDifficultyMistakeHPDrain 
          Appearance      =   0  'Flat
@@ -1275,7 +1276,7 @@ Begin VB.Form FormMainWindow
          MousePointer    =   99  'Custom
          TabIndex        =   50
          ToolTipText     =   "(HP Drain)"
-         Top             =   2730
+         Top             =   2920
          Width           =   975
       End
       Begin VB.Label LabelDifficultyCooldown 
@@ -1299,7 +1300,7 @@ Begin VB.Form FormMainWindow
          MousePointer    =   99  'Custom
          TabIndex        =   47
          ToolTipText     =   "(CD)"
-         Top             =   2100
+         Top             =   2080
          Width           =   975
       End
       Begin VB.Label LabelDifficultyReachNormalDifficultyAt 
@@ -1320,7 +1321,7 @@ Begin VB.Form FormMainWindow
          Height          =   375
          Left            =   1470
          TabIndex        =   44
-         Top             =   1470
+         Top             =   1440
          Width           =   1335
       End
       Begin VB.Label LabelDifficultyInitialDifficulty 
@@ -1341,7 +1342,7 @@ Begin VB.Form FormMainWindow
          Height          =   375
          Left            =   1890
          TabIndex        =   41
-         Top             =   1050
+         Top             =   1040
          Width           =   915
       End
       Begin VB.Label LabelDifficultyNormalDifficultyIndicator 
@@ -1363,7 +1364,7 @@ Begin VB.Form FormMainWindow
          Height          =   375
          Left            =   210
          TabIndex        =   38
-         Top             =   420
+         Top             =   380
          Width           =   915
       End
       Begin VB.Label LabelDifficultyInitialDifficultyIndicator 
@@ -1385,7 +1386,7 @@ Begin VB.Form FormMainWindow
          Height          =   375
          Left            =   2940
          TabIndex        =   42
-         Top             =   1050
+         Top             =   1000
          Width           =   915
       End
       Begin VB.Label LabelDifficultyReachNormalDifficultyAtIndicator 
@@ -1407,7 +1408,7 @@ Begin VB.Form FormMainWindow
          Height          =   375
          Left            =   2940
          TabIndex        =   45
-         Top             =   1470
+         Top             =   1430
          Width           =   915
       End
       Begin VB.Label LabelDifficultyCooldownIndicator 
@@ -1429,7 +1430,7 @@ Begin VB.Form FormMainWindow
          Height          =   375
          Left            =   1260
          TabIndex        =   48
-         Top             =   2100
+         Top             =   2050
          Width           =   915
       End
       Begin VB.Label LabelDifficultyMistakeHPDrainIndicator 
@@ -1451,14 +1452,14 @@ Begin VB.Form FormMainWindow
          Height          =   375
          Left            =   1260
          TabIndex        =   51
-         Top             =   2730
+         Top             =   2900
          Width           =   915
       End
    End
    Begin VB.Frame FrameMods 
       Appearance      =   0  'Flat
       BackColor       =   &H00D0D0D0&
-      Caption         =   "Mods"
+      Caption         =   "Mo&ds"
       BeginProperty Font 
          Name            =   "Microsoft YaHei UI"
          Size            =   12
@@ -1469,11 +1470,11 @@ Begin VB.Form FormMainWindow
          Strikethrough   =   0   'False
       EndProperty
       ForeColor       =   &H00000000&
-      Height          =   2535
-      Left            =   12600
+      Height          =   3585
+      Left            =   15435
       TabIndex        =   53
       Top             =   4095
-      Width           =   2535
+      Width           =   2955
       Begin VB.CheckBox CheckboxModsPF 
          Appearance      =   0  'Flat
          BackColor       =   &H00D0D0D0&
@@ -1495,7 +1496,7 @@ Begin VB.Form FormMainWindow
          TabIndex        =   55
          ToolTipText     =   "(Perfect)"
          Top             =   735
-         Width           =   2220
+         Width           =   1800
       End
       Begin VB.CheckBox CheckboxModsNF 
          Appearance      =   0  'Flat
@@ -1518,7 +1519,7 @@ Begin VB.Form FormMainWindow
          TabIndex        =   56
          ToolTipText     =   "(No-Fail)"
          Top             =   1155
-         Width           =   2220
+         Width           =   1800
       End
       Begin VB.CheckBox CheckboxModsAU 
          Appearance      =   0  'Flat
@@ -1541,7 +1542,7 @@ Begin VB.Form FormMainWindow
          TabIndex        =   58
          ToolTipText     =   "(Auto)"
          Top             =   1995
-         Width           =   2220
+         Width           =   1800
       End
       Begin VB.CheckBox CheckboxModsSD 
          Appearance      =   0  'Flat
@@ -1564,7 +1565,7 @@ Begin VB.Form FormMainWindow
          TabIndex        =   54
          ToolTipText     =   "(Sudden Death)"
          Top             =   315
-         Width           =   2220
+         Width           =   1800
       End
       Begin VB.CheckBox CheckboxModsAP 
          Appearance      =   0  'Flat
@@ -1587,7 +1588,7 @@ Begin VB.Form FormMainWindow
          TabIndex        =   57
          ToolTipText     =   "(Autopilot)"
          Top             =   1575
-         Width           =   2220
+         Width           =   1800
       End
    End
    Begin VB.Frame FrameProgressMode 
@@ -1604,15 +1605,15 @@ Begin VB.Form FormMainWindow
          Strikethrough   =   0   'False
       EndProperty
       ForeColor       =   &H00000000&
-      Height          =   2115
+      Height          =   2220
       Left            =   210
       TabIndex        =   28
       Top             =   5460
-      Width           =   5895
+      Width           =   7365
       Begin VB.OptionButton RadioboxProgressModeKana 
          Appearance      =   0  'Flat
          BackColor       =   &H00D0D0D0&
-         Caption         =   "遍历范围内所有假名（抽选过且答对过所有假名）"
+         Caption         =   "遍历范围内所有假名（抽选过且答对过所有假名）(&K)"
          BeginProperty Font 
             Name            =   "Microsoft YaHei UI"
             Size            =   9.75
@@ -1630,12 +1631,12 @@ Begin VB.Form FormMainWindow
          TabIndex        =   29
          Top             =   315
          Value           =   -1  'True
-         Width           =   4740
+         Width           =   5055
       End
       Begin VB.OptionButton RadioboxProgressModeTime 
          Appearance      =   0  'Flat
          BackColor       =   &H00D0D0D0&
-         Caption         =   "固定时长"
+         Caption         =   "固定时长(&T)"
          BeginProperty Font 
             Name            =   "Microsoft YaHei UI"
             Size            =   9.75
@@ -1652,12 +1653,12 @@ Begin VB.Form FormMainWindow
          MousePointer    =   99  'Custom
          TabIndex        =   30
          Top             =   1155
-         Width           =   1275
+         Width           =   1485
       End
       Begin VB.HScrollBar HScrollProgressModeSpecifiedTime 
          Height          =   330
          LargeChange     =   29
-         Left            =   2835
+         Left            =   3255
          Max             =   30
          Min             =   1
          MouseIcon       =   "FormMainWindow.frx":687A
@@ -1665,12 +1666,12 @@ Begin VB.Form FormMainWindow
          TabIndex        =   36
          Top             =   1575
          Value           =   3
-         Width           =   2850
+         Width           =   3900
       End
       Begin VB.HScrollBar HScrollProgressModeRepeatedTimes 
          Height          =   330
          LargeChange     =   9
-         Left            =   2835
+         Left            =   3255
          Max             =   10
          Min             =   1
          MouseIcon       =   "FormMainWindow.frx":69CC
@@ -1678,13 +1679,13 @@ Begin VB.Form FormMainWindow
          TabIndex        =   33
          Top             =   735
          Value           =   1
-         Width           =   2850
+         Width           =   3900
       End
       Begin VB.Label LabelProgressModeSpecifiedTime 
          Appearance      =   0  'Flat
          BackColor       =   &H000000FF&
          BackStyle       =   0  'Transparent
-         Caption         =   "设定时间:"
+         Caption         =   "设定时间(&G):"
          BeginProperty Font 
             Name            =   "Microsoft YaHei UI"
             Size            =   9.75
@@ -1698,14 +1699,14 @@ Begin VB.Form FormMainWindow
          Height          =   375
          Left            =   525
          TabIndex        =   34
-         Top             =   1575
-         Width           =   915
+         Top             =   1570
+         Width           =   1230
       End
       Begin VB.Label LabelProgressModeRepeatedTimes 
          Appearance      =   0  'Flat
          BackColor       =   &H000000FF&
          BackStyle       =   0  'Transparent
-         Caption         =   "重复次数:"
+         Caption         =   "重复次数(&R):"
          BeginProperty Font 
             Name            =   "Microsoft YaHei UI"
             Size            =   9.75
@@ -1719,8 +1720,8 @@ Begin VB.Form FormMainWindow
          Height          =   375
          Left            =   525
          TabIndex        =   31
-         Top             =   735
-         Width           =   915
+         Top             =   730
+         Width           =   1230
       End
       Begin VB.Label LabelProgressModeRepeatedTimesIndicator 
          Alignment       =   1  'Right Justify
@@ -1739,9 +1740,9 @@ Begin VB.Form FormMainWindow
          EndProperty
          ForeColor       =   &H00000000&
          Height          =   375
-         Left            =   1575
+         Left            =   1995
          TabIndex        =   32
-         Top             =   735
+         Top             =   700
          Width           =   1125
       End
       Begin VB.Label LabelProgressModeSpecifiedTimeIndicator 
@@ -1761,15 +1762,15 @@ Begin VB.Form FormMainWindow
          EndProperty
          ForeColor       =   &H00000000&
          Height          =   375
-         Left            =   1575
+         Left            =   1995
          TabIndex        =   35
-         Top             =   1575
+         Top             =   1540
          Width           =   1125
       End
    End
    Begin WMPLibCtl.WindowsMediaPlayer WindowsMediaPlayer1 
       Height          =   435
-      Left            =   14070
+      Left            =   17325
       TabIndex        =   84
       Top             =   840
       Visible         =   0   'False
@@ -1807,9 +1808,9 @@ Begin VB.Form FormMainWindow
       BorderStyle     =   0  'Transparent
       FillColor       =   &H00FF9000&
       Height          =   525
-      Left            =   12765
+      Left            =   15390
       Top             =   165
-      Width           =   1155
+      Width           =   1470
    End
    Begin VB.Label LabelTitle3 
       Appearance      =   0  'Flat
@@ -1829,7 +1830,7 @@ Begin VB.Form FormMainWindow
       Height          =   645
       Left            =   210
       TabIndex        =   59
-      Top             =   7770
+      Top             =   7875
       Width           =   2220
    End
    Begin VB.Label LabelTitle2 
@@ -1875,42 +1876,57 @@ Begin VB.Form FormMainWindow
       Width           =   2220
    End
    Begin VB.Menu Menu 
-      Caption         =   "菜单"
+      Caption         =   "菜单(&M)"
       Begin VB.Menu MenuStart 
-         Caption         =   "开始!"
+         Caption         =   "开始!(&S)"
          Shortcut        =   {F5}
       End
       Begin VB.Menu Menu2_ 
          Caption         =   "-"
       End
       Begin VB.Menu MenuHelp 
-         Caption         =   "帮助"
+         Caption         =   "帮助(&H)"
          Shortcut        =   {F1}
       End
       Begin VB.Menu MenuSoundSwitch 
-         Caption         =   "音效"
+         Caption         =   "音效(&O)"
          Shortcut        =   {F2}
       End
       Begin VB.Menu MenuEXIT 
-         Caption         =   "退出"
+         Caption         =   "退出(&X)"
          Shortcut        =   {F4}
       End
       Begin VB.Menu Menu1_ 
          Caption         =   "-"
       End
       Begin VB.Menu MenuAbout 
-         Caption         =   "关于"
+         Caption         =   "关于(&A)"
+         Begin VB.Menu MenuAboutWebVersion 
+            Caption         =   "敬请期待 KanaMaster 网页版！"
+            Enabled         =   0   'False
+         End
+         Begin VB.Menu MenuAbout1_ 
+            Caption         =   "-"
+         End
+         Begin VB.Menu MenuAboutDownload 
+            Caption         =   "下载最新版本(&D)..."
+         End
+         Begin VB.Menu MenuAboutUpdate 
+            Caption         =   "手动检查更新(需要您自行比对版本号)(&U)..."
+         End
          Begin VB.Menu MenuAboutGitHub 
-            Caption         =   "GitHub @SamToki"
+            Caption         =   "&GitHub @SamToki 用户主页..."
          End
          Begin VB.Menu MenuAboutLicense 
-            Caption         =   "Released under license GNU GPL v3"
+            Caption         =   "Released under &license GNU GPL v3..."
          End
          Begin VB.Menu MenuAboutCopyright 
             Caption         =   "TM && (C) 2015-2022 SAM TOKI STUDIO"
+            Enabled         =   0   'False
          End
          Begin VB.Menu MenuAboutDate 
-            Caption         =   "2022/01/14"
+            Caption         =   "2022/01/29"
+            Enabled         =   0   'False
          End
       End
    End
@@ -1930,15 +1946,15 @@ Attribute VB_Exposed = False
 '  KanaMaster
 '
 '  Powered by Sam Toki
-'  Version: v0.52chs
-'  Date:    2021/08/25 (Wed)
+'  Version: v0.57chs
+'  Date:    2022/01/29 (Sat)
 '  History: First version v0.10 was built on 2020/03/18.
 '
 '  WARNING: Commercial use of this computer software is strictly prohibited.
 '           Open source license:      GNU GPL v3
 '           Creative Commons license: CC BY-NC 3.0
 '
-'  Copyright: TM & (C) 2015-2021 SAM TOKI STUDIO. All rights reserved.
+'  Copyright: TM & (C) 2015-2022 SAM TOKI STUDIO. All rights reserved.
 '             SAM TOKI STUDIO is a trademark of CZJ Software Technologies (CZJST) Inc. in the P.R.C and other countries.
 '
 '  ---------------------------------------------------------------------------------------------------------------------
@@ -1996,6 +2012,12 @@ Public forloop3 As Integer
 'Declare Dialog...
 Public answer
 
+'Declare Special...
+Private Declare Function ShellExecute Lib "shell32.dll" Alias "ShellExecuteA" _
+    (ByVal hWnd As Long, ByVal lpOperation As String, ByVal lpFile As String, _
+     ByVal lpParameters As String, ByVal lpDirectory As String, ByVal nShowCmd As Long) As Long
+Private Const SW_SHOW = 5
+
 '  ---------------------------------------------------------------------------------------------------------------------
 
 '[] LOAD []
@@ -2041,45 +2063,6 @@ Public answer
 '[] COMMANDS []
 
     'CMD Menu...
-    Public Sub MenuHelp_Click()
-        If soundswitch = True Then WindowsMediaPlayer1.URL = App.Path & "\CZJSTappdata\CZJSTaudio\CZJSTaudio_DialogOpen.wav"
-        FormHelp.Move (Screen.Width / 2), (Screen.Height / 2), 0, 0
-        FormHelp.windowanimationtargetleft = (Screen.Width / 2) - (11040 / 2)
-        FormHelp.windowanimationtargettop = (Screen.Height / 2) - (7995 / 2)
-        FormHelp.windowanimationtargetwidth = 11040
-        FormHelp.windowanimationtargetheight = 7995
-        FormHelp.Show
-    End Sub
-    Public Sub CmdHelp_Click()
-        Call MenuHelp_Click
-    End Sub
-    Public Sub MenuSoundSwitch_Click()
-        Select Case soundswitch
-            Case True
-                soundswitch = False
-                WindowsMediaPlayer1.URL = App.Path & "\CZJSTappdata\CZJSTaudio\CZJSTaudio_SwitchOff.wav"
-                MenuSoundSwitch.Checked = False
-                CmdSoundSwitch.Caption = "音效: 关"
-                ShapeLightSoundSwitch.BorderStyle = 0
-                ShapeLightSoundSwitch.FillStyle = 1
-            Case False
-                soundswitch = True
-                WindowsMediaPlayer1.URL = App.Path & "\CZJSTappdata\CZJSTaudio\CZJSTaudio_SwitchOn.wav"
-                MenuSoundSwitch.Checked = True
-                CmdSoundSwitch.Caption = "音效: 开"
-                ShapeLightSoundSwitch.BorderStyle = 1
-                ShapeLightSoundSwitch.FillStyle = 0
-        End Select
-    End Sub
-    Public Sub CmdSoundSwitch_Click()
-        Call MenuSoundSwitch_Click
-    End Sub
-    Public Sub MenuEXIT_Click()
-        End
-    End Sub
-    Public Sub CmdEXIT_Click()
-        Call MenuEXIT_Click
-    End Sub
     Public Sub MenuStart_Click()
         'DISABLED LINE: If soundswitch = True Then WindowsMediaPlayer1.URL = App.Path & "\CZJSTappdata\CZJSTaudio\CZJSTaudio_KanaMasterStart.wav"
         Select Case setgamemode
@@ -2105,6 +2088,57 @@ Public answer
     End Sub
     Public Sub CmdStart_Click()
         Call MenuStart_Click
+    End Sub
+    Public Sub MenuHelp_Click()
+        If soundswitch = True Then WindowsMediaPlayer1.URL = App.Path & "\CZJSTappdata\CZJSTaudio\CZJSTaudio_DialogOpen.wav"
+        FormHelp.Move (Screen.Width / 2), (Screen.Height / 2), 0, 0
+        FormHelp.windowanimationtargetleft = (Screen.Width / 2) - (11040 / 2)
+        FormHelp.windowanimationtargettop = (Screen.Height / 2) - (7995 / 2)
+        FormHelp.windowanimationtargetwidth = 11040
+        FormHelp.windowanimationtargetheight = 7995
+        FormHelp.Show
+    End Sub
+    Public Sub CmdHelp_Click()
+        Call MenuHelp_Click
+    End Sub
+    Public Sub MenuSoundSwitch_Click()
+        Select Case soundswitch
+            Case True
+                soundswitch = False
+                WindowsMediaPlayer1.URL = App.Path & "\CZJSTappdata\CZJSTaudio\CZJSTaudio_SwitchOff.wav"
+                MenuSoundSwitch.Checked = False
+                CmdSoundSwitch.Caption = "音效(&O): 关"
+                ShapeLightSoundSwitch.BorderStyle = 0
+                ShapeLightSoundSwitch.FillStyle = 1
+            Case False
+                soundswitch = True
+                WindowsMediaPlayer1.URL = App.Path & "\CZJSTappdata\CZJSTaudio\CZJSTaudio_SwitchOn.wav"
+                MenuSoundSwitch.Checked = True
+                CmdSoundSwitch.Caption = "音效(&O): 开"
+                ShapeLightSoundSwitch.BorderStyle = 1
+                ShapeLightSoundSwitch.FillStyle = 0
+        End Select
+    End Sub
+    Public Sub CmdSoundSwitch_Click()
+        Call MenuSoundSwitch_Click
+    End Sub
+    Public Sub MenuEXIT_Click()
+        End
+    End Sub
+    Public Sub CmdEXIT_Click()
+        Call MenuEXIT_Click
+    End Sub
+    Public Sub MenuAboutDownload_Click()
+        Call ShellExecute(Me.hWnd, "open", "https://github.com/SamToki/VB6---KanaMaster/raw/main/RELEASE/KanaMaster.zip", "", "", SW_SHOW)
+    End Sub
+    Public Sub MenuAboutUpdate_Click()
+        Call ShellExecute(Me.hWnd, "open", "https://github.com/SamToki/VB6---KanaMaster", "", "", SW_SHOW)
+    End Sub
+    Public Sub MenuAboutGitHub_Click()
+        Call ShellExecute(Me.hWnd, "open", "https://github.com/SamToki", "", "", SW_SHOW)
+    End Sub
+    Public Sub MenuAboutLicense_Click()
+        Call ShellExecute(Me.hWnd, "open", "https://www.gnu.org/licenses/gpl-3.0.html", "", "", SW_SHOW)
     End Sub
 
     'CMD Game Mode...
@@ -2332,24 +2366,30 @@ Public answer
 
         'Input...
         If TextboxKeyboardOption1.Text <> "" Then
-            setkeyboardoption(1) = TextboxKeyboardOption1.Text: LabelKeyboardOption1.Caption = setkeyboardoption(1)
+            setkeyboardoption(1) = TextboxKeyboardOption1.Text
+            LabelKeyboardOption1.Caption = setkeyboardoption(1)
             FormKanaMaster.LabelOption1.Caption = setkeyboardoption(1)
             '?????
             TextboxKeyboardOption1.Text = ""
+            TextboxKeyboardOption2.SetFocus
             If (setkeyboardoption(1) = setkeyboardoption(2)) Or (setkeyboardoption(1) = setkeyboardoption(3)) Or (setkeyboardoption(2) = setkeyboardoption(3)) Then MsgBox "注意：键位冲突。", vbExclamation + vbOKOnly + vbDefaultButton1, "假名征服者(KanaMaster)"
         End If
         If TextboxKeyboardOption2.Text <> "" Then
-            setkeyboardoption(2) = TextboxKeyboardOption2.Text: LabelKeyboardOption2.Caption = setkeyboardoption(2)
+            setkeyboardoption(2) = TextboxKeyboardOption2.Text
+            LabelKeyboardOption2.Caption = setkeyboardoption(2)
             FormKanaMaster.LabelOption2.Caption = setkeyboardoption(2)
             '?????
             TextboxKeyboardOption2.Text = ""
+            TextboxKeyboardOption3.SetFocus
             If (setkeyboardoption(1) = setkeyboardoption(2)) Or (setkeyboardoption(1) = setkeyboardoption(3)) Or (setkeyboardoption(2) = setkeyboardoption(3)) Then MsgBox "注意：键位冲突。", vbExclamation + vbOKOnly + vbDefaultButton1, "假名征服者(KanaMaster)"
         End If
         If TextboxKeyboardOption3.Text <> "" Then
-            setkeyboardoption(3) = TextboxKeyboardOption3.Text: LabelKeyboardOption3.Caption = setkeyboardoption(3)
+            setkeyboardoption(3) = TextboxKeyboardOption3.Text
+            LabelKeyboardOption3.Caption = setkeyboardoption(3)
             FormKanaMaster.LabelOption3.Caption = setkeyboardoption(3)
             '?????
             TextboxKeyboardOption3.Text = ""
+            CmdStart.SetFocus
             If (setkeyboardoption(1) = setkeyboardoption(2)) Or (setkeyboardoption(1) = setkeyboardoption(3)) Or (setkeyboardoption(2) = setkeyboardoption(3)) Then MsgBox "注意：键位冲突。", vbExclamation + vbOKOnly + vbDefaultButton1, "假名征服者(KanaMaster)"
         End If
 
