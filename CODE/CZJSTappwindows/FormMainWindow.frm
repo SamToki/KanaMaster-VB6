@@ -140,7 +140,7 @@ Begin VB.Form FormMainWindow
          MouseIcon       =   "FormMainWindow.frx":2A6C
          MousePointer    =   99  'Custom
          TabIndex        =   11
-         ToolTipText     =   "Dungeon Master?"
+         ToolTipText     =   "Dungeon°·Master"
          Top             =   420
          Width           =   1800
       End
@@ -284,7 +284,6 @@ Begin VB.Form FormMainWindow
       MouseIcon       =   "FormMainWindow.frx":33AA
       MousePointer    =   99  'Custom
       TabIndex        =   81
-      ToolTipText     =   "∞Ô÷˙"
       Top             =   210
       Width           =   1380
    End

@@ -1020,7 +1020,7 @@ Begin VB.Form FormKanaMaster
          Strikethrough   =   0   'False
       EndProperty
       ForeColor       =   &H00000000&
-      Height          =   645
+      Height          =   750
       Left            =   14490
       MouseIcon       =   "FormKanaMaster.frx":4A1C
       MousePointer    =   99  'Custom
@@ -1045,7 +1045,7 @@ Begin VB.Form FormKanaMaster
          Strikethrough   =   0   'False
       EndProperty
       ForeColor       =   &H00000000&
-      Height          =   645
+      Height          =   750
       Left            =   8715
       MouseIcon       =   "FormKanaMaster.frx":4B6E
       MousePointer    =   99  'Custom
@@ -1092,7 +1092,7 @@ Begin VB.Form FormKanaMaster
          Strikethrough   =   0   'False
       EndProperty
       ForeColor       =   &H00000000&
-      Height          =   645
+      Height          =   750
       Left            =   2940
       MouseIcon       =   "FormKanaMaster.frx":4CC0
       MousePointer    =   99  'Custom
