@@ -29,6 +29,11 @@ Begin VB.Form FormMainWindow
    ScaleHeight     =   11670
    ScaleWidth      =   18600
    StartUpPosition =   2  '屏幕中心
+   Begin VB.Timer TimerClock 
+      Interval        =   500
+      Left            =   13335
+      Top             =   420
+   End
    Begin VB.Frame FramePresets 
       Appearance      =   0  'Flat
       BackColor       =   &H00D0D0D0&
@@ -242,7 +247,7 @@ Begin VB.Form FormMainWindow
       Left            =   15435
       MouseIcon       =   "FormMainWindow.frx":3106
       MousePointer    =   99  'Custom
-      TabIndex        =   82
+      TabIndex        =   83
       ToolTipText     =   "注意：开启音效可能会影响流畅度。"
       Top             =   210
       Width           =   1380
@@ -263,13 +268,13 @@ Begin VB.Form FormMainWindow
       Left            =   17010
       MouseIcon       =   "FormMainWindow.frx":3258
       MousePointer    =   99  'Custom
-      TabIndex        =   83
+      TabIndex        =   84
       ToolTipText     =   "See you next time~"
       Top             =   210
       Width           =   1380
    End
    Begin VB.CommandButton CmdHelp 
-      Caption         =   "帮助(&H)"
+      Caption         =   "帮助(&H)..."
       BeginProperty Font 
          Name            =   "Microsoft YaHei UI"
          Size            =   9.75
@@ -283,7 +288,7 @@ Begin VB.Form FormMainWindow
       Left            =   13860
       MouseIcon       =   "FormMainWindow.frx":33AA
       MousePointer    =   99  'Custom
-      TabIndex        =   81
+      TabIndex        =   82
       Top             =   210
       Width           =   1380
    End
@@ -1767,10 +1772,35 @@ Begin VB.Form FormMainWindow
          Width           =   1125
       End
    End
+   Begin VB.Label LabelClock 
+      Alignment       =   2  'Center
+      Appearance      =   0  'Flat
+      BackColor       =   &H000000FF&
+      BackStyle       =   0  'Transparent
+      Caption         =   "00:00:00"
+      BeginProperty Font 
+         Name            =   "Microsoft YaHei UI"
+         Size            =   12
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      ForeColor       =   &H00000000&
+      Height          =   330
+      Left            =   12600
+      MouseIcon       =   "FormMainWindow.frx":6B1E
+      MousePointer    =   99  'Custom
+      TabIndex        =   81
+      ToolTipText     =   "时钟"
+      Top             =   270
+      Width           =   1065
+   End
    Begin WMPLibCtl.WindowsMediaPlayer WindowsMediaPlayer1 
       Height          =   435
       Left            =   17325
-      TabIndex        =   84
+      TabIndex        =   85
       Top             =   840
       Visible         =   0   'False
       Width           =   435
@@ -1884,7 +1914,7 @@ Begin VB.Form FormMainWindow
          Caption         =   "-"
       End
       Begin VB.Menu MenuHelp 
-         Caption         =   "帮助(&H)"
+         Caption         =   "帮助(&H)..."
          Shortcut        =   {F1}
       End
       Begin VB.Menu MenuSoundSwitch 
@@ -2466,4 +2496,10 @@ Private Const SW_SHOW = 5
         'FormKanasu.LabelDashboard.Font = TextboxFontsKanaFont.Text: FormKanasu.CmdOption1.Font = TextboxFontsRomajiFont.Text: FormKanasu.CmdOption2.Font = TextboxFontsRomajiFont.Text: FormKanasu.CmdOption3.Font = TextboxFontsRomajiFont.Text
         'FormRomajisu.LabelDashboard.Font = TextboxFontsRomajiFont.Text: FormRomajisu.CmdOption1.Font = TextboxFontsKanaFont.Text: FormRomajisu.CmdOption2.Font = TextboxFontsKanaFont.Text: FormRomajisu.CmdOption3.Font = TextboxFontsKanaFont.Text
         MsgBox "字体已更换！", vbInformation + vbOKOnly + vbDefaultButton1, "假名征服者(KanaMaster)"
+    End Sub
+
+'[] TIMERS []
+
+    Public Sub TimerClock_Timer()
+        LabelClock.Caption = Format((Hour(Time)), "00") & ":" & Format((Minute(Time)), "00") & ":" & Format((Second(Time)), "00")
     End Sub
