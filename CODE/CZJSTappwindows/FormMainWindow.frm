@@ -5,8 +5,8 @@ Begin VB.Form FormMainWindow
    AutoRedraw      =   -1  'True
    BackColor       =   &H00D0D0D0&
    BorderStyle     =   1  'Fixed Single
-   Caption         =   "假名征服者(KanaMaster) v0.57chs"
-   ClientHeight    =   11670
+   Caption         =   "假名征服者(KanaMaster) v0.59chs"
+   ClientHeight    =   13245
    ClientLeft      =   45
    ClientTop       =   720
    ClientWidth     =   18600
@@ -26,9 +26,29 @@ Begin VB.Form FormMainWindow
    MaxButton       =   0   'False
    MouseIcon       =   "FormMainWindow.frx":23D2
    MousePointer    =   99  'Custom
-   ScaleHeight     =   11670
+   ScaleHeight     =   13245
    ScaleWidth      =   18600
    StartUpPosition =   2  '屏幕中心
+   Begin VB.CommandButton CmdStart 
+      Caption         =   "开始!(&S)"
+      Default         =   -1  'True
+      BeginProperty Font 
+         Name            =   "Microsoft YaHei UI"
+         Size            =   32.25
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   1380
+      Left            =   15120
+      MouseIcon       =   "FormMainWindow.frx":2524
+      MousePointer    =   99  'Custom
+      TabIndex        =   80
+      Top             =   11655
+      Width           =   3270
+   End
    Begin VB.Timer TimerClock 
       Interval        =   500
       Left            =   13335
@@ -48,11 +68,11 @@ Begin VB.Form FormMainWindow
          Strikethrough   =   0   'False
       EndProperty
       ForeColor       =   &H00000000&
-      Height          =   1065
+      Height          =   1275
       Left            =   210
       TabIndex        =   7
-      Top             =   2940
-      Width           =   15030
+      Top             =   3360
+      Width           =   15240
       Begin VB.CommandButton CmdPresetAllKana 
          Caption         =   "全部假名(&\)"
          BeginProperty Font 
@@ -65,11 +85,11 @@ Begin VB.Form FormMainWindow
             Strikethrough   =   0   'False
          EndProperty
          Height          =   435
-         Left            =   12915
-         MouseIcon       =   "FormMainWindow.frx":2524
+         Left            =   13125
+         MouseIcon       =   "FormMainWindow.frx":2676
          MousePointer    =   99  'Custom
          TabIndex        =   15
-         Top             =   420
+         Top             =   525
          Width           =   1800
       End
       Begin VB.CommandButton CmdPresetOnlyKatakana 
@@ -84,11 +104,11 @@ Begin VB.Form FormMainWindow
             Strikethrough   =   0   'False
          EndProperty
          Height          =   435
-         Left            =   11130
-         MouseIcon       =   "FormMainWindow.frx":2676
+         Left            =   11340
+         MouseIcon       =   "FormMainWindow.frx":27C8
          MousePointer    =   99  'Custom
          TabIndex        =   14
-         Top             =   420
+         Top             =   525
          Width           =   1800
       End
       Begin VB.CommandButton CmdPresetOnlyHiragana 
@@ -103,11 +123,11 @@ Begin VB.Form FormMainWindow
             Strikethrough   =   0   'False
          EndProperty
          Height          =   435
-         Left            =   9345
-         MouseIcon       =   "FormMainWindow.frx":27C8
+         Left            =   9555
+         MouseIcon       =   "FormMainWindow.frx":291A
          MousePointer    =   99  'Custom
          TabIndex        =   13
-         Top             =   420
+         Top             =   525
          Width           =   1800
       End
       Begin VB.CommandButton CmdPresetDefaultKanaRange 
@@ -122,11 +142,11 @@ Begin VB.Form FormMainWindow
             Strikethrough   =   0   'False
          EndProperty
          Height          =   435
-         Left            =   7560
-         MouseIcon       =   "FormMainWindow.frx":291A
+         Left            =   7770
+         MouseIcon       =   "FormMainWindow.frx":2A6C
          MousePointer    =   99  'Custom
          TabIndex        =   12
-         Top             =   420
+         Top             =   525
          Width           =   1800
       End
       Begin VB.CommandButton CmdPresetMaster 
@@ -141,12 +161,12 @@ Begin VB.Form FormMainWindow
             Strikethrough   =   0   'False
          EndProperty
          Height          =   435
-         Left            =   5565
-         MouseIcon       =   "FormMainWindow.frx":2A6C
+         Left            =   5670
+         MouseIcon       =   "FormMainWindow.frx":2BBE
          MousePointer    =   99  'Custom
          TabIndex        =   11
          ToolTipText     =   "Dungeon♂Master"
-         Top             =   420
+         Top             =   525
          Width           =   1800
       End
       Begin VB.CommandButton CmdPresetHard 
@@ -161,11 +181,11 @@ Begin VB.Form FormMainWindow
             Strikethrough   =   0   'False
          EndProperty
          Height          =   435
-         Left            =   3780
-         MouseIcon       =   "FormMainWindow.frx":2BBE
+         Left            =   3885
+         MouseIcon       =   "FormMainWindow.frx":2D10
          MousePointer    =   99  'Custom
          TabIndex        =   10
-         Top             =   420
+         Top             =   525
          Width           =   1800
       End
       Begin VB.CommandButton CmdPresetNormal 
@@ -180,11 +200,11 @@ Begin VB.Form FormMainWindow
             Strikethrough   =   0   'False
          EndProperty
          Height          =   435
-         Left            =   1995
-         MouseIcon       =   "FormMainWindow.frx":2D10
+         Left            =   2100
+         MouseIcon       =   "FormMainWindow.frx":2E62
          MousePointer    =   99  'Custom
          TabIndex        =   9
-         Top             =   420
+         Top             =   525
          Width           =   1800
       End
       Begin VB.CommandButton CmdPresetEasy 
@@ -199,11 +219,11 @@ Begin VB.Form FormMainWindow
             Strikethrough   =   0   'False
          EndProperty
          Height          =   435
-         Left            =   210
-         MouseIcon       =   "FormMainWindow.frx":2E62
+         Left            =   315
+         MouseIcon       =   "FormMainWindow.frx":2FB4
          MousePointer    =   99  'Custom
          TabIndex        =   8
-         Top             =   420
+         Top             =   525
          Width           =   1800
       End
    End
@@ -211,26 +231,6 @@ Begin VB.Form FormMainWindow
       Interval        =   100
       Left            =   17955
       Top             =   840
-   End
-   Begin VB.CommandButton CmdStart 
-      Caption         =   "开始!(&S)"
-      Default         =   -1  'True
-      BeginProperty Font 
-         Name            =   "Microsoft YaHei UI"
-         Size            =   32.25
-         Charset         =   0
-         Weight          =   400
-         Underline       =   0   'False
-         Italic          =   0   'False
-         Strikethrough   =   0   'False
-      EndProperty
-      Height          =   1380
-      Left            =   15435
-      MouseIcon       =   "FormMainWindow.frx":2FB4
-      MousePointer    =   99  'Custom
-      TabIndex        =   80
-      Top             =   10080
-      Width           =   2955
    End
    Begin VB.CommandButton CmdSoundSwitch 
       Caption         =   "音效(&O): 关"
@@ -306,11 +306,11 @@ Begin VB.Form FormMainWindow
          Strikethrough   =   0   'False
       EndProperty
       ForeColor       =   &H00000000&
-      Height          =   2850
-      Left            =   7770
+      Height          =   2955
+      Left            =   7980
       TabIndex        =   73
-      Top             =   8610
-      Width           =   5160
+      Top             =   10080
+      Width           =   5685
       Begin VB.CommandButton CmdFontsApply 
          Caption         =   "应用"
          Enabled         =   0   'False
@@ -324,11 +324,11 @@ Begin VB.Form FormMainWindow
             Strikethrough   =   0   'False
          EndProperty
          Height          =   435
-         Left            =   3150
+         Left            =   3570
          MouseIcon       =   "FormMainWindow.frx":34FC
          MousePointer    =   99  'Custom
          TabIndex        =   79
-         Top             =   1890
+         Top             =   2205
          Width           =   1800
       End
       Begin VB.TextBox TextboxFontsRomajiFont 
@@ -346,12 +346,12 @@ Begin VB.Form FormMainWindow
          EndProperty
          ForeColor       =   &H00000000&
          Height          =   360
-         Left            =   1575
+         Left            =   1995
          MousePointer    =   3  'I-Beam
          TabIndex        =   78
          Text            =   "Microsoft Sans Serif"
          ToolTipText     =   "推荐：Microsoft Sans Serif，筑紫，思源。"
-         Top             =   1260
+         Top             =   1575
          Width           =   3375
       End
       Begin VB.TextBox TextboxFontsKanaFont 
@@ -369,12 +369,12 @@ Begin VB.Form FormMainWindow
          EndProperty
          ForeColor       =   &H00000000&
          Height          =   360
-         Left            =   1575
+         Left            =   1995
          MousePointer    =   3  'I-Beam
          TabIndex        =   76
          Text            =   "MS PGothic"
          ToolTipText     =   "推荐：MS PGothic，MS PMincho，筑紫，思源，冬青，Shin-Go，教科书体。"
-         Top             =   840
+         Top             =   1050
          Width           =   3375
       End
       Begin VB.CheckBox CheckboxFontsSwitch 
@@ -392,12 +392,12 @@ Begin VB.Form FormMainWindow
          EndProperty
          ForeColor       =   &H00000000&
          Height          =   435
-         Left            =   210
+         Left            =   315
          MouseIcon       =   "FormMainWindow.frx":364E
          MousePointer    =   99  'Custom
          TabIndex        =   74
          ToolTipText     =   "注意：设定不兼容的字体可能导致乱码。"
-         Top             =   315
+         Top             =   420
          Width           =   1380
       End
       Begin VB.Label LabelFontsRomajiFont 
@@ -416,9 +416,9 @@ Begin VB.Form FormMainWindow
          EndProperty
          ForeColor       =   &H00000000&
          Height          =   420
-         Left            =   315
+         Left            =   630
          TabIndex        =   77
-         Top             =   1260
+         Top             =   1575
          Width           =   1125
       End
       Begin VB.Label LabelFontsKanaFont 
@@ -437,9 +437,9 @@ Begin VB.Form FormMainWindow
          EndProperty
          ForeColor       =   &H00000000&
          Height          =   420
-         Left            =   315
+         Left            =   630
          TabIndex        =   75
-         Top             =   840
+         Top             =   1050
          Width           =   1125
       End
    End
@@ -457,11 +457,11 @@ Begin VB.Form FormMainWindow
          Strikethrough   =   0   'False
       EndProperty
       ForeColor       =   &H00000000&
-      Height          =   1275
+      Height          =   1485
       Left            =   210
       TabIndex        =   16
-      Top             =   4095
-      Width           =   7365
+      Top             =   4830
+      Width           =   7470
       Begin VB.CheckBox CheckboxKanaRange11 
          Appearance      =   0  'Flat
          BackColor       =   &H00D0D0D0&
@@ -477,12 +477,12 @@ Begin VB.Form FormMainWindow
          EndProperty
          ForeColor       =   &H00000000&
          Height          =   435
-         Left            =   4935
+         Left            =   5040
          MouseIcon       =   "FormMainWindow.frx":37A0
          MousePointer    =   99  'Custom
          TabIndex        =   27
-         Top             =   735
-         Width           =   2220
+         Top             =   840
+         Width           =   2115
       End
       Begin VB.CheckBox CheckboxKanaRange10 
          Appearance      =   0  'Flat
@@ -499,11 +499,11 @@ Begin VB.Form FormMainWindow
          EndProperty
          ForeColor       =   &H00000000&
          Height          =   435
-         Left            =   3990
+         Left            =   4095
          MouseIcon       =   "FormMainWindow.frx":38F2
          MousePointer    =   99  'Custom
          TabIndex        =   26
-         Top             =   735
+         Top             =   840
          Value           =   1  'Checked
          Width           =   855
       End
@@ -522,11 +522,11 @@ Begin VB.Form FormMainWindow
          EndProperty
          ForeColor       =   &H00000000&
          Height          =   435
-         Left            =   3045
+         Left            =   3150
          MouseIcon       =   "FormMainWindow.frx":3A44
          MousePointer    =   99  'Custom
          TabIndex        =   25
-         Top             =   735
+         Top             =   840
          Value           =   1  'Checked
          Width           =   855
       End
@@ -545,11 +545,11 @@ Begin VB.Form FormMainWindow
          EndProperty
          ForeColor       =   &H00000000&
          Height          =   435
-         Left            =   2100
+         Left            =   2205
          MouseIcon       =   "FormMainWindow.frx":3B96
          MousePointer    =   99  'Custom
          TabIndex        =   24
-         Top             =   735
+         Top             =   840
          Value           =   1  'Checked
          Width           =   855
       End
@@ -568,11 +568,11 @@ Begin VB.Form FormMainWindow
          EndProperty
          ForeColor       =   &H00000000&
          Height          =   435
-         Left            =   1155
+         Left            =   1260
          MouseIcon       =   "FormMainWindow.frx":3CE8
          MousePointer    =   99  'Custom
          TabIndex        =   23
-         Top             =   735
+         Top             =   840
          Value           =   1  'Checked
          Width           =   855
       End
@@ -591,11 +591,11 @@ Begin VB.Form FormMainWindow
          EndProperty
          ForeColor       =   &H00000000&
          Height          =   435
-         Left            =   210
+         Left            =   315
          MouseIcon       =   "FormMainWindow.frx":3E3A
          MousePointer    =   99  'Custom
          TabIndex        =   22
-         Top             =   735
+         Top             =   840
          Value           =   1  'Checked
          Width           =   855
       End
@@ -614,11 +614,11 @@ Begin VB.Form FormMainWindow
          EndProperty
          ForeColor       =   &H00000000&
          Height          =   435
-         Left            =   3990
+         Left            =   4095
          MouseIcon       =   "FormMainWindow.frx":3F8C
          MousePointer    =   99  'Custom
          TabIndex        =   21
-         Top             =   315
+         Top             =   420
          Value           =   1  'Checked
          Width           =   855
       End
@@ -637,11 +637,11 @@ Begin VB.Form FormMainWindow
          EndProperty
          ForeColor       =   &H00000000&
          Height          =   435
-         Left            =   3045
+         Left            =   3150
          MouseIcon       =   "FormMainWindow.frx":40DE
          MousePointer    =   99  'Custom
          TabIndex        =   20
-         Top             =   315
+         Top             =   420
          Value           =   1  'Checked
          Width           =   855
       End
@@ -660,11 +660,11 @@ Begin VB.Form FormMainWindow
          EndProperty
          ForeColor       =   &H00000000&
          Height          =   435
-         Left            =   2100
+         Left            =   2205
          MouseIcon       =   "FormMainWindow.frx":4230
          MousePointer    =   99  'Custom
          TabIndex        =   19
-         Top             =   315
+         Top             =   420
          Value           =   1  'Checked
          Width           =   855
       End
@@ -683,11 +683,11 @@ Begin VB.Form FormMainWindow
          EndProperty
          ForeColor       =   &H00000000&
          Height          =   435
-         Left            =   1155
+         Left            =   1260
          MouseIcon       =   "FormMainWindow.frx":4382
          MousePointer    =   99  'Custom
          TabIndex        =   18
-         Top             =   315
+         Top             =   420
          Value           =   1  'Checked
          Width           =   855
       End
@@ -706,11 +706,11 @@ Begin VB.Form FormMainWindow
          EndProperty
          ForeColor       =   &H00000000&
          Height          =   435
-         Left            =   210
+         Left            =   315
          MouseIcon       =   "FormMainWindow.frx":44D4
          MousePointer    =   99  'Custom
          TabIndex        =   17
-         Top             =   315
+         Top             =   420
          Value           =   1  'Checked
          Width           =   855
       End
@@ -728,11 +728,11 @@ Begin VB.Form FormMainWindow
          Strikethrough   =   0   'False
       EndProperty
       ForeColor       =   &H00000000&
-      Height          =   1065
+      Height          =   1275
       Left            =   210
       TabIndex        =   1
-      Top             =   945
-      Width           =   9045
+      Top             =   1050
+      Width           =   9255
       Begin VB.CommandButton CmdGameModeRomajisu 
          Caption         =   "Romaji-su!"
          Enabled         =   0   'False
@@ -746,12 +746,12 @@ Begin VB.Form FormMainWindow
             Strikethrough   =   0   'False
          EndProperty
          Height          =   435
-         Left            =   6825
+         Left            =   6930
          MouseIcon       =   "FormMainWindow.frx":4626
          MousePointer    =   99  'Custom
          TabIndex        =   5
          ToolTipText     =   "在 RomajiMaster 模式的基础上，按钮出现在随机位置，且只能用鼠标点击。"
-         Top             =   420
+         Top             =   525
          Width           =   1980
       End
       Begin VB.CommandButton CmdGameModeKanasu 
@@ -767,12 +767,12 @@ Begin VB.Form FormMainWindow
             Strikethrough   =   0   'False
          EndProperty
          Height          =   435
-         Left            =   4620
+         Left            =   4725
          MouseIcon       =   "FormMainWindow.frx":4778
          MousePointer    =   99  'Custom
          TabIndex        =   4
          ToolTipText     =   "在 KanaMaster 模式的基础上，按钮出现在随机位置，且只能用鼠标点击。"
-         Top             =   420
+         Top             =   525
          Width           =   1980
       End
       Begin VB.CommandButton CmdGameModeRomajiMaster 
@@ -788,12 +788,12 @@ Begin VB.Form FormMainWindow
             Strikethrough   =   0   'False
          EndProperty
          Height          =   435
-         Left            =   2415
+         Left            =   2520
          MouseIcon       =   "FormMainWindow.frx":48CA
          MousePointer    =   99  'Custom
          TabIndex        =   3
          ToolTipText     =   "与 KanaMaster 模式相反，玩家须正确选择与罗马字对应的假名。"
-         Top             =   420
+         Top             =   525
          Width           =   1980
       End
       Begin VB.CommandButton CmdGameModeKanaMaster 
@@ -808,12 +808,12 @@ Begin VB.Form FormMainWindow
             Strikethrough   =   0   'False
          EndProperty
          Height          =   435
-         Left            =   210
+         Left            =   315
          MouseIcon       =   "FormMainWindow.frx":4A1C
          MousePointer    =   99  'Custom
          TabIndex        =   2
          ToolTipText     =   "玩家须正确选择与假名对应的罗马字。"
-         Top             =   420
+         Top             =   525
          Width           =   1980
       End
       Begin VB.Shape ShapeLightGameModeRomajisu 
@@ -823,8 +823,8 @@ Begin VB.Form FormMainWindow
          BorderStyle     =   0  'Transparent
          FillColor       =   &H00FF9000&
          Height          =   525
-         Left            =   6780
-         Top             =   375
+         Left            =   6885
+         Top             =   480
          Width           =   2070
       End
       Begin VB.Shape ShapeLightGameModeKanasu 
@@ -834,8 +834,8 @@ Begin VB.Form FormMainWindow
          BorderStyle     =   0  'Transparent
          FillColor       =   &H00FF9000&
          Height          =   525
-         Left            =   4575
-         Top             =   375
+         Left            =   4680
+         Top             =   480
          Width           =   2070
       End
       Begin VB.Shape ShapeLightGameModeRomajiMaster 
@@ -845,8 +845,8 @@ Begin VB.Form FormMainWindow
          BorderStyle     =   0  'Transparent
          FillColor       =   &H00FF9000&
          Height          =   525
-         Left            =   2370
-         Top             =   375
+         Left            =   2475
+         Top             =   480
          Width           =   2070
       End
       Begin VB.Shape ShapeLightGameModeKanaMaster 
@@ -856,8 +856,8 @@ Begin VB.Form FormMainWindow
          FillColor       =   &H00FF9000&
          FillStyle       =   0  'Solid
          Height          =   525
-         Left            =   165
-         Top             =   375
+         Left            =   270
+         Top             =   480
          Width           =   2070
       End
    End
@@ -875,10 +875,10 @@ Begin VB.Form FormMainWindow
          Strikethrough   =   0   'False
       EndProperty
       ForeColor       =   &H00000000&
-      Height          =   2850
+      Height          =   2955
       Left            =   210
       TabIndex        =   60
-      Top             =   8610
+      Top             =   10080
       Width           =   3900
       Begin VB.TextBox TextboxKeyboardOption3 
          Alignment       =   2  'Center
@@ -901,7 +901,7 @@ Begin VB.Form FormMainWindow
          MousePointer    =   99  'Custom
          TabIndex        =   66
          ToolTipText     =   "指定右边选项的键位。"
-         Top             =   1050
+         Top             =   1155
          Width           =   500
       End
       Begin VB.TextBox TextboxKeyboardOption2 
@@ -925,7 +925,7 @@ Begin VB.Form FormMainWindow
          MousePointer    =   99  'Custom
          TabIndex        =   64
          ToolTipText     =   "指定中间选项的键位。"
-         Top             =   1050
+         Top             =   1155
          Width           =   500
       End
       Begin VB.TextBox TextboxKeyboardOption1 
@@ -949,7 +949,7 @@ Begin VB.Form FormMainWindow
          MousePointer    =   99  'Custom
          TabIndex        =   62
          ToolTipText     =   "指定左边选项的键位。"
-         Top             =   1050
+         Top             =   1155
          Width           =   500
       End
       Begin VB.Label LabelKeyboardOption3 
@@ -971,8 +971,8 @@ Begin VB.Form FormMainWindow
          Height          =   525
          Left            =   2835
          TabIndex        =   65
-         Top             =   420
-         Width           =   500
+         Top             =   525
+         Width           =   495
       End
       Begin VB.Label LabelKeyboardOption2 
          Alignment       =   2  'Center
@@ -993,8 +993,8 @@ Begin VB.Form FormMainWindow
          Height          =   525
          Left            =   1680
          TabIndex        =   63
-         Top             =   420
-         Width           =   500
+         Top             =   525
+         Width           =   495
       End
       Begin VB.Label LabelKeyboardOption1 
          Alignment       =   2  'Center
@@ -1015,8 +1015,8 @@ Begin VB.Form FormMainWindow
          Height          =   525
          Left            =   525
          TabIndex        =   61
-         Top             =   420
-         Width           =   500
+         Top             =   525
+         Width           =   495
       End
       Begin VB.Label LabelKeyboardNote 
          Appearance      =   0  'Flat
@@ -1036,7 +1036,7 @@ Begin VB.Form FormMainWindow
          Height          =   840
          Left            =   210
          TabIndex        =   67
-         Top             =   1785
+         Top             =   1890
          Width           =   3600
       End
    End
@@ -1054,10 +1054,10 @@ Begin VB.Form FormMainWindow
          Strikethrough   =   0   'False
       EndProperty
       ForeColor       =   &H00000000&
-      Height          =   2850
-      Left            =   4305
+      Height          =   2955
+      Left            =   4410
       TabIndex        =   68
-      Top             =   8610
+      Top             =   10080
       Width           =   3270
       Begin VB.CheckBox CheckboxDisplaySakura 
          Appearance      =   0  'Flat
@@ -1074,11 +1074,11 @@ Begin VB.Form FormMainWindow
          EndProperty
          ForeColor       =   &H00000000&
          Height          =   435
-         Left            =   210
+         Left            =   315
          MouseIcon       =   "FormMainWindow.frx":4F64
          MousePointer    =   99  'Custom
          TabIndex        =   72
-         Top             =   1575
+         Top             =   1995
          Value           =   1  'Checked
          Width           =   1380
       End
@@ -1097,12 +1097,12 @@ Begin VB.Form FormMainWindow
          EndProperty
          ForeColor       =   &H00000000&
          Height          =   435
-         Left            =   210
+         Left            =   315
          MouseIcon       =   "FormMainWindow.frx":50B6
          MousePointer    =   99  'Custom
          TabIndex        =   71
          ToolTipText     =   "不勾选此选项将会关闭窗口缩放动画、提示信息缩放动画、进度条平滑动画、樱花旋转动画、数字跳动效果。箭头动画与通关动画不受影响。"
-         Top             =   1155
+         Top             =   1470
          Value           =   1  'Checked
          Width           =   855
       End
@@ -1121,12 +1121,12 @@ Begin VB.Form FormMainWindow
          EndProperty
          ForeColor       =   &H00000000&
          Height          =   435
-         Left            =   210
+         Left            =   315
          MouseIcon       =   "FormMainWindow.frx":5208
          MousePointer    =   99  'Custom
          TabIndex        =   70
          ToolTipText     =   "隐藏出题板周围的大部分数字信息，例如倒计时与准确度。"
-         Top             =   735
+         Top             =   945
          Width           =   1590
       End
       Begin VB.CheckBox CheckboxDisplayReduceContrast 
@@ -1144,11 +1144,11 @@ Begin VB.Form FormMainWindow
          EndProperty
          ForeColor       =   &H00000000&
          Height          =   435
-         Left            =   210
+         Left            =   315
          MouseIcon       =   "FormMainWindow.frx":535A
          MousePointer    =   99  'Custom
          TabIndex        =   69
-         Top             =   315
+         Top             =   420
          Width           =   2010
       End
    End
@@ -1166,10 +1166,10 @@ Begin VB.Form FormMainWindow
          Strikethrough   =   0   'False
       EndProperty
       ForeColor       =   &H00000000&
-      Height          =   3585
-      Left            =   7770
+      Height          =   4215
+      Left            =   7980
       TabIndex        =   37
-      Top             =   4095
+      Top             =   4830
       Width           =   7470
       Begin VB.CheckBox CheckboxDifficultyIncreaseDifficultyGradually 
          Appearance      =   0  'Flat
@@ -1186,78 +1186,78 @@ Begin VB.Form FormMainWindow
          EndProperty
          ForeColor       =   &H00000000&
          Height          =   435
-         Left            =   210
+         Left            =   315
          MouseIcon       =   "FormMainWindow.frx":54AC
          MousePointer    =   99  'Custom
          TabIndex        =   40
-         Top             =   945
+         Top             =   1050
          Value           =   1  'Checked
          Width           =   1590
       End
       Begin VB.HScrollBar HScrollDifficultyMistakeHPDrain 
          Height          =   330
          LargeChange     =   45
-         Left            =   2310
+         Left            =   2415
          Max             =   50
          Min             =   5
          MouseIcon       =   "FormMainWindow.frx":55FE
          MousePointer    =   99  'Custom
          TabIndex        =   52
-         Top             =   2940
+         Top             =   3570
          Value           =   10
-         Width           =   4950
+         Width           =   4740
       End
       Begin VB.HScrollBar HScrollDifficultyCooldown 
          Height          =   330
          LargeChange     =   18
-         Left            =   2310
+         Left            =   2415
          Max             =   20
          Min             =   2
          MouseIcon       =   "FormMainWindow.frx":5750
          MousePointer    =   99  'Custom
          TabIndex        =   49
-         Top             =   2100
+         Top             =   2835
          Value           =   10
-         Width           =   4950
+         Width           =   4740
       End
       Begin VB.HScrollBar HScrollDifficultyReachNormalDifficultyAt 
          Height          =   330
          LargeChange     =   95
-         Left            =   3990
+         Left            =   3150
          Max             =   100
          Min             =   5
          MouseIcon       =   "FormMainWindow.frx":58A2
          MousePointer    =   99  'Custom
          TabIndex        =   46
-         Top             =   1470
+         Top             =   2205
          Value           =   50
-         Width           =   3270
+         Width           =   4005
       End
       Begin VB.HScrollBar HScrollDifficultyInitialDifficulty 
          Height          =   330
          LargeChange     =   48
-         Left            =   3990
+         Left            =   3150
          Max             =   50
          Min             =   2
          MouseIcon       =   "FormMainWindow.frx":59F4
          MousePointer    =   99  'Custom
          TabIndex        =   43
-         Top             =   1050
+         Top             =   1680
          Value           =   30
-         Width           =   3270
+         Width           =   4005
       End
       Begin VB.HScrollBar HScrollDifficultyNormalDifficulty 
          Height          =   330
          LargeChange     =   28
-         Left            =   1260
+         Left            =   1365
          Max             =   30
          Min             =   2
          MouseIcon       =   "FormMainWindow.frx":5B46
          MousePointer    =   99  'Custom
          TabIndex        =   39
-         Top             =   420
+         Top             =   525
          Value           =   20
-         Width           =   6000
+         Width           =   5790
       End
       Begin VB.Label LabelDifficultyMistakeHPDrain 
          Appearance      =   0  'Flat
@@ -1275,12 +1275,12 @@ Begin VB.Form FormMainWindow
          EndProperty
          ForeColor       =   &H00000000&
          Height          =   420
-         Left            =   210
+         Left            =   315
          MouseIcon       =   "FormMainWindow.frx":5C98
          MousePointer    =   99  'Custom
          TabIndex        =   50
          ToolTipText     =   "(HP Drain)"
-         Top             =   2920
+         Top             =   3570
          Width           =   975
       End
       Begin VB.Label LabelDifficultyCooldown 
@@ -1299,12 +1299,12 @@ Begin VB.Form FormMainWindow
          EndProperty
          ForeColor       =   &H00000000&
          Height          =   420
-         Left            =   210
+         Left            =   315
          MouseIcon       =   "FormMainWindow.frx":5DEA
          MousePointer    =   99  'Custom
          TabIndex        =   47
          ToolTipText     =   "(CD)"
-         Top             =   2080
+         Top             =   2835
          Width           =   975
       End
       Begin VB.Label LabelDifficultyReachNormalDifficultyAt 
@@ -1323,9 +1323,9 @@ Begin VB.Form FormMainWindow
          EndProperty
          ForeColor       =   &H00000000&
          Height          =   375
-         Left            =   1470
+         Left            =   630
          TabIndex        =   44
-         Top             =   1440
+         Top             =   2205
          Width           =   1335
       End
       Begin VB.Label LabelDifficultyInitialDifficulty 
@@ -1344,9 +1344,9 @@ Begin VB.Form FormMainWindow
          EndProperty
          ForeColor       =   &H00000000&
          Height          =   375
-         Left            =   1890
+         Left            =   630
          TabIndex        =   41
-         Top             =   1040
+         Top             =   1680
          Width           =   915
       End
       Begin VB.Label LabelDifficultyNormalDifficultyIndicator 
@@ -1366,9 +1366,9 @@ Begin VB.Form FormMainWindow
          EndProperty
          ForeColor       =   &H00000000&
          Height          =   375
-         Left            =   210
+         Left            =   315
          TabIndex        =   38
-         Top             =   380
+         Top             =   470
          Width           =   915
       End
       Begin VB.Label LabelDifficultyInitialDifficultyIndicator 
@@ -1388,9 +1388,9 @@ Begin VB.Form FormMainWindow
          EndProperty
          ForeColor       =   &H00000000&
          Height          =   375
-         Left            =   2940
+         Left            =   2100
          TabIndex        =   42
-         Top             =   1000
+         Top             =   1620
          Width           =   915
       End
       Begin VB.Label LabelDifficultyReachNormalDifficultyAtIndicator 
@@ -1410,9 +1410,9 @@ Begin VB.Form FormMainWindow
          EndProperty
          ForeColor       =   &H00000000&
          Height          =   375
-         Left            =   2940
+         Left            =   2100
          TabIndex        =   45
-         Top             =   1430
+         Top             =   2150
          Width           =   915
       End
       Begin VB.Label LabelDifficultyCooldownIndicator 
@@ -1432,9 +1432,9 @@ Begin VB.Form FormMainWindow
          EndProperty
          ForeColor       =   &H00000000&
          Height          =   375
-         Left            =   1260
+         Left            =   1365
          TabIndex        =   48
-         Top             =   2050
+         Top             =   2775
          Width           =   915
       End
       Begin VB.Label LabelDifficultyMistakeHPDrainIndicator 
@@ -1454,9 +1454,9 @@ Begin VB.Form FormMainWindow
          EndProperty
          ForeColor       =   &H00000000&
          Height          =   375
-         Left            =   1260
+         Left            =   1365
          TabIndex        =   51
-         Top             =   2900
+         Top             =   3510
          Width           =   915
       End
    End
@@ -1474,11 +1474,11 @@ Begin VB.Form FormMainWindow
          Strikethrough   =   0   'False
       EndProperty
       ForeColor       =   &H00000000&
-      Height          =   3585
-      Left            =   15435
+      Height          =   4215
+      Left            =   15750
       TabIndex        =   53
-      Top             =   4095
-      Width           =   2955
+      Top             =   4830
+      Width           =   2640
       Begin VB.CheckBox CheckboxModsPF 
          Appearance      =   0  'Flat
          BackColor       =   &H00D0D0D0&
@@ -1494,12 +1494,12 @@ Begin VB.Form FormMainWindow
          EndProperty
          ForeColor       =   &H00000000&
          Height          =   435
-         Left            =   210
+         Left            =   315
          MouseIcon       =   "FormMainWindow.frx":5F3C
          MousePointer    =   99  'Custom
          TabIndex        =   55
          ToolTipText     =   "(Perfect)"
-         Top             =   735
+         Top             =   945
          Width           =   1800
       End
       Begin VB.CheckBox CheckboxModsNF 
@@ -1517,12 +1517,12 @@ Begin VB.Form FormMainWindow
          EndProperty
          ForeColor       =   &H00000000&
          Height          =   435
-         Left            =   210
+         Left            =   315
          MouseIcon       =   "FormMainWindow.frx":608E
          MousePointer    =   99  'Custom
          TabIndex        =   56
          ToolTipText     =   "(No-Fail)"
-         Top             =   1155
+         Top             =   1470
          Width           =   1800
       End
       Begin VB.CheckBox CheckboxModsAU 
@@ -1540,12 +1540,12 @@ Begin VB.Form FormMainWindow
          EndProperty
          ForeColor       =   &H00000000&
          Height          =   435
-         Left            =   210
+         Left            =   315
          MouseIcon       =   "FormMainWindow.frx":61E0
          MousePointer    =   99  'Custom
          TabIndex        =   58
          ToolTipText     =   "(Auto)"
-         Top             =   1995
+         Top             =   2520
          Width           =   1800
       End
       Begin VB.CheckBox CheckboxModsSD 
@@ -1563,12 +1563,12 @@ Begin VB.Form FormMainWindow
          EndProperty
          ForeColor       =   &H00000000&
          Height          =   435
-         Left            =   210
+         Left            =   315
          MouseIcon       =   "FormMainWindow.frx":6332
          MousePointer    =   99  'Custom
          TabIndex        =   54
          ToolTipText     =   "(Sudden Death)"
-         Top             =   315
+         Top             =   420
          Width           =   1800
       End
       Begin VB.CheckBox CheckboxModsAP 
@@ -1586,12 +1586,12 @@ Begin VB.Form FormMainWindow
          EndProperty
          ForeColor       =   &H00000000&
          Height          =   435
-         Left            =   210
+         Left            =   315
          MouseIcon       =   "FormMainWindow.frx":6484
          MousePointer    =   99  'Custom
          TabIndex        =   57
          ToolTipText     =   "(Autopilot)"
-         Top             =   1575
+         Top             =   1995
          Width           =   1800
       End
    End
@@ -1609,11 +1609,11 @@ Begin VB.Form FormMainWindow
          Strikethrough   =   0   'False
       EndProperty
       ForeColor       =   &H00000000&
-      Height          =   2220
+      Height          =   2535
       Left            =   210
       TabIndex        =   28
-      Top             =   5460
-      Width           =   7365
+      Top             =   6510
+      Width           =   7470
       Begin VB.OptionButton RadioboxProgressModeKana 
          Appearance      =   0  'Flat
          BackColor       =   &H00D0D0D0&
@@ -1629,11 +1629,11 @@ Begin VB.Form FormMainWindow
          EndProperty
          ForeColor       =   &H00000000&
          Height          =   435
-         Left            =   210
+         Left            =   315
          MouseIcon       =   "FormMainWindow.frx":65D6
          MousePointer    =   99  'Custom
          TabIndex        =   29
-         Top             =   315
+         Top             =   420
          Value           =   -1  'True
          Width           =   5055
       End
@@ -1652,11 +1652,11 @@ Begin VB.Form FormMainWindow
          EndProperty
          ForeColor       =   &H00000000&
          Height          =   435
-         Left            =   210
+         Left            =   315
          MouseIcon       =   "FormMainWindow.frx":6728
          MousePointer    =   99  'Custom
          TabIndex        =   30
-         Top             =   1155
+         Top             =   1365
          Width           =   1485
       End
       Begin VB.HScrollBar HScrollProgressModeSpecifiedTime 
@@ -1668,7 +1668,7 @@ Begin VB.Form FormMainWindow
          MouseIcon       =   "FormMainWindow.frx":687A
          MousePointer    =   99  'Custom
          TabIndex        =   36
-         Top             =   1575
+         Top             =   1890
          Value           =   3
          Width           =   3900
       End
@@ -1681,7 +1681,7 @@ Begin VB.Form FormMainWindow
          MouseIcon       =   "FormMainWindow.frx":69CC
          MousePointer    =   99  'Custom
          TabIndex        =   33
-         Top             =   735
+         Top             =   945
          Value           =   1
          Width           =   3900
       End
@@ -1701,9 +1701,9 @@ Begin VB.Form FormMainWindow
          EndProperty
          ForeColor       =   &H00000000&
          Height          =   375
-         Left            =   525
+         Left            =   630
          TabIndex        =   34
-         Top             =   1570
+         Top             =   1890
          Width           =   1230
       End
       Begin VB.Label LabelProgressModeRepeatedTimes 
@@ -1722,9 +1722,9 @@ Begin VB.Form FormMainWindow
          EndProperty
          ForeColor       =   &H00000000&
          Height          =   375
-         Left            =   525
+         Left            =   630
          TabIndex        =   31
-         Top             =   730
+         Top             =   945
          Width           =   1230
       End
       Begin VB.Label LabelProgressModeRepeatedTimesIndicator 
@@ -1746,7 +1746,7 @@ Begin VB.Form FormMainWindow
          Height          =   375
          Left            =   1995
          TabIndex        =   32
-         Top             =   700
+         Top             =   900
          Width           =   1125
       End
       Begin VB.Label LabelProgressModeSpecifiedTimeIndicator 
@@ -1768,7 +1768,7 @@ Begin VB.Form FormMainWindow
          Height          =   375
          Left            =   1995
          TabIndex        =   35
-         Top             =   1540
+         Top             =   1850
          Width           =   1125
       End
    End
@@ -1859,7 +1859,7 @@ Begin VB.Form FormMainWindow
       Height          =   645
       Left            =   210
       TabIndex        =   59
-      Top             =   7875
+      Top             =   9240
       Width           =   2220
    End
    Begin VB.Label LabelTitle2 
@@ -1880,7 +1880,7 @@ Begin VB.Form FormMainWindow
       Height          =   645
       Left            =   210
       TabIndex        =   6
-      Top             =   2205
+      Top             =   2520
       Width           =   2220
    End
    Begin VB.Label LabelTitle1 
@@ -1954,7 +1954,7 @@ Begin VB.Form FormMainWindow
             Enabled         =   0   'False
          End
          Begin VB.Menu MenuAboutDate 
-            Caption         =   "2022/01/29"
+            Caption         =   "2022/01/31"
             Enabled         =   0   'False
          End
       End

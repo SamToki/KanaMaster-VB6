@@ -60,7 +60,7 @@ Begin VB.Form FormHelp
       Default         =   -1  'True
       BeginProperty Font 
          Name            =   "Microsoft YaHei UI"
-         Size            =   14.25
+         Size            =   12
          Charset         =   0
          Weight          =   400
          Underline       =   0   'False

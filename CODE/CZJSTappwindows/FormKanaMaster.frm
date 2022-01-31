@@ -5,7 +5,7 @@ Begin VB.Form FormKanaMaster
    BackColor       =   &H00D0D0D0&
    BorderStyle     =   1  'Fixed Single
    Caption         =   "KanaMaster"
-   ClientHeight    =   11670
+   ClientHeight    =   13245
    ClientLeft      =   45
    ClientTop       =   750
    ClientWidth     =   18600
@@ -25,9 +25,14 @@ Begin VB.Form FormKanaMaster
    MaxButton       =   0   'False
    MouseIcon       =   "FormKanaMaster.frx":23D2
    MousePointer    =   99  'Custom
-   ScaleHeight     =   11670
+   ScaleHeight     =   13245
    ScaleWidth      =   18600
    StartUpPosition =   2  '屏幕中心
+   Begin VB.Timer TimerClock 
+      Interval        =   500
+      Left            =   16485
+      Top             =   420
+   End
    Begin VB.CommandButton CmdStop 
       Caption         =   "停止(&O)"
       Enabled         =   0   'False
@@ -41,7 +46,7 @@ Begin VB.Form FormKanaMaster
          Strikethrough   =   0   'False
       EndProperty
       Height          =   435
-      Left            =   4200
+      Left            =   1575
       MouseIcon       =   "FormKanaMaster.frx":2524
       MousePointer    =   99  'Custom
       TabIndex        =   3
@@ -56,22 +61,22 @@ Begin VB.Form FormKanaMaster
    Begin VB.Timer TimerPopupAnimation 
       Interval        =   1
       Left            =   5775
-      Top             =   8190
+      Top             =   9870
    End
    Begin VB.Timer TimerNumberAnimation 
       Interval        =   50
       Left            =   17955
-      Top             =   630
+      Top             =   1365
    End
    Begin VB.Timer TimerArrowAnimation 
       Interval        =   1
-      Left            =   3570
+      Left            =   945
       Top             =   1470
    End
    Begin VB.Timer TimerToastAnimation 
       Interval        =   1
       Left            =   13860
-      Top             =   5145
+      Top             =   1890
    End
    Begin VB.Timer TimerSakuraAnimation 
       Interval        =   1
@@ -85,8 +90,8 @@ Begin VB.Form FormKanaMaster
    End
    Begin VB.Timer TimerTimer 
       Interval        =   90
-      Left            =   16800
-      Top             =   5985
+      Left            =   18165
+      Top             =   12810
    End
    Begin VB.TextBox TextboxInput 
       Alignment       =   2  'Center
@@ -103,7 +108,7 @@ Begin VB.Form FormKanaMaster
       EndProperty
       ForeColor       =   &H00FFFFFF&
       Height          =   435
-      Left            =   5775
+      Left            =   3150
       MaxLength       =   1
       MouseIcon       =   "FormKanaMaster.frx":2676
       MousePointer    =   99  'Custom
@@ -127,7 +132,7 @@ Begin VB.Form FormKanaMaster
       MouseIcon       =   "FormKanaMaster.frx":27C8
       MousePointer    =   99  'Custom
       TabIndex        =   32
-      Top             =   8820
+      Top             =   10395
       Width           =   5370
    End
    Begin VB.CommandButton CmdOption1 
@@ -145,7 +150,7 @@ Begin VB.Form FormKanaMaster
       MouseIcon       =   "FormKanaMaster.frx":291A
       MousePointer    =   99  'Custom
       TabIndex        =   30
-      Top             =   8820
+      Top             =   10395
       Width           =   5370
    End
    Begin VB.CommandButton CmdOption2 
@@ -163,7 +168,7 @@ Begin VB.Form FormKanaMaster
       MouseIcon       =   "FormKanaMaster.frx":2A6C
       MousePointer    =   99  'Custom
       TabIndex        =   31
-      Top             =   8820
+      Top             =   10395
       Width           =   5370
    End
    Begin VB.CommandButton CmdBackToHome 
@@ -179,7 +184,7 @@ Begin VB.Form FormKanaMaster
          Strikethrough   =   0   'False
       EndProperty
       Height          =   435
-      Left            =   210
+      Left            =   17010
       MouseIcon       =   "FormKanaMaster.frx":2BBE
       MousePointer    =   99  'Custom
       TabIndex        =   0
@@ -199,17 +204,34 @@ Begin VB.Form FormKanaMaster
          Strikethrough   =   0   'False
       EndProperty
       Height          =   435
-      Left            =   2835
+      Left            =   210
       MouseIcon       =   "FormKanaMaster.frx":2D10
       MousePointer    =   99  'Custom
       TabIndex        =   2
       Top             =   210
       Width           =   1380
    End
-   Begin VB.Timer TimerClock 
-      Interval        =   500
-      Left            =   2415
-      Top             =   420
+   Begin VB.Label LabelStartArrow 
+      Alignment       =   2  'Center
+      Appearance      =   0  'Flat
+      BackColor       =   &H000000FF&
+      BackStyle       =   0  'Transparent
+      Caption         =   "↑"
+      BeginProperty Font 
+         Name            =   "黑体"
+         Size            =   72
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      ForeColor       =   &H0000FFFF&
+      Height          =   1485
+      Left            =   368
+      TabIndex        =   36
+      Top             =   525
+      Width           =   1065
    End
    Begin VB.Label LabelAccuracy 
       Appearance      =   0  'Flat
@@ -229,8 +251,96 @@ Begin VB.Form FormKanaMaster
       Height          =   960
       Left            =   14700
       TabIndex        =   28
-      Top             =   5145
+      Top             =   5880
       Width           =   3165
+   End
+   Begin VB.Label LabelReadyArrow3 
+      Alignment       =   2  'Center
+      Appearance      =   0  'Flat
+      BackColor       =   &H000000FF&
+      BackStyle       =   0  'Transparent
+      Caption         =   "↓"
+      BeginProperty Font 
+         Name            =   "黑体"
+         Size            =   72
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      ForeColor       =   &H000000FF&
+      Height          =   1485
+      Left            =   14490
+      TabIndex        =   39
+      Top             =   8925
+      Width           =   1170
+   End
+   Begin VB.Label LabelReadyArrow2 
+      Alignment       =   2  'Center
+      Appearance      =   0  'Flat
+      BackColor       =   &H000000FF&
+      BackStyle       =   0  'Transparent
+      Caption         =   "↓"
+      BeginProperty Font 
+         Name            =   "黑体"
+         Size            =   72
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      ForeColor       =   &H000000FF&
+      Height          =   1485
+      Left            =   8715
+      TabIndex        =   38
+      Top             =   8925
+      Width           =   1170
+   End
+   Begin VB.Label LabelReadyArrow1 
+      Alignment       =   2  'Center
+      Appearance      =   0  'Flat
+      BackColor       =   &H000000FF&
+      BackStyle       =   0  'Transparent
+      Caption         =   "↓"
+      BeginProperty Font 
+         Name            =   "黑体"
+         Size            =   72
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      ForeColor       =   &H000000FF&
+      Height          =   1485
+      Left            =   2940
+      TabIndex        =   37
+      Top             =   8925
+      Width           =   1170
+   End
+   Begin VB.Label LabelToast 
+      Alignment       =   2  'Center
+      Appearance      =   0  'Flat
+      BackColor       =   &H00F0F0F0&
+      BorderStyle     =   1  'Fixed Single
+      Caption         =   "Toast提示信息"
+      BeginProperty Font 
+         Name            =   "Microsoft YaHei UI"
+         Size            =   24
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      ForeColor       =   &H00000000&
+      Height          =   700
+      Left            =   4305
+      TabIndex        =   40
+      Top             =   1575
+      Width           =   9990
    End
    Begin VB.Label LabelAverageReactionTime 
       Appearance      =   0  'Flat
@@ -253,7 +363,7 @@ Begin VB.Form FormKanaMaster
       MousePointer    =   99  'Custom
       TabIndex        =   26
       ToolTipText     =   "「均速」指平均反应用时。"
-      Top             =   3675
+      Top             =   4410
       Width           =   2640
    End
    Begin VB.Label LabelTimeLeft 
@@ -277,7 +387,7 @@ Begin VB.Form FormKanaMaster
       MousePointer    =   99  'Custom
       TabIndex        =   23
       ToolTipText     =   "指示剩余时间。单位：秒"
-      Top             =   2205
+      Top             =   2940
       Width           =   1275
    End
    Begin VB.Label LabelCurrentDifficulty 
@@ -301,7 +411,7 @@ Begin VB.Form FormKanaMaster
       MousePointer    =   99  'Custom
       TabIndex        =   24
       ToolTipText     =   "指示当前时限。若启用了「缓慢缩短时限」，此数字可能会变化。单位：秒"
-      Top             =   2625
+      Top             =   3360
       Width           =   645
    End
    Begin VB.Label LabelComboCount 
@@ -326,7 +436,7 @@ Begin VB.Form FormKanaMaster
       MousePointer    =   99  'Custom
       TabIndex        =   20
       ToolTipText     =   "当前连击数(Combo)"
-      Top             =   5145
+      Top             =   5880
       Width           =   2430
    End
    Begin VB.Label LabelBestComboCount 
@@ -351,7 +461,7 @@ Begin VB.Form FormKanaMaster
       MousePointer    =   99  'Custom
       TabIndex        =   21
       ToolTipText     =   "最大连击数(Best Combo)"
-      Top             =   5985
+      Top             =   6720
       Width           =   1275
    End
    Begin VB.Label LabelMissCount 
@@ -373,7 +483,7 @@ Begin VB.Form FormKanaMaster
       Height          =   960
       Left            =   1470
       TabIndex        =   18
-      Top             =   3675
+      Top             =   4410
       Width           =   2430
    End
    Begin VB.Label LabelHP 
@@ -395,7 +505,7 @@ Begin VB.Form FormKanaMaster
       Height          =   960
       Left            =   2205
       TabIndex        =   16
-      Top             =   2205
+      Top             =   2940
       Width           =   1695
    End
    Begin VB.Label LabelLightIndicatorModAU 
@@ -414,7 +524,7 @@ Begin VB.Form FormKanaMaster
       EndProperty
       ForeColor       =   &H00B0B0B0&
       Height          =   330
-      Left            =   8505
+      Left            =   5880
       MouseIcon       =   "FormKanaMaster.frx":34FC
       MousePointer    =   99  'Custom
       TabIndex        =   9
@@ -438,7 +548,7 @@ Begin VB.Form FormKanaMaster
       EndProperty
       ForeColor       =   &H00B0B0B0&
       Height          =   330
-      Left            =   7980
+      Left            =   5355
       MouseIcon       =   "FormKanaMaster.frx":364E
       MousePointer    =   99  'Custom
       TabIndex        =   8
@@ -462,7 +572,7 @@ Begin VB.Form FormKanaMaster
       EndProperty
       ForeColor       =   &H00B0B0B0&
       Height          =   330
-      Left            =   7455
+      Left            =   4830
       MouseIcon       =   "FormKanaMaster.frx":37A0
       MousePointer    =   99  'Custom
       TabIndex        =   7
@@ -486,7 +596,7 @@ Begin VB.Form FormKanaMaster
       EndProperty
       ForeColor       =   &H00B0B0B0&
       Height          =   330
-      Left            =   6930
+      Left            =   4305
       MouseIcon       =   "FormKanaMaster.frx":38F2
       MousePointer    =   99  'Custom
       TabIndex        =   6
@@ -510,79 +620,13 @@ Begin VB.Form FormKanaMaster
       EndProperty
       ForeColor       =   &H00B0B0B0&
       Height          =   330
-      Left            =   6405
+      Left            =   3780
       MouseIcon       =   "FormKanaMaster.frx":3A44
       MousePointer    =   99  'Custom
       TabIndex        =   5
       ToolTipText     =   "(Sudden Death)"
       Top             =   210
       Width           =   435
-   End
-   Begin VB.Label LabelReadyArrow3 
-      Alignment       =   2  'Center
-      Appearance      =   0  'Flat
-      BackColor       =   &H000000FF&
-      BackStyle       =   0  'Transparent
-      Caption         =   "↓"
-      BeginProperty Font 
-         Name            =   "黑体"
-         Size            =   72
-         Charset         =   0
-         Weight          =   400
-         Underline       =   0   'False
-         Italic          =   0   'False
-         Strikethrough   =   0   'False
-      EndProperty
-      ForeColor       =   &H000000FF&
-      Height          =   1485
-      Left            =   14490
-      TabIndex        =   39
-      Top             =   7350
-      Width           =   1170
-   End
-   Begin VB.Label LabelReadyArrow2 
-      Alignment       =   2  'Center
-      Appearance      =   0  'Flat
-      BackColor       =   &H000000FF&
-      BackStyle       =   0  'Transparent
-      Caption         =   "↓"
-      BeginProperty Font 
-         Name            =   "黑体"
-         Size            =   72
-         Charset         =   0
-         Weight          =   400
-         Underline       =   0   'False
-         Italic          =   0   'False
-         Strikethrough   =   0   'False
-      EndProperty
-      ForeColor       =   &H000000FF&
-      Height          =   1485
-      Left            =   8715
-      TabIndex        =   38
-      Top             =   7350
-      Width           =   1170
-   End
-   Begin VB.Label LabelReadyArrow1 
-      Alignment       =   2  'Center
-      Appearance      =   0  'Flat
-      BackColor       =   &H000000FF&
-      BackStyle       =   0  'Transparent
-      Caption         =   "↓"
-      BeginProperty Font 
-         Name            =   "黑体"
-         Size            =   72
-         Charset         =   0
-         Weight          =   400
-         Underline       =   0   'False
-         Italic          =   0   'False
-         Strikethrough   =   0   'False
-      EndProperty
-      ForeColor       =   &H000000FF&
-      Height          =   1485
-      Left            =   2940
-      TabIndex        =   37
-      Top             =   7350
-      Width           =   1170
    End
    Begin VB.Label LabelPopup1 
       Alignment       =   2  'Center
@@ -602,54 +646,8 @@ Begin VB.Form FormKanaMaster
       Height          =   960
       Left            =   840
       TabIndex        =   41
-      Top             =   7665
+      Top             =   9345
       Width           =   5370
-   End
-   Begin VB.Label LabelToast 
-      Alignment       =   2  'Center
-      Appearance      =   0  'Flat
-      BackColor       =   &H00F0F0F0&
-      BorderStyle     =   1  'Fixed Single
-      Caption         =   "Toast提示信息"
-      BeginProperty Font 
-         Name            =   "Microsoft YaHei UI"
-         Size            =   32.25
-         Charset         =   0
-         Weight          =   400
-         Underline       =   0   'False
-         Italic          =   0   'False
-         Strikethrough   =   0   'False
-      EndProperty
-      ForeColor       =   &H00000000&
-      Height          =   960
-      Left            =   4305
-      TabIndex        =   40
-      Top             =   4620
-      Width           =   9990
-   End
-   Begin VB.Label LabelAccuracyTitle 
-      Appearance      =   0  'Flat
-      BackColor       =   &H000000FF&
-      BackStyle       =   0  'Transparent
-      Caption         =   "准确度"
-      BeginProperty Font 
-         Name            =   "Microsoft YaHei UI"
-         Size            =   20.25
-         Charset         =   0
-         Weight          =   400
-         Underline       =   0   'False
-         Italic          =   0   'False
-         Strikethrough   =   0   'False
-      EndProperty
-      ForeColor       =   &H00F0F0F0&
-      Height          =   540
-      Left            =   14490
-      MouseIcon       =   "FormKanaMaster.frx":3B96
-      MousePointer    =   99  'Custom
-      TabIndex        =   27
-      ToolTipText     =   "(Accuracy)"
-      Top             =   4935
-      Width           =   1380
    End
    Begin VB.Label LabelPopup2 
       Alignment       =   2  'Center
@@ -669,80 +667,8 @@ Begin VB.Form FormKanaMaster
       Height          =   750
       Left            =   16695
       TabIndex        =   14
-      Top             =   1050
+      Top             =   1785
       Width           =   1695
-   End
-   Begin VB.Label LabelStartArrow 
-      Alignment       =   2  'Center
-      Appearance      =   0  'Flat
-      BackColor       =   &H000000FF&
-      BackStyle       =   0  'Transparent
-      Caption         =   "↑"
-      BeginProperty Font 
-         Name            =   "黑体"
-         Size            =   72
-         Charset         =   0
-         Weight          =   400
-         Underline       =   0   'False
-         Italic          =   0   'False
-         Strikethrough   =   0   'False
-      EndProperty
-      ForeColor       =   &H0000FFFF&
-      Height          =   1485
-      Left            =   2950
-      TabIndex        =   36
-      Top             =   525
-      Width           =   1065
-   End
-   Begin VB.Label LabelMissCountTitle 
-      Alignment       =   1  'Right Justify
-      Appearance      =   0  'Flat
-      BackColor       =   &H000000FF&
-      BackStyle       =   0  'Transparent
-      Caption         =   "失误"
-      BeginProperty Font 
-         Name            =   "Microsoft YaHei UI"
-         Size            =   20.25
-         Charset         =   0
-         Weight          =   400
-         Underline       =   0   'False
-         Italic          =   0   'False
-         Strikethrough   =   0   'False
-      EndProperty
-      ForeColor       =   &H00F0F0F0&
-      Height          =   540
-      Left            =   3150
-      MouseIcon       =   "FormKanaMaster.frx":3CE8
-      MousePointer    =   99  'Custom
-      TabIndex        =   17
-      ToolTipText     =   "(Miss)"
-      Top             =   3465
-      Width           =   960
-   End
-   Begin VB.Label LabelHPTitle 
-      Alignment       =   1  'Right Justify
-      Appearance      =   0  'Flat
-      BackColor       =   &H000000FF&
-      BackStyle       =   0  'Transparent
-      Caption         =   "血量"
-      BeginProperty Font 
-         Name            =   "Microsoft YaHei UI"
-         Size            =   20.25
-         Charset         =   0
-         Weight          =   400
-         Underline       =   0   'False
-         Italic          =   0   'False
-         Strikethrough   =   0   'False
-      EndProperty
-      ForeColor       =   &H00F0F0F0&
-      Height          =   540
-      Left            =   3150
-      MouseIcon       =   "FormKanaMaster.frx":3E3A
-      MousePointer    =   99  'Custom
-      TabIndex        =   15
-      ToolTipText     =   "(HP)"
-      Top             =   1995
-      Width           =   960
    End
    Begin VB.Label LabelTimeElapsed 
       Alignment       =   1  'Right Justify
@@ -762,7 +688,7 @@ Begin VB.Form FormKanaMaster
       ForeColor       =   &H00D07000&
       Height          =   330
       Left            =   11235
-      MouseIcon       =   "FormKanaMaster.frx":3F8C
+      MouseIcon       =   "FormKanaMaster.frx":3B96
       MousePointer    =   99  'Custom
       TabIndex        =   10
       ToolTipText     =   "计时器（可能不准确）"
@@ -826,8 +752,8 @@ Begin VB.Form FormKanaMaster
       EndProperty
       ForeColor       =   &H00000000&
       Height          =   330
-      Left            =   1680
-      MouseIcon       =   "FormKanaMaster.frx":40DE
+      Left            =   15750
+      MouseIcon       =   "FormKanaMaster.frx":3CE8
       MousePointer    =   99  'Custom
       TabIndex        =   1
       ToolTipText     =   "时钟"
@@ -852,36 +778,12 @@ Begin VB.Form FormKanaMaster
       ForeColor       =   &H00000000&
       Height          =   960
       Left            =   14385
-      MouseIcon       =   "FormKanaMaster.frx":4230
+      MouseIcon       =   "FormKanaMaster.frx":3E3A
       MousePointer    =   99  'Custom
       TabIndex        =   13
       ToolTipText     =   "得分(Score)"
-      Top             =   105
+      Top             =   840
       Width           =   4005
-   End
-   Begin VB.Label LabelAverageReactionTimeTitle 
-      Appearance      =   0  'Flat
-      BackColor       =   &H000000FF&
-      BackStyle       =   0  'Transparent
-      Caption         =   "均速"
-      BeginProperty Font 
-         Name            =   "Microsoft YaHei UI"
-         Size            =   20.25
-         Charset         =   0
-         Weight          =   400
-         Underline       =   0   'False
-         Italic          =   0   'False
-         Strikethrough   =   0   'False
-      EndProperty
-      ForeColor       =   &H00F0F0F0&
-      Height          =   540
-      Left            =   14490
-      MouseIcon       =   "FormKanaMaster.frx":4382
-      MousePointer    =   99  'Custom
-      TabIndex        =   25
-      ToolTipText     =   "(Average Reaction Time)"
-      Top             =   3465
-      Width           =   960
    End
    Begin VB.Label LabelTotalCount 
       Alignment       =   1  'Right Justify
@@ -901,7 +803,7 @@ Begin VB.Form FormKanaMaster
       ForeColor       =   &H00D07000&
       Height          =   330
       Left            =   12915
-      MouseIcon       =   "FormKanaMaster.frx":44D4
+      MouseIcon       =   "FormKanaMaster.frx":3F8C
       MousePointer    =   99  'Custom
       TabIndex        =   11
       ToolTipText     =   "计数器"
@@ -926,7 +828,7 @@ Begin VB.Form FormKanaMaster
       ForeColor       =   &H00FF9000&
       Height          =   435
       Left            =   11760
-      MouseIcon       =   "FormKanaMaster.frx":4626
+      MouseIcon       =   "FormKanaMaster.frx":40DE
       MousePointer    =   99  'Custom
       TabIndex        =   12
       ToolTipText     =   "游戏进度"
@@ -941,7 +843,7 @@ Begin VB.Form FormKanaMaster
       FillColor       =   &H000000FF&
       Height          =   6000
       Left            =   13965
-      Top             =   2205
+      Top             =   2940
       Width           =   120
    End
    Begin VB.Shape ShapeHPProgressbar 
@@ -952,57 +854,8 @@ Begin VB.Form FormKanaMaster
       FillColor       =   &H000000FF&
       Height          =   6000
       Left            =   4515
-      Top             =   2205
+      Top             =   2940
       Width           =   120
-   End
-   Begin VB.Label LabelTimeLeftTitle 
-      Appearance      =   0  'Flat
-      BackColor       =   &H000000FF&
-      BackStyle       =   0  'Transparent
-      Caption         =   "时限"
-      BeginProperty Font 
-         Name            =   "Microsoft YaHei UI"
-         Size            =   20.25
-         Charset         =   0
-         Weight          =   400
-         Underline       =   0   'False
-         Italic          =   0   'False
-         Strikethrough   =   0   'False
-      EndProperty
-      ForeColor       =   &H00F0F0F0&
-      Height          =   540
-      Left            =   14490
-      MouseIcon       =   "FormKanaMaster.frx":4778
-      MousePointer    =   99  'Custom
-      TabIndex        =   22
-      ToolTipText     =   "(Time Left)"
-      Top             =   1995
-      Width           =   960
-   End
-   Begin VB.Label LabelComboCountTitle 
-      Alignment       =   1  'Right Justify
-      Appearance      =   0  'Flat
-      BackColor       =   &H000000FF&
-      BackStyle       =   0  'Transparent
-      Caption         =   "连击"
-      BeginProperty Font 
-         Name            =   "Microsoft YaHei UI"
-         Size            =   20.25
-         Charset         =   0
-         Weight          =   400
-         Underline       =   0   'False
-         Italic          =   0   'False
-         Strikethrough   =   0   'False
-      EndProperty
-      ForeColor       =   &H00F0F0F0&
-      Height          =   540
-      Left            =   3150
-      MouseIcon       =   "FormKanaMaster.frx":48CA
-      MousePointer    =   99  'Custom
-      TabIndex        =   19
-      ToolTipText     =   "(Combo)"
-      Top             =   4935
-      Width           =   960
    End
    Begin VB.Label LabelOption3 
       Alignment       =   2  'Center
@@ -1022,11 +875,11 @@ Begin VB.Form FormKanaMaster
       ForeColor       =   &H00000000&
       Height          =   750
       Left            =   14490
-      MouseIcon       =   "FormKanaMaster.frx":4A1C
+      MouseIcon       =   "FormKanaMaster.frx":4230
       MousePointer    =   99  'Custom
       TabIndex        =   35
       ToolTipText     =   "右边选项的键位"
-      Top             =   10815
+      Top             =   12390
       Width           =   1170
    End
    Begin VB.Label LabelOption2 
@@ -1047,11 +900,11 @@ Begin VB.Form FormKanaMaster
       ForeColor       =   &H00000000&
       Height          =   750
       Left            =   8715
-      MouseIcon       =   "FormKanaMaster.frx":4B6E
+      MouseIcon       =   "FormKanaMaster.frx":4382
       MousePointer    =   99  'Custom
       TabIndex        =   34
       ToolTipText     =   "中间选项的键位"
-      Top             =   10815
+      Top             =   12390
       Width           =   1170
    End
    Begin VB.Shape ShapeTimeLeftBottombar 
@@ -1062,7 +915,7 @@ Begin VB.Form FormKanaMaster
       FillColor       =   &H000000FF&
       Height          =   6210
       Left            =   13965
-      Top             =   1995
+      Top             =   2730
       Width           =   120
    End
    Begin VB.Shape ShapeHPBottombar 
@@ -1073,7 +926,7 @@ Begin VB.Form FormKanaMaster
       FillColor       =   &H000000FF&
       Height          =   6210
       Left            =   4515
-      Top             =   1995
+      Top             =   2730
       Width           =   120
    End
    Begin VB.Label LabelOption1 
@@ -1094,11 +947,11 @@ Begin VB.Form FormKanaMaster
       ForeColor       =   &H00000000&
       Height          =   750
       Left            =   2940
-      MouseIcon       =   "FormKanaMaster.frx":4CC0
+      MouseIcon       =   "FormKanaMaster.frx":44D4
       MousePointer    =   99  'Custom
       TabIndex        =   33
       ToolTipText     =   "左边选项的键位"
-      Top             =   10815
+      Top             =   12390
       Width           =   1170
    End
    Begin VB.Label LabelDashboard 
@@ -1116,9 +969,9 @@ Begin VB.Form FormKanaMaster
       EndProperty
       ForeColor       =   &H00000000&
       Height          =   6600
-      Left            =   5260
+      Left            =   5250
       TabIndex        =   29
-      Top             =   1800
+      Top             =   2520
       Width           =   8070
    End
    Begin VB.Shape ShapeLightIndicatorOption1 
@@ -1129,7 +982,7 @@ Begin VB.Form FormKanaMaster
       FillColor       =   &H000000FF&
       Height          =   1905
       Left            =   840
-      Top             =   8820
+      Top             =   10395
       Width           =   5370
    End
    Begin VB.Shape ShapeLightIndicatorOption2 
@@ -1140,7 +993,7 @@ Begin VB.Form FormKanaMaster
       FillColor       =   &H000000FF&
       Height          =   1905
       Left            =   6615
-      Top             =   8820
+      Top             =   10395
       Width           =   5370
    End
    Begin VB.Shape ShapeLightIndicatorOption3 
@@ -1151,7 +1004,7 @@ Begin VB.Form FormKanaMaster
       FillColor       =   &H000000FF&
       Height          =   1905
       Left            =   12390
-      Top             =   8820
+      Top             =   10395
       Width           =   5370
    End
    Begin VB.Shape ShapeProgressProgressbar 
@@ -1175,6 +1028,153 @@ Begin VB.Form FormKanaMaster
       Left            =   630
       Top             =   1050
       Width           =   13350
+   End
+   Begin VB.Label LabelComboCountTitle 
+      Alignment       =   1  'Right Justify
+      Appearance      =   0  'Flat
+      BackColor       =   &H000000FF&
+      BackStyle       =   0  'Transparent
+      Caption         =   "连击"
+      BeginProperty Font 
+         Name            =   "Microsoft YaHei UI"
+         Size            =   20.25
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      ForeColor       =   &H00F0F0F0&
+      Height          =   540
+      Left            =   3150
+      MouseIcon       =   "FormKanaMaster.frx":4626
+      MousePointer    =   99  'Custom
+      TabIndex        =   19
+      ToolTipText     =   "(Combo)"
+      Top             =   5670
+      Width           =   960
+   End
+   Begin VB.Label LabelMissCountTitle 
+      Alignment       =   1  'Right Justify
+      Appearance      =   0  'Flat
+      BackColor       =   &H000000FF&
+      BackStyle       =   0  'Transparent
+      Caption         =   "失误"
+      BeginProperty Font 
+         Name            =   "Microsoft YaHei UI"
+         Size            =   20.25
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      ForeColor       =   &H00F0F0F0&
+      Height          =   540
+      Left            =   3150
+      MouseIcon       =   "FormKanaMaster.frx":4778
+      MousePointer    =   99  'Custom
+      TabIndex        =   17
+      ToolTipText     =   "(Miss)"
+      Top             =   4200
+      Width           =   960
+   End
+   Begin VB.Label LabelHPTitle 
+      Alignment       =   1  'Right Justify
+      Appearance      =   0  'Flat
+      BackColor       =   &H000000FF&
+      BackStyle       =   0  'Transparent
+      Caption         =   "血量"
+      BeginProperty Font 
+         Name            =   "Microsoft YaHei UI"
+         Size            =   20.25
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      ForeColor       =   &H00F0F0F0&
+      Height          =   540
+      Left            =   3150
+      MouseIcon       =   "FormKanaMaster.frx":48CA
+      MousePointer    =   99  'Custom
+      TabIndex        =   15
+      ToolTipText     =   "(HP)"
+      Top             =   2730
+      Width           =   960
+   End
+   Begin VB.Label LabelAccuracyTitle 
+      Appearance      =   0  'Flat
+      BackColor       =   &H000000FF&
+      BackStyle       =   0  'Transparent
+      Caption         =   "准确度"
+      BeginProperty Font 
+         Name            =   "Microsoft YaHei UI"
+         Size            =   20.25
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      ForeColor       =   &H00F0F0F0&
+      Height          =   540
+      Left            =   14490
+      MouseIcon       =   "FormKanaMaster.frx":4A1C
+      MousePointer    =   99  'Custom
+      TabIndex        =   27
+      ToolTipText     =   "(Accuracy)"
+      Top             =   5670
+      Width           =   1380
+   End
+   Begin VB.Label LabelAverageReactionTimeTitle 
+      Appearance      =   0  'Flat
+      BackColor       =   &H000000FF&
+      BackStyle       =   0  'Transparent
+      Caption         =   "均速"
+      BeginProperty Font 
+         Name            =   "Microsoft YaHei UI"
+         Size            =   20.25
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      ForeColor       =   &H00F0F0F0&
+      Height          =   540
+      Left            =   14490
+      MouseIcon       =   "FormKanaMaster.frx":4B6E
+      MousePointer    =   99  'Custom
+      TabIndex        =   25
+      ToolTipText     =   "(Average Reaction Time)"
+      Top             =   4200
+      Width           =   960
+   End
+   Begin VB.Label LabelTimeLeftTitle 
+      Appearance      =   0  'Flat
+      BackColor       =   &H000000FF&
+      BackStyle       =   0  'Transparent
+      Caption         =   "时限"
+      BeginProperty Font 
+         Name            =   "Microsoft YaHei UI"
+         Size            =   20.25
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      ForeColor       =   &H00F0F0F0&
+      Height          =   540
+      Left            =   14490
+      MouseIcon       =   "FormKanaMaster.frx":4CC0
+      MousePointer    =   99  'Custom
+      TabIndex        =   22
+      ToolTipText     =   "(Time Left)"
+      Top             =   2730
+      Width           =   960
    End
    Begin VB.Menu Menu 
       Caption         =   "菜单(&M)"
@@ -1444,7 +1444,7 @@ Public resultanimationtime As Integer  'Range: 0~200.
     End Sub
     Public Sub MenuStop_Click()
         If FormMainWindow.soundswitch = True Then FormMainWindow.WindowsMediaPlayer1.URL = App.Path & "\CZJSTappdata\CZJSTaudio\CZJSTaudio_KanaMasterStop.wav"
-        LabelToast.Caption = "游戏停止": LabelToast.BackColor = &HF0F0F0: LabelToast.ForeColor = &H0&: LabelToast.Visible = True: toastanimationtime = 0: toastanimationtarget = 960
+        LabelToast.Caption = "游戏停止": LabelToast.BackColor = &HF0F0F0: LabelToast.ForeColor = &H0&: LabelToast.Visible = True: toastanimationtime = 0: toastanimationtarget = 700
         gamestatus = 0: Call GameStatusRefresher: TextboxInput.SetFocus
     End Sub
     Public Sub CmdStop_Click()
@@ -1456,15 +1456,15 @@ Public resultanimationtime As Integer  'Range: 0~200.
         chosenoption = 1
         Select Case gamestatus
             Case 0
-                LabelToast.Caption = "请先开始游戏": LabelToast.BackColor = &HF0F0F0: LabelToast.ForeColor = &H0&: LabelToast.Visible = True: toastanimationtime = 0: toastanimationtarget = 960
+                LabelToast.Caption = "请先开始游戏": LabelToast.BackColor = &HF0F0F0: LabelToast.ForeColor = &H0&: LabelToast.Visible = True: toastanimationtime = 0: toastanimationtarget = 700
             Case 3
-                LabelToast.Caption = "准备中": LabelToast.BackColor = &HF0F0F0: LabelToast.ForeColor = &H0&: LabelToast.Visible = True: toastanimationtime = 0: toastanimationtarget = 960
+                LabelToast.Caption = "准备中": LabelToast.BackColor = &HF0F0F0: LabelToast.ForeColor = &H0&: LabelToast.Visible = True: toastanimationtime = 0: toastanimationtarget = 700
             Case 1
                 Call GameRespondent
             Case 2
-                LabelToast.Caption = "换题还在CD中": LabelToast.BackColor = &HF0F0F0: LabelToast.ForeColor = &H0&: LabelToast.Visible = True: toastanimationtime = 0: toastanimationtarget = 960
+                LabelToast.Caption = "换题还在CD中": LabelToast.BackColor = &HF0F0F0: LabelToast.ForeColor = &H0&: LabelToast.Visible = True: toastanimationtime = 0: toastanimationtarget = 700
             Case 4
-                LabelToast.Caption = "请先继续游戏": LabelToast.BackColor = &HF0F0F0: LabelToast.ForeColor = &H0&: LabelToast.Visible = True: toastanimationtime = 0: toastanimationtarget = 960
+                LabelToast.Caption = "请先继续游戏": LabelToast.BackColor = &HF0F0F0: LabelToast.ForeColor = &H0&: LabelToast.Visible = True: toastanimationtime = 0: toastanimationtarget = 700
         End Select
     End Sub
     Public Sub CmdOption1_Click()
@@ -1475,15 +1475,15 @@ Public resultanimationtime As Integer  'Range: 0~200.
         chosenoption = 2
         Select Case gamestatus
             Case 0
-                LabelToast.Caption = "请先开始游戏": LabelToast.BackColor = &HF0F0F0: LabelToast.ForeColor = &H0&: LabelToast.Visible = True: toastanimationtime = 0: toastanimationtarget = 960
+                LabelToast.Caption = "请先开始游戏": LabelToast.BackColor = &HF0F0F0: LabelToast.ForeColor = &H0&: LabelToast.Visible = True: toastanimationtime = 0: toastanimationtarget = 700
             Case 3
-                LabelToast.Caption = "准备中": LabelToast.BackColor = &HF0F0F0: LabelToast.ForeColor = &H0&: LabelToast.Visible = True: toastanimationtime = 0: toastanimationtarget = 960
+                LabelToast.Caption = "准备中": LabelToast.BackColor = &HF0F0F0: LabelToast.ForeColor = &H0&: LabelToast.Visible = True: toastanimationtime = 0: toastanimationtarget = 700
             Case 1
                 Call GameRespondent
             Case 2
-                LabelToast.Caption = "换题还在CD中": LabelToast.BackColor = &HF0F0F0: LabelToast.ForeColor = &H0&: LabelToast.Visible = True: toastanimationtime = 0: toastanimationtarget = 960
+                LabelToast.Caption = "换题还在CD中": LabelToast.BackColor = &HF0F0F0: LabelToast.ForeColor = &H0&: LabelToast.Visible = True: toastanimationtime = 0: toastanimationtarget = 700
             Case 4
-                LabelToast.Caption = "请先继续游戏": LabelToast.BackColor = &HF0F0F0: LabelToast.ForeColor = &H0&: LabelToast.Visible = True: toastanimationtime = 0: toastanimationtarget = 960
+                LabelToast.Caption = "请先继续游戏": LabelToast.BackColor = &HF0F0F0: LabelToast.ForeColor = &H0&: LabelToast.Visible = True: toastanimationtime = 0: toastanimationtarget = 700
         End Select
     End Sub
     Public Sub CmdOption2_Click()
@@ -1494,15 +1494,15 @@ Public resultanimationtime As Integer  'Range: 0~200.
         chosenoption = 3
         Select Case gamestatus
             Case 0
-                LabelToast.Caption = "请先开始游戏": LabelToast.BackColor = &HF0F0F0: LabelToast.ForeColor = &H0&: LabelToast.Visible = True: toastanimationtime = 0: toastanimationtarget = 960
+                LabelToast.Caption = "请先开始游戏": LabelToast.BackColor = &HF0F0F0: LabelToast.ForeColor = &H0&: LabelToast.Visible = True: toastanimationtime = 0: toastanimationtarget = 700
             Case 3
-                LabelToast.Caption = "准备中": LabelToast.BackColor = &HF0F0F0: LabelToast.ForeColor = &H0&: LabelToast.Visible = True: toastanimationtime = 0: toastanimationtarget = 960
+                LabelToast.Caption = "准备中": LabelToast.BackColor = &HF0F0F0: LabelToast.ForeColor = &H0&: LabelToast.Visible = True: toastanimationtime = 0: toastanimationtarget = 700
             Case 1
                 Call GameRespondent
             Case 2
-                LabelToast.Caption = "换题还在CD中": LabelToast.BackColor = &HF0F0F0: LabelToast.ForeColor = &H0&: LabelToast.Visible = True: toastanimationtime = 0: toastanimationtarget = 960
+                LabelToast.Caption = "换题还在CD中": LabelToast.BackColor = &HF0F0F0: LabelToast.ForeColor = &H0&: LabelToast.Visible = True: toastanimationtime = 0: toastanimationtarget = 700
             Case 4
-                LabelToast.Caption = "请先继续游戏": LabelToast.BackColor = &HF0F0F0: LabelToast.ForeColor = &H0&: LabelToast.Visible = True: toastanimationtime = 0: toastanimationtarget = 960
+                LabelToast.Caption = "请先继续游戏": LabelToast.BackColor = &HF0F0F0: LabelToast.ForeColor = &H0&: LabelToast.Visible = True: toastanimationtime = 0: toastanimationtarget = 700
         End Select
     End Sub
     Public Sub CmdOption3_Click()
@@ -1520,7 +1520,7 @@ Public resultanimationtime As Integer  'Range: 0~200.
             Case ""
                 Exit Sub
             Case Else
-                LabelToast.Caption = "按键错误! 请检查键位": LabelToast.BackColor = &HF0F0F0: LabelToast.ForeColor = &H0&: LabelToast.Visible = True: toastanimationtime = 0: toastanimationtarget = 960
+                LabelToast.Caption = "按键错误! 请检查键位": LabelToast.BackColor = &HF0F0F0: LabelToast.ForeColor = &H0&: LabelToast.Visible = True: toastanimationtime = 0: toastanimationtarget = 700
         End Select
 
         TextboxInput.Text = ""
@@ -1684,18 +1684,18 @@ TimerTimer_SkipSelectCaseGameStatus_:
 
             'CL/FC/AP Achievement...
             If gamemisscount > 0 Then
-                LabelToast.Caption = "挑战成功": LabelToast.BackColor = &H90FFFF: LabelToast.ForeColor = &H90D0&: LabelToast.Visible = True: toastanimationtime = 0: toastanimationtarget = 960
+                LabelToast.Caption = "挑战成功": LabelToast.BackColor = &H90FFFF: LabelToast.ForeColor = &H90D0&: LabelToast.Visible = True: toastanimationtime = 0: toastanimationtarget = 700
                 FormResult.LabelAchievement.Visible = False
             Else
                 If gamegoodcount > 0 Then
-                    LabelToast.Caption = "FULL COMBO": LabelToast.BackColor = &HD0FFD0: LabelToast.ForeColor = &H9000&: LabelToast.Visible = True: toastanimationtime = 0: toastanimationtarget = 960
+                    LabelToast.Caption = "FULL COMBO": LabelToast.BackColor = &HD0FFD0: LabelToast.ForeColor = &H9000&: LabelToast.Visible = True: toastanimationtime = 0: toastanimationtarget = 700
                     FormResult.LabelAchievement.Caption = "FULL COMBO": FormResult.LabelAchievement.BackColor = &HD0FFD0: FormResult.LabelAchievement.ForeColor = &H9000&: FormResult.LabelAchievement.Visible = True
                 Else
                     If gamegreatcount > 0 Then
-                        LabelToast.Caption = "FULL COMBO+": LabelToast.BackColor = &HD0FFD0: LabelToast.ForeColor = &H9000&: LabelToast.Visible = True: toastanimationtime = 0: toastanimationtarget = 960
+                        LabelToast.Caption = "FULL COMBO+": LabelToast.BackColor = &HD0FFD0: LabelToast.ForeColor = &H9000&: LabelToast.Visible = True: toastanimationtime = 0: toastanimationtarget = 700
                         FormResult.LabelAchievement.Caption = "FULL COMBO+": FormResult.LabelAchievement.BackColor = &HD0FFD0: FormResult.LabelAchievement.ForeColor = &H9000&: FormResult.LabelAchievement.Visible = True
                     Else
-                        LabelToast.Caption = "ALL PERFECT": LabelToast.BackColor = &HFFF0C0: LabelToast.ForeColor = &HFF9000: LabelToast.Visible = True: toastanimationtime = 0: toastanimationtarget = 960
+                        LabelToast.Caption = "ALL PERFECT": LabelToast.BackColor = &HFFF0C0: LabelToast.ForeColor = &HFF9000: LabelToast.Visible = True: toastanimationtime = 0: toastanimationtarget = 700
                         FormResult.LabelAchievement.Caption = "ALL PERFECT": FormResult.LabelAchievement.BackColor = &HFFF0C0: FormResult.LabelAchievement.ForeColor = &HFF9000: FormResult.LabelAchievement.Visible = True
                     End If
                 End If
@@ -1794,7 +1794,7 @@ TimerTimer_SkipSelectCaseGameStatus_:
         'Fail...
         If gamehp < 0 Then
             If FormMainWindow.soundswitch = True Then FormMainWindow.WindowsMediaPlayer1.URL = App.Path & "\CZJSTappdata\CZJSTaudio\CZJSTaudio_KanaMasterStop.wav"
-            LabelToast.Caption = "挑战失败": LabelToast.BackColor = &HD0D0FF: LabelToast.ForeColor = &HFF: LabelToast.Visible = True: toastanimationtime = 0: toastanimationtarget = 960
+            LabelToast.Caption = "挑战失败": LabelToast.BackColor = &HD0D0FF: LabelToast.ForeColor = &HFF: LabelToast.Visible = True: toastanimationtime = 0: toastanimationtarget = 700
             gamestatus = 0: Call GameStatusRefresher
         End If
 
@@ -2148,10 +2148,10 @@ TimerTimer_SkipGameClearJudgement_:
                 If LabelToast.Height > toastanimationtarget Then LabelToast.Height = LabelToast.Height - Abs(LabelToast.Height - toastanimationtarget) / 4
                 If LabelToast.Height < toastanimationtarget Then LabelToast.Height = LabelToast.Height + Abs(LabelToast.Height - toastanimationtarget) / 4
                 If Abs(LabelToast.Height - toastanimationtarget) < 20 Then LabelToast.Height = toastanimationtarget
-                LabelToast.Top = 5100 - LabelToast.Height / 2
+                LabelToast.Top = 1925 - LabelToast.Height / 2
             Case False
                 LabelToast.Height = toastanimationtarget
-                LabelToast.Top = 5100 - LabelToast.Height / 2
+                LabelToast.Top = 1925 - LabelToast.Height / 2
         End Select
 
         If toastanimationtarget = 0 And LabelToast.Height < 20 Then LabelToast.Visible = False
@@ -2164,22 +2164,22 @@ TimerTimer_SkipGameClearJudgement_:
                 If LabelPopup1.Height > popupanimationtarget1 Then LabelPopup1.Height = LabelPopup1.Height - Abs(LabelPopup1.Height - popupanimationtarget1) / 4
                 If LabelPopup1.Height < popupanimationtarget1 Then LabelPopup1.Height = LabelPopup1.Height + Abs(LabelPopup1.Height - popupanimationtarget1) / 4
                 If Abs(LabelPopup1.Height - popupanimationtarget1) < 20 Then LabelPopup1.Height = popupanimationtarget1
-                LabelPopup1.Top = 8625 - LabelPopup1.Height
+                LabelPopup1.Top = 10305 - LabelPopup1.Height
 TimerPopupAnimation_Skip1_:
                 If LabelPopup2.Height = popupanimationtarget2 Then GoTo TimerPopupAnimation_Skip2_
                 If LabelPopup2.Height > popupanimationtarget2 Then LabelPopup2.Height = LabelPopup2.Height - Abs(LabelPopup2.Height - popupanimationtarget2) / 4
                 If LabelPopup2.Height < popupanimationtarget2 Then LabelPopup2.Height = LabelPopup2.Height + Abs(LabelPopup2.Height - popupanimationtarget2) / 4
                 If Abs(LabelPopup2.Height - popupanimationtarget2) < 20 Then LabelPopup2.Height = popupanimationtarget2
-                LabelPopup2.Top = 1800 - LabelPopup2.Height
+                LabelPopup2.Top = 2535 - LabelPopup2.Height
 TimerPopupAnimation_Skip2_:
             Case False
                 If LabelPopup1.Height = popupanimationtarget1 Then GoTo TimerPopupAnimation_Skip3_
                 LabelPopup1.Height = popupanimationtarget1
-                LabelPopup1.Top = 8625 - LabelPopup1.Height
+                LabelPopup1.Top = 10305 - LabelPopup1.Height
 TimerPopupAnimation_Skip3_:
                 If LabelPopup2.Height = popupanimationtarget2 Then GoTo TimerPopupAnimation_Skip4_
                 LabelPopup2.Height = popupanimationtarget2
-                LabelPopup2.Top = 1800 - LabelPopup2.Height
+                LabelPopup2.Top = 2535 - LabelPopup2.Height
 TimerPopupAnimation_Skip4_:
         End Select
 
@@ -2199,13 +2199,13 @@ TimerProgressbarAnimation_Skip1_:
                 If ShapeHPProgressbar.Height > gamehpanimationtarget Then ShapeHPProgressbar.Height = ShapeHPProgressbar.Height - Abs(ShapeHPProgressbar.Height - gamehpanimationtarget) / 4
                 If ShapeHPProgressbar.Height < gamehpanimationtarget Then ShapeHPProgressbar.Height = ShapeHPProgressbar.Height + Abs(ShapeHPProgressbar.Height - gamehpanimationtarget) / 4
                 If Abs(ShapeHPProgressbar.Height - gamehpanimationtarget) < 10 Then ShapeHPProgressbar.Height = gamehpanimationtarget
-                ShapeHPProgressbar.Top = 8205 - ShapeHPProgressbar.Height
+                ShapeHPProgressbar.Top = 8940 - ShapeHPProgressbar.Height
 TimerProgressbarAnimation_Skip2_:
                 If ShapeTimeLeftProgressbar.Height = gametimeleftprogressbaranimationtarget Then GoTo TimerProgressbarAnimation_Skip3_
                 If ShapeTimeLeftProgressbar.Height > gametimeleftprogressbaranimationtarget Then ShapeTimeLeftProgressbar.Height = ShapeTimeLeftProgressbar.Height - Abs(ShapeTimeLeftProgressbar.Height - gametimeleftprogressbaranimationtarget) / 4
                 If ShapeTimeLeftProgressbar.Height < gametimeleftprogressbaranimationtarget Then ShapeTimeLeftProgressbar.Height = ShapeTimeLeftProgressbar.Height + Abs(ShapeTimeLeftProgressbar.Height - gametimeleftprogressbaranimationtarget) / 4
                 If Abs(ShapeTimeLeftProgressbar.Height - gametimeleftprogressbaranimationtarget) < 10 Then ShapeTimeLeftProgressbar.Height = gametimeleftprogressbaranimationtarget
-                ShapeTimeLeftProgressbar.Top = 8205 - ShapeTimeLeftProgressbar.Height
+                ShapeTimeLeftProgressbar.Top = 8940 - ShapeTimeLeftProgressbar.Height
 TimerProgressbarAnimation_Skip3_:
             Case False
                 If ShapeProgressProgressbar.Width = gameprogressanimationtarget Then GoTo TimerProgressbarAnimation_Skip4_
@@ -2213,11 +2213,11 @@ TimerProgressbarAnimation_Skip3_:
 TimerProgressbarAnimation_Skip4_:
                 If ShapeHPProgressbar.Height = gamehpanimationtarget Then GoTo TimerProgressbarAnimation_Skip5_
                 ShapeHPProgressbar.Height = gamehpanimationtarget
-                ShapeHPProgressbar.Top = 8205 - ShapeHPProgressbar.Height
+                ShapeHPProgressbar.Top = 8940 - ShapeHPProgressbar.Height
 TimerProgressbarAnimation_Skip5_:
                 If ShapeTimeLeftProgressbar.Height = gametimeleftprogressbaranimationtarget Then GoTo TimerProgressbarAnimation_Skip6_
                 ShapeTimeLeftProgressbar.Height = gametimeleftprogressbaranimationtarget
-                ShapeTimeLeftProgressbar.Top = 8205 - ShapeTimeLeftProgressbar.Height
+                ShapeTimeLeftProgressbar.Top = 8940 - ShapeTimeLeftProgressbar.Height
 TimerProgressbarAnimation_Skip6_:
         End Select
     End Sub
@@ -2331,7 +2331,7 @@ TimerNumberAnimation_Skip2_:
             FormResult.ShapeEdge.Width = 0
             FormResult.ShapeEdge.Height = 0
             FormResult.windowanimationtargetleft = (Screen.Width / 2) - (18690 / 2)
-            FormResult.windowanimationtargettop = (Screen.Height / 2) - (12435 / 2)
+            FormResult.windowanimationtargettop = (Screen.Height / 2) - (13980 / 2)
             FormResult.windowanimationtargetwidth = 18690
             FormResult.windowanimationtargetheight = 12345
             FormResult.Hide
@@ -2393,21 +2393,21 @@ TimerNumberAnimation_Skip2_:
             FormResult.LabelTitle6.Left = 10815
         End If
         If resultanimationtime >= 150 And resultanimationtime < 180 Then
-            FormResult.Top = (Screen.Height / 2) - ((1360 + (1 - (3 / 4) ^ ((resultanimationtime - 150) / 30 * 20)) * (12435 - 1360)) / 2)
-            FormResult.Height = (1360 + (1 - (3 / 4) ^ ((resultanimationtime - 150) / 30 * 20)) * (12435 - 1360))
-            FormResult.ShapeEdge.Height = (1360 + (1 - (3 / 4) ^ ((resultanimationtime - 150) / 30 * 20)) * (12435 - 1360))
+            FormResult.Top = (Screen.Height / 2) - ((1360 + (1 - (3 / 4) ^ ((resultanimationtime - 150) / 30 * 20)) * (13980 - 1360)) / 2)
+            FormResult.Height = (1360 + (1 - (3 / 4) ^ ((resultanimationtime - 150) / 30 * 20)) * (13980 - 1360))
+            FormResult.ShapeEdge.Height = (1360 + (1 - (3 / 4) ^ ((resultanimationtime - 150) / 30 * 20)) * (13980 - 1360))
         End If
 
         'Step 6/6: Finish...
         If resultanimationtime = 180 Then
             FormResult.TimerWindowAnimation.Enabled = True
-            FormResult.Move (Screen.Width / 2) - (18690 / 2), (Screen.Height / 2) - (12435 / 2), 18690, 12435
+            FormResult.Move (Screen.Width / 2) - (18690 / 2), (Screen.Height / 2) - (13980 / 2), 18690, 13980
             FormResult.ShapeEdge.Width = 18690
-            FormResult.ShapeEdge.Height = 12435
+            FormResult.ShapeEdge.Height = 13980
             FormResult.windowanimationtargetleft = (Screen.Width / 2) - (18690 / 2)
-            FormResult.windowanimationtargettop = (Screen.Height / 2) - (12435 / 2)
+            FormResult.windowanimationtargettop = (Screen.Height / 2) - (13980 / 2)
             FormResult.windowanimationtargetwidth = 18690
-            FormResult.windowanimationtargetheight = 12435
+            FormResult.windowanimationtargetheight = 13980
 
             FormResult.CmdRetry.Enabled = True: FormResult.CmdBackToHome.Enabled = True
         End If

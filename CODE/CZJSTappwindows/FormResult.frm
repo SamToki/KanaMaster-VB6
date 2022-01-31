@@ -5,7 +5,7 @@ Begin VB.Form FormResult
    BackColor       =   &H00D0D0D0&
    BorderStyle     =   0  'None
    Caption         =   "KanaMaster"
-   ClientHeight    =   12435
+   ClientHeight    =   13980
    ClientLeft      =   0
    ClientTop       =   0
    ClientWidth     =   18690
@@ -26,7 +26,7 @@ Begin VB.Form FormResult
    MinButton       =   0   'False
    MouseIcon       =   "FormResult.frx":23D2
    MousePointer    =   99  'Custom
-   ScaleHeight     =   12435
+   ScaleHeight     =   13980
    ScaleWidth      =   18690
    ShowInTaskbar   =   0   'False
    StartUpPosition =   2  'ÆÁÄ»ÖÐÐÄ
@@ -47,7 +47,7 @@ Begin VB.Form FormResult
       MouseIcon       =   "FormResult.frx":2524
       MousePointer    =   99  'Custom
       TabIndex        =   36
-      Top             =   8820
+      Top             =   10395
       Width           =   5580
    End
    Begin VB.CommandButton CmdBackToHome 
@@ -67,13 +67,13 @@ Begin VB.Form FormResult
       MouseIcon       =   "FormResult.frx":2676
       MousePointer    =   99  'Custom
       TabIndex        =   37
-      Top             =   10395
+      Top             =   11970
       Width           =   5580
    End
    Begin VB.Timer TimerWindowAnimation 
       Interval        =   1
-      Left            =   18375
-      Top             =   12075
+      Left            =   18270
+      Top             =   13545
    End
    Begin VB.Label LabelRanking 
       Alignment       =   1  'Right Justify
@@ -236,9 +236,9 @@ Begin VB.Form FormResult
       EndProperty
       ForeColor       =   &H00000000&
       Height          =   960
-      Left            =   9660
+      Left            =   1260
       TabIndex        =   30
-      Top             =   6090
+      Top             =   11970
       Width           =   3900
    End
    Begin VB.Label LabelTimeElapsedTitle 
@@ -257,9 +257,9 @@ Begin VB.Form FormResult
       EndProperty
       ForeColor       =   &H00F0F0F0&
       Height          =   540
-      Left            =   9030
+      Left            =   630
       TabIndex        =   29
-      Top             =   5775
+      Top             =   11655
       Width           =   960
    End
    Begin VB.Label LabelMinimumHP 
@@ -880,7 +880,7 @@ Begin VB.Form FormResult
       BorderColor     =   &H00808080&
       BorderWidth     =   3
       FillColor       =   &H000000FF&
-      Height          =   12435
+      Height          =   13980
       Left            =   0
       Top             =   0
       Width           =   18690
@@ -907,9 +907,8 @@ Public windowanimationtargetheight As Integer
     Public Sub CmdRetry_Click()
         Select Case FormMainWindow.setgamemode
             Case 1
-                FormKanaMaster.gameclear = False
-                FormKanaMaster.MenuBackToHome.Enabled = True: FormKanaMaster.CmdBackToHome.Enabled = True: FormKanaMaster.MenuStartPauseResume.Enabled = True: FormKanaMaster.CmdStartPauseResume.Enabled = True: FormKanaMaster.MenuStop.Enabled = True: FormKanaMaster.CmdStop.Enabled = True
-                Call FormKanaMaster.MenuStartPauseResume_Click
+                Call CmdBackToHome_Click
+                Call FormMainWindow.MenuStart_Click
             'Case 2
                 '?????
             'Case 3
@@ -927,7 +926,7 @@ Public windowanimationtargetheight As Integer
                 FormKanaMaster.MenuBackToHome.Enabled = True: FormKanaMaster.CmdBackToHome.Enabled = True: FormKanaMaster.MenuStartPauseResume.Enabled = True: FormKanaMaster.CmdStartPauseResume.Enabled = True: FormKanaMaster.MenuStop.Enabled = True: FormKanaMaster.CmdStop.Enabled = True
                 Call FormKanaMaster.MenuStartPauseResume_Click
                 Call FormKanaMaster.TimerTimer_Timer
-                Call FormKanaMaster.MenuStop_Click
+                'DISABLED LINE: Call FormKanaMaster.MenuStop_Click
                 Call FormKanaMaster.MenuBackToHome_Click
             'Case 2
                 '?????
