@@ -5,7 +5,7 @@ Begin VB.Form FormMainWindow
    AutoRedraw      =   -1  'True
    BackColor       =   &H00D0D0D0&
    BorderStyle     =   1  'Fixed Single
-   Caption         =   "假名征服者(KanaMaster) v0.59chs"
+   Caption         =   "假名征服者(KanaMaster) v0.60chs"
    ClientHeight    =   13245
    ClientLeft      =   45
    ClientTop       =   720
@@ -350,7 +350,7 @@ Begin VB.Form FormMainWindow
          MousePointer    =   3  'I-Beam
          TabIndex        =   78
          Text            =   "Microsoft Sans Serif"
-         ToolTipText     =   "推荐：Microsoft Sans Serif，筑紫，思源。"
+         ToolTipText     =   "推荐：Microsoft Sans Serif，冬青，筑紫，Klee。"
          Top             =   1575
          Width           =   3375
       End
@@ -373,7 +373,7 @@ Begin VB.Form FormMainWindow
          MousePointer    =   3  'I-Beam
          TabIndex        =   76
          Text            =   "MS PGothic"
-         ToolTipText     =   "推荐：MS PGothic，MS PMincho，筑紫，思源，冬青，Shin-Go，教科书体。"
+         ToolTipText     =   "推荐：MS PGothic，MS PMincho，冬青，筑紫，思源，Shin-Go，Klee，教科书体。"
          Top             =   1050
          Width           =   3375
       End
@@ -1230,7 +1230,7 @@ Begin VB.Form FormMainWindow
          MousePointer    =   99  'Custom
          TabIndex        =   46
          Top             =   2205
-         Value           =   50
+         Value           =   20
          Width           =   4005
       End
       Begin VB.HScrollBar HScrollDifficultyInitialDifficulty 
@@ -1256,7 +1256,7 @@ Begin VB.Form FormMainWindow
          MousePointer    =   99  'Custom
          TabIndex        =   39
          Top             =   525
-         Value           =   20
+         Value           =   25
          Width           =   5790
       End
       Begin VB.Label LabelDifficultyMistakeHPDrain 
@@ -1303,7 +1303,7 @@ Begin VB.Form FormMainWindow
          MouseIcon       =   "FormMainWindow.frx":5DEA
          MousePointer    =   99  'Custom
          TabIndex        =   47
-         ToolTipText     =   "(CD)"
+         ToolTipText     =   "(CD) 提示：过短的冷却时间会显著增大玩家压力。"
          Top             =   2835
          Width           =   975
       End
@@ -1661,29 +1661,29 @@ Begin VB.Form FormMainWindow
       End
       Begin VB.HScrollBar HScrollProgressModeSpecifiedTime 
          Height          =   330
-         LargeChange     =   29
-         Left            =   3255
-         Max             =   30
+         LargeChange     =   39
+         Left            =   3465
+         Max             =   40
          Min             =   1
          MouseIcon       =   "FormMainWindow.frx":687A
          MousePointer    =   99  'Custom
          TabIndex        =   36
          Top             =   1890
-         Value           =   3
-         Width           =   3900
+         Value           =   4
+         Width           =   3690
       End
       Begin VB.HScrollBar HScrollProgressModeRepeatedTimes 
          Height          =   330
-         LargeChange     =   9
-         Left            =   3255
-         Max             =   10
+         LargeChange     =   4
+         Left            =   3465
+         Max             =   5
          Min             =   1
          MouseIcon       =   "FormMainWindow.frx":69CC
          MousePointer    =   99  'Custom
          TabIndex        =   33
          Top             =   945
          Value           =   1
-         Width           =   3900
+         Width           =   3690
       End
       Begin VB.Label LabelProgressModeSpecifiedTime 
          Appearance      =   0  'Flat
@@ -1747,7 +1747,7 @@ Begin VB.Form FormMainWindow
          Left            =   1995
          TabIndex        =   32
          Top             =   900
-         Width           =   1125
+         Width           =   1335
       End
       Begin VB.Label LabelProgressModeSpecifiedTimeIndicator 
          Alignment       =   1  'Right Justify
@@ -1768,8 +1768,8 @@ Begin VB.Form FormMainWindow
          Height          =   375
          Left            =   1995
          TabIndex        =   35
-         Top             =   1850
-         Width           =   1125
+         Top             =   1845
+         Width           =   1335
       End
    End
    Begin VB.Label LabelClock 
@@ -1954,7 +1954,7 @@ Begin VB.Form FormMainWindow
             Enabled         =   0   'False
          End
          Begin VB.Menu MenuAboutDate 
-            Caption         =   "2022/01/31"
+            Caption         =   "2022/04/18"
             Enabled         =   0   'False
          End
       End
@@ -1975,8 +1975,8 @@ Attribute VB_Exposed = False
 '  KanaMaster
 '
 '  Powered by Sam Toki
-'  Version: v0.57chs
-'  Date:    2022/01/29 (Sat)
+'  Version: v0.60chs
+'  Date:    2022/04/18 (Mon)
 '  History: First version v0.10 was built on 2020/03/18.
 '
 '  WARNING: Commercial use of this computer software is strictly prohibited.
@@ -2008,8 +2008,8 @@ Public setkanarangeswitch As Variant  '(1 to 11)
 Public settotalquestion As Integer
 
 Public setprogressmode As Integer  '1-Kana, 2-Time.
-Public setrepeatedtimes As Integer  'Range: 1~10.
-Public setspecifiedtime As Integer  'Unit: min. Range: 1~30min.
+Public setrepeatedtimes As Integer  'Range: 1~5.
+Public setspecifiedtime As Integer  'Unit: sec. Range: 00'15"~10'00"
 
 Public setnormaldifficulty As Single  'Unit: sec. Range: 0.2~5.0
 Public setincreasedifficultygraduallyswitch As Boolean
@@ -2062,14 +2062,14 @@ Private Const SW_SHOW = 5
 
         setprogressmode = 1
         setrepeatedtimes = 1
-        setspecifiedtime = 3
+        setspecifiedtime = 60
 
-        setnormaldifficulty = 2
+        setnormaldifficulty = 2.5
         setincreasedifficultygraduallyswitch = True
         setinitialdifficulty = 3
-        setreachnormaldifficultyat = 50
+        setreachnormaldifficultyat = 25
         setcooldown = 1
-        setmistakehpdrain = 1
+        setmistakehpdrain = 10
 
         setmodsdswitch = False
         setmodpfswitch = False
@@ -2232,21 +2232,21 @@ Private Const SW_SHOW = 5
         If soundswitch = True Then WindowsMediaPlayer1.URL = App.Path & "\CZJSTappdata\CZJSTaudio\CZJSTaudio_Tab.wav"
         CheckboxKanaRange01.Value = 1: CheckboxKanaRange02.Value = 1: CheckboxKanaRange03.Value = 1: CheckboxKanaRange04.Value = 1: CheckboxKanaRange05.Value = 1: CheckboxKanaRange06.Value = 1: CheckboxKanaRange07.Value = 1: CheckboxKanaRange08.Value = 1: CheckboxKanaRange09.Value = 1: CheckboxKanaRange10.Value = 1: CheckboxKanaRange11.Value = 0
         RadioboxProgressModeKana.Value = True: HScrollProgressModeRepeatedTimes.Value = 1
-        HScrollDifficultyInitialDifficulty.Value = 30: HScrollDifficultyNormalDifficulty.Max = HScrollDifficultyInitialDifficulty.Value: HScrollDifficultyNormalDifficulty.Value = 20: CheckboxDifficultyIncreaseDifficultyGradually.Value = 1: HScrollDifficultyReachNormalDifficultyAt.Value = 50: HScrollDifficultyCooldown.Value = 10: HScrollDifficultyMistakeHPDrain.Value = 10
+        HScrollDifficultyInitialDifficulty.Value = 30: HScrollDifficultyNormalDifficulty.Max = HScrollDifficultyInitialDifficulty.Value: HScrollDifficultyNormalDifficulty.Value = 25: CheckboxDifficultyIncreaseDifficultyGradually.Value = 1: HScrollDifficultyReachNormalDifficultyAt.Value = 20: HScrollDifficultyCooldown.Value = 10: HScrollDifficultyMistakeHPDrain.Value = 10
         CheckboxModsSD.Value = 0: CheckboxModsPF.Value = 0: CheckboxModsNF.Value = 0: CheckboxModsAP.Value = 0: CheckboxModsAU.Value = 0
     End Sub
     Public Sub CmdPresetHard_Click()
         If soundswitch = True Then WindowsMediaPlayer1.URL = App.Path & "\CZJSTappdata\CZJSTaudio\CZJSTaudio_Tab.wav"
         CheckboxKanaRange01.Value = 1: CheckboxKanaRange02.Value = 1: CheckboxKanaRange03.Value = 1: CheckboxKanaRange04.Value = 1: CheckboxKanaRange05.Value = 1: CheckboxKanaRange06.Value = 1: CheckboxKanaRange07.Value = 1: CheckboxKanaRange08.Value = 1: CheckboxKanaRange09.Value = 1: CheckboxKanaRange10.Value = 1: CheckboxKanaRange11.Value = 0
-        RadioboxProgressModeKana.Value = True: HScrollProgressModeRepeatedTimes.Value = 2
+        RadioboxProgressModeKana.Value = True: HScrollProgressModeRepeatedTimes.Value = 1
         HScrollDifficultyInitialDifficulty.Value = 30: HScrollDifficultyNormalDifficulty.Max = HScrollDifficultyInitialDifficulty.Value: HScrollDifficultyNormalDifficulty.Value = 20: CheckboxDifficultyIncreaseDifficultyGradually.Value = 1: HScrollDifficultyReachNormalDifficultyAt.Value = 20: HScrollDifficultyCooldown.Value = 10: HScrollDifficultyMistakeHPDrain.Value = 20
         CheckboxModsSD.Value = 0: CheckboxModsPF.Value = 0: CheckboxModsNF.Value = 0: CheckboxModsAP.Value = 0: CheckboxModsAU.Value = 0
     End Sub
     Public Sub CmdPresetMaster_Click()
         If soundswitch = True Then WindowsMediaPlayer1.URL = App.Path & "\CZJSTappdata\CZJSTaudio\CZJSTaudio_Tab.wav"
         CheckboxKanaRange01.Value = 1: CheckboxKanaRange02.Value = 1: CheckboxKanaRange03.Value = 1: CheckboxKanaRange04.Value = 1: CheckboxKanaRange05.Value = 1: CheckboxKanaRange06.Value = 1: CheckboxKanaRange07.Value = 1: CheckboxKanaRange08.Value = 1: CheckboxKanaRange09.Value = 1: CheckboxKanaRange10.Value = 1: CheckboxKanaRange11.Value = 1
-        RadioboxProgressModeKana.Value = True: HScrollProgressModeRepeatedTimes.Value = 5
-        HScrollDifficultyInitialDifficulty.Value = 30: HScrollDifficultyNormalDifficulty.Max = HScrollDifficultyInitialDifficulty.Value: HScrollDifficultyNormalDifficulty.Value = 15: CheckboxDifficultyIncreaseDifficultyGradually.Value = 1: HScrollDifficultyReachNormalDifficultyAt.Value = 10: HScrollDifficultyCooldown.Value = 5: HScrollDifficultyMistakeHPDrain.Value = 30
+        RadioboxProgressModeKana.Value = True: HScrollProgressModeRepeatedTimes.Value = 1
+        HScrollDifficultyInitialDifficulty.Value = 30: HScrollDifficultyNormalDifficulty.Max = HScrollDifficultyInitialDifficulty.Value: HScrollDifficultyNormalDifficulty.Value = 20: CheckboxDifficultyIncreaseDifficultyGradually.Value = 1: HScrollDifficultyReachNormalDifficultyAt.Value = 10: HScrollDifficultyCooldown.Value = 5: HScrollDifficultyMistakeHPDrain.Value = 30
         CheckboxModsSD.Value = 0: CheckboxModsPF.Value = 0: CheckboxModsNF.Value = 0: CheckboxModsAP.Value = 0: CheckboxModsAU.Value = 0
     End Sub
     Public Sub CmdPresetDefaultKanaRange_Click()
@@ -2309,9 +2309,9 @@ Private Const SW_SHOW = 5
             setprogressmode = 2
             setrepeatedtimes = 9999
         End If
-        setspecifiedtime = HScrollProgressModeSpecifiedTime.Value
+        setspecifiedtime = HScrollProgressModeSpecifiedTime.Value * 15
         LabelProgressModeRepeatedTimesIndicator.Caption = setrepeatedtimes
-        LabelProgressModeSpecifiedTimeIndicator.Caption = setspecifiedtime & " 分钟"
+        LabelProgressModeSpecifiedTimeIndicator.Caption = Int(setspecifiedtime / 60) & "分" & Format((setspecifiedtime Mod 60), "00") & "秒"
 
         'Difficulty...
         HScrollDifficultyNormalDifficulty.Max = HScrollDifficultyInitialDifficulty.Value

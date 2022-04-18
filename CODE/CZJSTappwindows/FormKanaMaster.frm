@@ -1547,7 +1547,7 @@ Public resultanimationtime As Integer  'Range: 0~200.
                 Next
                 If FormMainWindow.settotalquestion <> 0 Then gameprogress = (gamequestionrepeatedtimescount / FormMainWindow.settotalquestion) * 100
             Case 2
-                gameprogress = (gametimeelapsed / (FormMainWindow.setspecifiedtime * 60)) * 100
+                gameprogress = (gametimeelapsed / FormMainWindow.setspecifiedtime) * 100
         End Select
         LabelProgress.Caption = Format(gameprogress, "0.00") & "%"
         gameprogressanimationtarget = gameprogress / 100 * 13350
