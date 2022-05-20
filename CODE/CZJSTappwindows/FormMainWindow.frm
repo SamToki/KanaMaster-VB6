@@ -373,7 +373,7 @@ Begin VB.Form FormMainWindow
          MousePointer    =   3  'I-Beam
          TabIndex        =   76
          Text            =   "MS PGothic"
-         ToolTipText     =   "推荐：MS PGothic，MS PMincho，冬青，筑紫，思源，Shin-Go，Klee，教科书体。"
+         ToolTipText     =   "推荐：MS Gothic，MS Mincho，冬青，筑紫，思源，DF平成，Shin-Go，Klee，教科书体。"
          Top             =   1050
          Width           =   3375
       End
@@ -1954,7 +1954,7 @@ Begin VB.Form FormMainWindow
             Enabled         =   0   'False
          End
          Begin VB.Menu MenuAboutDate 
-            Caption         =   "2022/04/18"
+            Caption         =   "2022/05/20"
             Enabled         =   0   'False
          End
       End

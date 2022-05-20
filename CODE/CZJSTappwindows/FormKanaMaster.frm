@@ -410,7 +410,7 @@ Begin VB.Form FormKanaMaster
       MouseIcon       =   "FormKanaMaster.frx":3106
       MousePointer    =   99  'Custom
       TabIndex        =   24
-      ToolTipText     =   "指示当前时限。若启用了「缓慢缩短时限」，此数字可能会变化。单位：秒"
+      ToolTipText     =   "指示当前时限。若启用了「逐渐缩短时限」，此数字可能会变化。单位：秒"
       Top             =   3360
       Width           =   645
    End
